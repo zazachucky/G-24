@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "python3 scripts/build_vercel.py",
+  "outputDirectory": "public",
+  "regions": ["iad1"],
+  "functions": {
+    "api/*.py": {
+      "maxDuration": 30,
+      "excludeFiles": "{public/**,tests/**,scripts/**,tools-local/**,docs/**,aidlc-docs/**,requirements/**,deliverables/**,preview/**,assets/lookbooks/**,assets/products/**,assets/video/full-body/**,assets/video/home-shopping/**,assets/video/reference-review/**,assets/video/test-live/**,assets/video/sample-live/**,assets/video/reference/*.mp4,assets/video/reference/*.wav,assets/video/reference/*.mp3,assets/video/reference/transcript-frames/**}"
+    }
+  },
+  "redirects": [
+    {"source": "/", "destination": "/app/customer.html", "permanent": false}
+  ],
+  "headers": [
+    {"source": "/api/:path*", "headers": [{"key": "Cache-Control", "value": "no-store"}]},
+    {"source": "/app/:path*", "headers": [{"key": "Cache-Control", "value": "no-cache"}]}
+  ]
+}
