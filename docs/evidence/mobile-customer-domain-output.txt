@@ -1,0 +1,48 @@
+{
+  "source": "Prototype Simulation",
+  "evidence": {
+    "previous_customers": 8,
+    "current_customers": 26,
+    "change_percent": 225,
+    "window_seconds": 60,
+    "as_of": 120,
+    "spike": true,
+    "source": "Prototype Simulation"
+  },
+  "approved_customer_count": 33,
+  "personalization_visible": {
+    "target": true,
+    "non_target": false,
+    "dismissed": false
+  },
+  "final_state": "RESULT",
+  "result": {
+    "source": "Prototype Simulation",
+    "metrics": [
+      {
+        "metric": "repeated_size_questions",
+        "label_ko": "사이즈 반복 질문",
+        "unit_ko": "질문 건",
+        "before": 26,
+        "after": 11,
+        "change_percent": -58
+      },
+      {
+        "metric": "manual_size_uses",
+        "label_ko": "내 사이즈 이용",
+        "unit_ko": "이용 건",
+        "before": 14,
+        "after": 43,
+        "change_percent": 207
+      },
+      {
+        "metric": "purchase_clicks",
+        "label_ko": "구매하기 클릭",
+        "unit_ko": "클릭 건",
+        "before": 82,
+        "after": 95,
+        "change_percent": 16
+      }
+    ]
+  }
+}

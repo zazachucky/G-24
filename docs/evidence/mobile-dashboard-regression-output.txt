@@ -1,0 +1,46 @@
+PASS MON01 shared run, clock and all common KPI slots match received state
+PASS MON02 presence is three customers and three tabs, with three UI entries
+PASS MON03 fixture product snapshot is explicitly rendered
+PASS MON04 repeated polling and heartbeat do not create activity
+PASS ANA01 actual analysis opens before approval or fixed results
+PASS MON05 actual size table and review generate one unique Need
+PASS MON06 cumulative detection changes before scheduled chart analysis
+PASS MON07 first tick derives 0 to 1 customers from real UI and stays below spike threshold
+PASS MON08 graph geometry represents one customer, not raw event count
+PASS MON09 limited demo audience and prepared representative questions are identified
+PASS ACT01 pending answer status is visible before completion
+PASS ACT02 timeout moves one request from pending to completed and fallback
+PASS ACT03 explicit response error adds one prepared fallback
+PASS MON10 other-product browsing does not contaminate main-product KPI or actual totals
+PASS ACT04 all ten server metrics agree with the independent UI action ledger
+PASS ACT05 every actual activity metric card renders the expected value
+PASS ACT06 request intent counts include two types for one compound request
+PASS ACT07 color, size and styling distributions reflect one actual change each
+PASS ACT08 linked styling product uses the clicked real SKU
+PASS ACT09 event distribution and total include all emitted event categories
+PASS ACT10 customer current-state rows show actual selections and image fallback after video error
+PASS ACT11 recent activity preserves newest receive order at a frozen timestamp
+PASS PRIV01 Director API/DOM and another customer exclude private question text
+PASS ACT12 notice list, active summary and unique displayed-customer count share actual acknowledgments
+PASS ACT13 retracting notice updates summary and removes all customer messages
+PASS HIS01 same-time logs are newest-first by receive sequence
+PASS HIS02 history badge and navigation count match actual rendered log rows
+PASS HIS03 option logs retain customer identity and safe selected values
+PASS HIS04 analysis and advance logs retain numeric evidence and translated control origin
+PASS HIS05 valid non-Need behavior is not presented as a failed IGNORED action
+PASS MON11 larger fixture audience is distinguished from real customer activity
+PASS ANA02 actual four-metric before/after counts match separate UI action ledger
+PASS ANA03 actual four rows update before fixed Simulation publication
+PASS ANA04 elapsed threshold does not imply automatic fixed result; copy names Show Result
+PASS ANA05 all three fixed KPI pairs remain authored Simulation
+PASS ANA06 rendered Simulation cards show every authored pair and source
+PASS ANA07 publishing fixed results does not overwrite real measurements
+PASS HIS06 approval log shows target count and expiry; all origin types appear
+PASS REC01 outage marks common and both customer presence panels unknown
+PASS REC02 monitor retains an explicit connection warning
+PASS REC02 activity retains an explicit connection warning
+PASS REC02 history retains an explicit connection warning
+PASS REC02 analytics retains an explicit connection warning
+PASS REC03 identical frozen snapshot restores every presence panel
+PASS REC04 reconnection preserves measured and Simulation evidence
+PASS ALL01 no uncaught browser exceptions across actual four-view workflow

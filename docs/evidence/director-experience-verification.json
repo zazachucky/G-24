@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "started_at": "2026-09-21T10:23:09.090Z",
+  "started_at": "2026-09-21T10:55:46.803Z",
   "scope": "Actual Chrome UI and isolated HTTP server; injected monotonic receive clock for exact telemetry windows",
-  "base": "http://127.0.0.1:8788",
+  "base": "http://127.0.0.1:8808",
   "checks": [
     {
       "name": "Actual customer heartbeat supplies viewer KPI",
@@ -94,5 +94,5 @@
     "director-experience-mobile.png",
     "director-experience-analytics.png"
   ],
-  "completed_at": "2026-09-21T10:23:15.755Z"
+  "completed_at": "2026-09-21T10:55:53.111Z"
 }

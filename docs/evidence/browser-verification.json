@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "started_at": "2026-09-21T10:20:02.435Z",
+  "started_at": "2026-09-21T11:11:09.279Z",
   "scope": "Actual local app, shared HTTP state and Chrome browser UI; Video AI not evaluated",
   "checks": [
     {
@@ -96,7 +96,7 @@
       "status": "PASS"
     },
     {
-      "name": "S02 image failure retains real cards",
+      "name": "S02 image failure retains actual product cards and thumbnails",
       "status": "PASS"
     },
     {
@@ -211,7 +211,7 @@
         "width": 720,
         "height": 1280,
         "object_fit": "contain",
-        "decoded_frames": 194,
+        "decoded_frames": 193,
         "audio_decoded_bytes": 112389
       }
     },
@@ -253,7 +253,7 @@
     {
       "round": 1,
       "status": "PASS",
-      "run_id": "1ddac7d06d344ed9b9a4e1a138d1d202",
+      "run_id": "88faf80077ef42f5a628f040e2913500",
       "spike": [
         8,
         26
@@ -266,7 +266,7 @@
     {
       "round": 2,
       "status": "PASS",
-      "run_id": "66265d6ff0934ac8a4b163eec38d4daf",
+      "run_id": "31546217638845e58926081cf128f872",
       "spike": [
         8,
         26
@@ -279,7 +279,7 @@
     {
       "round": 3,
       "status": "PASS",
-      "run_id": "c133c274d4fd48e2a333bd232b23061e",
+      "run_id": "9ad1bcdc2b9b4a2b97a5a2dcb940d3e7",
       "spike": [
         8,
         26
@@ -295,7 +295,7 @@
     "width": 720,
     "height": 1280,
     "object_fit": "contain",
-    "decoded_frames": 194,
+    "decoded_frames": 193,
     "audio_decoded_bytes": 112389
   },
   "screenshots": [
@@ -310,5 +310,5 @@
     "customer-reference-video.png",
     "director-mobile.png"
   ],
-  "completed_at": "2026-09-21T10:20:26.570Z"
+  "completed_at": "2026-09-21T11:11:32.981Z"
 }

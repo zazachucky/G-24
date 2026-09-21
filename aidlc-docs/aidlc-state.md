@@ -9,7 +9,19 @@
 - 기존 Goal 완료 당시 검수: 단위/서비스/HTTP 55개, 실제 브라우저 59개, 고객 맥락 12개, 양방향 연동 31개, 예외/경합 21개, 3회 정상 재현; 증거 `docs/app-verification.md`
 - 추가 요구: “고객 화면과 Director 화면간의 데이터 연동도 다 추가해줘” — `docs/cross-screen-contract.md`에 집계·안내·접속·재시도 계약 기록
 
-## 최신 Goal — 첨부 화면의 누락 기능 추가
+## 최신 Goal — 고객용 모바일 화면 개선
+
+- 상태: CONSTRUCTION — 구현·검수·기본 서버 적용 완료.
+- 범위: 흰색·차콜 기반, 보라 AI·코랄 혜택, 첫 진입 코디 우선 노출, 16:9 LIVE, 세로형과 버튼 기반 좌우 가로형, 공유 대화·옵션·질문 초안·ASK 처리 상태.
+- 기능: 정적 AI 코디 3종과 확인된 실제 상품 링크 분리, 기본 사이즈 66·87%·반사이즈 안내, 45,515원 계산, 통합 ASK와 진행 표시, 사이즈 제안 수락·거절·수동 진입 유지.
+- 최신 규칙: 30초 안 사이즈 관련 별도 행동 2건. 같은 유형 반복은 허용하고 동일 event_id 재전송은 중복 제외. 이전 서로 다른 2종 조건을 대체한다.
+- 검수: Python 113개, Chrome 359개(기존 311개 최신 코드 재실행 + 신규 모바일 48개) PASS. 실제 320/390 세로·320 버튼 확장·844 가로 캡처와 가림/넘침 검사 통과.
+- 적용: 2026-09-21 10:58:24 UTC, 기본 8765 재시작 후 고객 세로/가로와 Director 네 화면의 같은 RUN·오류 없음 확인. 재시작으로 메모리 시연 기록 초기화.
+- 근거: `docs/mobile-customer-guide.md`, `docs/mobile-customer-goal-review.md`, `docs/evidence/mobile-customer-goal-verification.json`, `docs/evidence/mobile-customer-live-runtime.json`, `docs/evidence/mobile-customer-completion-audit.json`.
+- 한계: 실제 iOS/Android 키보드 및 브라우저, 외부 AI·주문·결제·배송·실시간 방송·다중 기기 운영은 미검수 또는 미연결. 기존 로컬 Director 데이터 연동은 유지한다.
+- Git: 사용자 지정 커밋 `e228cc2`는 `origin/main`에 반영 완료. 이번 후속 모바일 변경은 아직 로컬 변경이며 해당 커밋에 포함된 것으로 설명하지 않는다.
+
+## 이전 Goal — 첨부 화면의 누락 기능 추가
 
 - 요청: 첨부 `image-1.png`의 Customer Experience 5개 영역과 Director Experience 3개 영역에서 빠진 기능을 구현한다.
 - 상태: CONSTRUCTION — 구현·검수·기본 서버 적용 완료, 최종 완료 검수 통과. 이전 Goal의 완료 이력과 이번 첨부 화면 확장의 검수 근거를 구분한다.

@@ -1,0 +1,253 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-21T11:00:29.137734+00:00",
+  "scope": "Current customer mobile goal requirements 1–8, retaining local Director integration and previous experience features.",
+  "requirements_matrix": "docs/mobile-customer-goal-review.md",
+  "implementation_guide": "docs/mobile-customer-guide.md",
+  "criteria": [
+    "White/charcoal commerce UI, purple AI, coral benefit, styling visible and visually primary on first mobile view.",
+    "16:9 LIVE, reserved question/purchase controls, explicit portrait/landscape with shared conversation, options, draft and pending request.",
+    "Three static labeled AI looks; confirmed product cards separated; no shoe size recommendation.",
+    "Virtual Kim Jisu66, real87%size review and supplied measurements, explicit half-size guidance, exact45515 benefit arithmetic.",
+    "Same-timeline ASK with distinct actors, four grounded topics, progress-only pending and unsupported-information limits.",
+    "Two distinct event IDs within30seconds including repeated kind; deduplication; small proposal; accept/decline suppression and manual access.",
+    "Data/simulation and local actual Director integration disclosed; external production services unconnected.",
+    "Real Chrome320/390portrait,320button-expanded,844landscape, hit-testing, screenshots, regression and restarted user server verified."
+  ],
+  "unit_tests": {
+    "status": "PASS",
+    "count": 113,
+    "path": "docs/evidence/mobile-customer-unit-output.txt",
+    "sha256": "55ee36feda77307d9d1fd838f5495be858ef18fb77c3c6b8a9265431714bef92"
+  },
+  "browser_tests": {
+    "status": "PASS",
+    "total": 359,
+    "regression": 311,
+    "new_mobile": 48,
+    "reports": [
+      {
+        "path": "docs/evidence/browser-verification.json",
+        "sha256": "b2f949d9ef91af06e427c18a1f0d2a3fc11f9e7e001c066f92b24e52209b8f26",
+        "status": "PASS",
+        "checks": 59,
+        "started_at": "2026-09-21T10:55:00.055Z",
+        "completed_at": "2026-09-21T10:55:24.177Z"
+      },
+      {
+        "path": "docs/evidence/customer-context-verification.json",
+        "sha256": "30614c4b8253da1f4b74ef1982585a17a2a0acf265cf652dc73ccf109bb03e84",
+        "status": "PASS",
+        "checks": 12,
+        "started_at": "2026-09-21T10:55:36.876Z",
+        "completed_at": "2026-09-21T10:55:47.476Z"
+      },
+      {
+        "path": "docs/evidence/cross-screen-verification.json",
+        "sha256": "e5d4787bb4f6205152ffd06fc8376aaf84b360b0266787cdc904ce530afc5425",
+        "status": "PASS",
+        "checks": 31,
+        "started_at": "2026-09-21T10:56:06.218Z",
+        "completed_at": "2026-09-21T10:56:40.781Z"
+      },
+      {
+        "path": "docs/evidence/connected-customers-verification.json",
+        "sha256": "e829f44479175e812df6a277f81cf89fa7d61b3d1c798bbf1479e45c329489f0",
+        "status": "PASS",
+        "checks": 25,
+        "started_at": "2026-09-21T10:54:57.202Z",
+        "completed_at": "2026-09-21T10:55:06.942Z"
+      },
+      {
+        "path": "docs/evidence/integration-edge-verification.json",
+        "sha256": "a589887d1e4c65ed76cebdf9e1d104142ea1e5f25a2e8e909f6938f546929598",
+        "status": "PASS",
+        "checks": 21,
+        "started_at": "2026-09-21T10:57:01.499Z",
+        "completed_at": "2026-09-21T10:57:12.209Z"
+      },
+      {
+        "path": "docs/evidence/dashboard-slots-verification.json",
+        "sha256": "0d4988ff21e91c325f648d3e4cb51694f75128e82affda6b4fcc3ea90c885a84",
+        "status": "PASS",
+        "checks": 46,
+        "started_at": "2026-09-21T10:55:12.519Z",
+        "completed_at": "2026-09-21T10:55:38.911Z"
+      },
+      {
+        "path": "docs/evidence/customer-experience-verification.json",
+        "sha256": "e3f8d214e74926fba5a76afd497c9c28fb5e50441c228e45c3ff5fe7a6f00603",
+        "status": "PASS",
+        "checks": 50,
+        "started_at": "2026-09-21T10:54:44.348Z",
+        "completed_at": "2026-09-21T10:55:02.209Z"
+      },
+      {
+        "path": "docs/evidence/director-experience-verification.json",
+        "sha256": "141135356fe83d30358164cefbf56eb2c7ddc2c87006faa215f3a9c0dfab5401",
+        "status": "PASS",
+        "checks": 21,
+        "started_at": "2026-09-21T10:55:46.803Z",
+        "completed_at": "2026-09-21T10:55:53.111Z"
+      },
+      {
+        "path": "docs/evidence/video-experience-verification.json",
+        "sha256": "d6fc840da8dbf786dbe67e7378bd4bbc95ba766f2386d41a78dd594c329ce1f6",
+        "status": "PASS",
+        "checks": 24,
+        "started_at": "2026-09-21T10:55:24.631Z",
+        "completed_at": "2026-09-21T10:55:28.323Z"
+      },
+      {
+        "path": "docs/evidence/size-profile-verification.json",
+        "sha256": "b98af6f01c9d994c591c531cc962f49515bdd9b2a3670561a2f8888d2154a650",
+        "status": "PASS",
+        "checks": 22,
+        "started_at": "2026-09-21T10:55:07.675Z",
+        "completed_at": "2026-09-21T10:55:12.337Z"
+      },
+      {
+        "path": "docs/evidence/mobile-customer-goal-verification.json",
+        "sha256": "900b4691df726ed28c8a8176afd6f3da5424934ebfa11dc4f4cd4537d1d6b252",
+        "status": "PASS",
+        "checks": 48,
+        "started_at": "2026-09-21T10:56:24.639Z",
+        "completed_at": "2026-09-21T10:56:35.723Z"
+      }
+    ]
+  },
+  "fixture_validation": {
+    "status": "PASS",
+    "path": "docs/verification-report.json",
+    "sha256": "b69ec3ae8dd430bd85bf6bd0c3ee1d53c97c8548496b67a7a4f18a4f650c5678"
+  },
+  "domain_scenario": {
+    "status": "PASS",
+    "path": "docs/evidence/mobile-customer-domain-output.txt",
+    "sha256": "5679493b6f94229b31dbc7d57428778426d9ce3bf5cadf2ee80964148c6e4b8c",
+    "approved_customers": 33,
+    "simulation_changes_percent": [
+      -58,
+      207,
+      16
+    ]
+  },
+  "runtime": {
+    "status": "PASS",
+    "path": "docs/evidence/mobile-customer-live-runtime.json",
+    "sha256": "2f2812f879dc05b13ab03ae97f8cf43892468828be4ff1c7c97f0d3be8165b6e",
+    "run_id": "c8fc3743a5234f349a4cb9fbf72df086",
+    "base": "http://127.0.0.1:8765",
+    "verified_at": "2026-09-21T10:58:24.799Z",
+    "previous_in_memory_state_reset": true
+  },
+  "screenshots": [
+    {
+      "path": "docs/evidence/mobile-goal-portrait-390.png",
+      "sha256": "ec47306c6e935c25ff4f8187194db5a7199e333f6cdcf1cf295a1b322e42e09d"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-portrait-320.png",
+      "sha256": "9ae8480221d725a4d3d068d5560071e6716a8819fd73420ed508f72d41891c6f"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-expanded-320.png",
+      "sha256": "5564230b9bc9739dacdee210be8ef453564dff3d065fb9d7de67ae2a7bbc3148"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-landscape-844.png",
+      "sha256": "a135c86d0e92bd83aa1f5905577510686b5ee36916fd2ed8138691f94952b5db"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-portrait-ask-answer.png",
+      "sha256": "7a6ccfd67818274e8eb0825c8f13537e7fc774ea8d53e68705db57f25a04a38e"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-styling-look_01.png",
+      "sha256": "d851d17127711d679749fe6d7471577d1f681ff6a16cf88631ac3136d195cda2"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-styling-look_02.png",
+      "sha256": "03061e7397f3d83a58a2ab1693b95d2a5ec23e45d40f3dbf90b80dfda57294f7"
+    },
+    {
+      "path": "docs/evidence/mobile-goal-styling-look_03.png",
+      "sha256": "dbee0eefd0d4329065c466ca62d575660a56b3762ee6d5b7cfad28a14b3f2788"
+    }
+  ],
+  "source_hashes": {
+    "README.md": "11a87f9d1d9577c246f0deda9bc2b6ade99d3c307e26185953b0c2167af70680",
+    "aidlc-docs/aidlc-state.md": "15a0fb293b35b94d00ab7e49ef728d879943944ef4318f4efbc1b305a1cac590",
+    "aidlc-docs/audit.md": "d1cb82198515e122de69008d15c09a998f61077b4ac3f3d57ec3dbf47823ae6b",
+    "app/customer.css": "5594b33e91263903ca135f3c61628d0a3b9860a83c39747ba701121fd03e9fc7",
+    "app/customer.html": "2bdeea5f1d4ff751f641c2f798bc591779bf98a23a29d00fd5a411fc30e7cee2",
+    "app/customer.js": "8c85d84b4fd28b4ac593ff28856da9f30f685315165e77c2ff5c6b2d0e09dfd8",
+    "app/director.css": "cc06512a60c23fd7f7204dd6736334f819e271a05b91143e94b8e6d32255acf6",
+    "app/director.html": "a84478aa8d729f43e5e4aab131c34aa0bc1bc33bd1fdd0961c4846856c6236c6",
+    "app/director.js": "d945920ba758722137e6ad1a42ff06ba3860a4f1553d760c7d9cdc6576261ae3",
+    "app/experience_metrics.py": "94d127ddc2647e2f251ef9f5b0dc673e4f6a37e3c54f1ac1ebf69587e9031dba",
+    "app/server.py": "f50238542c56ceb8c44436a5bd090707941fc3bd8b4af84606ee0543cd8f58d5",
+    "app/size_profile.py": "9888d240b2e861e579b3217a3d63974f009bc2bae579e1487da634dcbea5ed50",
+    "app/state.py": "cb19e8eaf1886f119e5fc469c73befc0e4a064829418620287b90deb8f526af5",
+    "app/video_experience.js": "7a1950374708c9b048199f9ad515dafce40e64228abc4514ea613c8bec04c1f7",
+    "app/video_knowledge.py": "956fa6ecb114695435302170559689f371778650179fcc155cd04b0e350fe556",
+    "assets/lookbooks/look-01.png": "390218d3a83bc20cc2a521d5b07bc64d9eae539c28391cab7ba702315e7801f9",
+    "assets/lookbooks/look-02.png": "5a0bf26ac4e90c35356d6de24c3958ba9573e93b792c27528880d989be6923df",
+    "assets/lookbooks/look-03.png": "6289e0e9876173f3de105078b444dc7de3e66437771195f497336bc1bb1179a4",
+    "docs/app-verification.md": "8b27a33d0813921128de5d660aff4db5459b5aa70d0e123205f3f17543dccd8c",
+    "docs/mobile-customer-goal-review.md": "0b09d18cd72fb49f8abf6f479ae6da09d5653b3eb4750c1b30559e7fdc98d2c8",
+    "docs/mobile-customer-guide.md": "b356e36a4151c88234601c67b8318ab8cd89ecd2e926e3e05515fdb989fe3899",
+    "docs/need-director-rules.md": "e8ad6a05067fed69e1e8bfe3ad80d7a53a6bcd916e4cd2480bf7b19177046fd7",
+    "docs/run-demo.md": "75d12d87968ced6c0b8c3ab58217f5745f04009012218ad6f0ddc497d0d10661",
+    "fixtures/ask-live.json": "7c801f891ef8343fdbe0517e4b2c99a05caacac3d6507bc0b6cdbae42da3642d",
+    "fixtures/demo-config.json": "f26a0d09233b9be81c40bc09087100ed75336bc387c911c9f8726820385b7785",
+    "fixtures/main-product.json": "66975b5fc674d4c34646f0ad3d9df813f3d12e76dd8c85fe76c19ce3949898b8",
+    "fixtures/styling-candidates.json": "8081efd7fc419e20a0a19a2e37d6709eff21fa4c3512f8ccc048beee2365a11b",
+    "fixtures/styling-looks.json": "e8867d1ec1274de8e4e4880cc424e874fa9227a36f20becb8067bd2850c43af4",
+    "prototype/need_director.py": "28c07af6d1168db350f6bd72c3e5442230069dd8416c6a6fbdc12dc52b62e737",
+    "scripts/browser_driver.cjs": "9557b9d6a5fd6f6c0d262367fc203cdd4263470b19d51a5525ef392254f02fe0",
+    "scripts/check_app_browser.cjs": "192a176a972a45f6f71a5efa84bdc6c13e63b807eb0d4177c33c3b73c6672a10",
+    "scripts/check_connected_customers.cjs": "c74a7de30b0fd28f30ca70daaeeb2b1acd54b31d7fa1515041d15ff8d6e318b9",
+    "scripts/check_cross_screen.cjs": "dfc8f9396b48322a58d726f66e5d669cae0afb1b6e98bb24b6c79cef36169bd4",
+    "scripts/check_customer_context.cjs": "2029a150dde349a4af494679dc4dea5606fe29f952a141c4278fbae35bc1932e",
+    "scripts/check_customer_experience.cjs": "c6592ac3b42c8935ff77c9a63600b9375fad0dd22a4fa254c001e342aa5b8458",
+    "scripts/check_dashboard_slots.cjs": "6ca3ac55301520a99962164035aa7e626115963fe8e44872f9cd11b6ffba790f",
+    "scripts/check_director_experience.cjs": "53e81de30f24863d6faec78a246b0a5d842dd659c253cc60bb8bafbb9cdfb685",
+    "scripts/check_home_shopping.cjs": "c4b7ffa2293131e2c4588922df77948415f7e1f5a632b18c13aa3fa140bb69a2",
+    "scripts/check_integration_edges.cjs": "98a89abc5ca3a41c64af9bee26327e85ff81fb02416a515a84c208efc570696f",
+    "scripts/check_mobile_customer_goal.cjs": "7e14ecdc19ecba20e0af2405ecea9d55a8fea3ba9c50254a197acd27c78d438e",
+    "scripts/check_size_profile.cjs": "424d645768beab6497072d1533b711d982a1f900b6af66c4ed97fd8729056492",
+    "scripts/check_test_video.cjs": "5c72b2f68d150c92f1ed969d35ef9fd1d0407a07bb06f9a3b50c9352d5dd998e",
+    "scripts/check_video_experience.cjs": "1acbd86f9e8dfa612eda64683efa31e7a42f8c65c47771bf048df8c3a5c4c69e",
+    "scripts/fetch_product_data.py": "6b9e166b69a3bcd37ba5b8fd2e4bf3af4eb026f35ff00565494b90151af0869e",
+    "scripts/generate_home_shopping_host.py": "4b57336151a5fa7c89bda19bc82d7fb41be8b6d0d95b5996189b52390a351668",
+    "scripts/package_sample_video.py": "38924ceb7d6e6c5c9cb70994d8d84f048f1ab8a1e0ff8c98cdd3d885fe649377",
+    "scripts/prepare_home_shopping.py": "37e638fcf4f552d6ca8c8a93acf997c46d78ceaf48636bf8625254b5fc1da488",
+    "scripts/prepare_portrait_narration.py": "5d13e8b88bf3c24f62dc766a848cdee81bfaef5b22c94dc2a02364a1d7467ea9",
+    "scripts/prepare_test_video.py": "88b3516142a57ee8bc4ec0cb0884e2296abc78050cccfd50f0e575ba1a504c5e",
+    "scripts/render_portrait_shopping.py": "58d0c200f7c464109b73f0a84c9fdb54a99c9936cb8ed1b3be17b360f07977ca",
+    "scripts/transcribe_reference.py": "78b40a9b522983c87ff0da340e3e8697e89764295e4cc57cc0f98ea585954174",
+    "scripts/validate_demo.py": "6a1e8c6799d57587622e62a304a3ab66cfb0be3166f78dbebc4aa8deda140e01",
+    "tests/test_app_state.py": "2330e62ac72bd4604c1489926da35f69ed1413fbb55a7d55ded8ac2a2ced2ed1",
+    "tests/test_cross_screen_state.py": "2db7ca68f244e7fed667107391f7c0a0658d93ebd209f08fd6cf864a38b4401e",
+    "tests/test_customer_experience.py": "91bb8806922bf586f7cf30101331bf903e605ad117270db4c7c3fc4373b59ee9",
+    "tests/test_dashboard_state.py": "50972310003872bee7e85bf3a1641ff4e4153f9c7768c8b48a6945c4d3f34fcc",
+    "tests/test_experience_metrics.py": "868c0903ab3024633c088cb5f051ff5d1f9cc1bde67c23c1297e7f42ee15e7e4",
+    "tests/test_need_director.py": "8fd9b0f2271cb6de3db5c07ecebee13795c2cf32c1a273a1b4b95e0945238e8a",
+    "tests/test_size_profile.py": "7c131d3189f3a57077d89dd6d80ebef172e0e8d108e6a87d801235e783e2e500",
+    "tests/test_video_knowledge.py": "534d6ad9a76f47e1207b743db74c165ddde5dda845e759a924f6e99d3fcc20e0"
+  },
+  "git": {
+    "remote": "https://github.com/zazachucky/G-24.git",
+    "requested_commit": "e228cc2b969bbc3b257c77db2237161d7224efa1",
+    "remote_main": "e228cc2b969bbc3b257c77db2237161d7224efa1",
+    "requested_push": "verified",
+    "mobile_changes": "local, uncommitted; not included in requested e228cc2 push"
+  },
+  "limitations": [
+    "Mobile viewports are desktop Chrome emulation; real iOS/Android keyboards and browser behavior not tested.",
+    "Product URLs match verified snapshots; live external inventory, current pricing and orderability are not guaranteed.",
+    "External AI, actual broadcast, ordering, payment, shipping, production authentication, durable storage and multi-device deployment are not connected.",
+    "Video answers remain limited to seven reviewed reference scenes and twelve prepared sample chapters."
+  ]
+}

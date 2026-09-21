@@ -1,0 +1,65 @@
+PASS SHARE01 rejected clipboard permission provides a selectable public link
+PASS SHARE02 failed copy does not claim a successful share event
+PASS SHARE03 successful copy writes only the actual product URL
+PASS SHARE04 keyboard can close the share dialog
+PASS LIVE01 exit removes only this tab presence without ending the broadcast
+PASS LIVE02 exited state survives reload in the same tab
+PASS LIVE03 another virtual customer does not inherit A departure
+PASS LIVE04 returning to A restores this tab departure
+PASS LIVE05 rejoin retains original run and avoids duplicate customer entry
+PASS ASK01 thickness answer renders original 63/35/2 bars inside the conversation
+PASS ASK02 full review action opens actual review data
+PASS ASK03 inline color card preserves 99 percent total
+PASS ASK04 private question remains absent from public API and other customer
+PASS CHAT01 explicit public comment reaches another customer and Director
+PASS CHAT02 public markup is escaped and private ASK is never overlaid
+PASS CHAT03 uncertain-response retry retains one public comment
+PASS CART01 sold-out gray 66 cannot be added
+PASS CART02 duplicate option adds quantity to one cart line
+PASS CART03 increase updates actual quantity and merchandise subtotal
+PASS CART04 decrease updates actual quantity
+PASS CART05 other customer and public snapshot do not receive A cart
+PASS CART06 refresh restores cart without duplicating open or add
+PASS CART07 changing customer clears the previous cart content
+PASS CART08 checkout keeps selected options, two items and prepared total
+PASS CART09 checkout records one purchase entry
+PASS CART10 demo completion removes its cart line and creates no real order
+PASS CART11 explicit deletion updates cart and badge
+PASS CART12 uncertain-response retry does not add a duplicate quantity
+PASS CART13 maximum quantity enforces 10 and exact 499000 merchandise total
+PASS CART14 concurrent same-customer tab retains newly added quantity
+PASS SIZE01 result-level selection reaches common options and Director
+PASS SIZE02 profile and review evidence avoid invented body cohorts or individual reviews
+PASS SIZE03 chosen 88 reaches purchase without resetting to recommended 66
+PASS BENEFIT01 extra conditions preserve existing benefit arithmetic
+PASS BENEFIT02 delivery condition opens the prepared delivery explanation
+PASS STYLE01 preference tab selects the large AI look and matching actual products
+PASS STYLE05 actual product thumbnail records one SKU click without changing the selected AI look
+PASS STYLE06 all three current-look product links use the same detail label
+PASS STYLE02 all products contains exactly seven unique confirmed SKUs
+PASS STYLE07 all seven catalog product links use the same detail label
+PASS STYLE03 actual catalog product click reaches Director attribution
+PASS STYLE04 returning to look images retains selected look 03
+PASS UI01 new size result fits 390px and keyboard closes it
+PASS UI02 seven-product catalog fits mobile width
+PASS STYLE UI 320x740 all-products label and arrow share one horizontal row
+PASS STYLE UI 320x740 seven-product catalog has no horizontal overflow
+PASS STYLE UI 320x740 last product detail link is tappable above the footer
+PASS STYLE UI 320x740 return preserves the selected daily look
+PASS STYLE UI 390x844 all-products label and arrow share one horizontal row
+PASS STYLE UI 390x844 seven-product catalog has no horizontal overflow
+PASS STYLE UI 390x844 last product detail link is tappable above the footer
+PASS STYLE UI 390x844 return preserves the selected daily look
+PASS STYLE UI 844x390 all-products label and arrow share one horizontal row
+PASS STYLE UI 844x390 seven-product catalog has no horizontal overflow
+PASS STYLE UI 844x390 last product detail link is tappable above the footer
+PASS STYLE UI 844x390 return preserves the selected daily look
+PASS MEDIA01 new cart and existing orientation preserve video and frozen domain time
+PASS RESET01 reset clears carts public comments and old private messages
+PASS RESET02 customer public overlays and cart badge clear after reset
+PASS CHAT04 count remains total after recent 100 comments roll over
+PASS PERSONAL01 actual targeted button exposure is measured once
+PASS PERSONAL02 refresh does not duplicate approval exposure
+PASS PERSONAL03 unrelated customer receives neither highlight nor exposure
+PASS END01 ended broadcast disables new public comments and cart additions
+PASS ALL01 no uncaught browser exceptions

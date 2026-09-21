@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-21T11:06:04.243679+00:00",
+  "scope": "Styling gallery correction: style tabs own large static AI look, sidebar contains actual top/bottom/shoe product links.",
+  "browser_checks": 164,
+  "reports": [
+    {
+      "path": "docs/evidence/mobile-customer-goal-verification.json",
+      "count": 54,
+      "status": "PASS",
+      "completed_at": "2026-09-21T11:04:14.960Z",
+      "sha256": "8803603fc540e79ede2753b065089a2901389dc1ecea1afbe87f8de1d8b45f92"
+    },
+    {
+      "path": "docs/evidence/customer-experience-verification.json",
+      "count": 51,
+      "status": "PASS",
+      "completed_at": "2026-09-21T11:04:44.168Z",
+      "sha256": "882cce8c872bc59e9b2d844a88560a18e23bf0ee8ae135a10b05e3325643d368"
+    },
+    {
+      "path": "docs/evidence/browser-verification.json",
+      "count": 59,
+      "status": "PASS",
+      "completed_at": "2026-09-21T11:05:12.600Z",
+      "sha256": "a7e568be32e7f67fde16c9ea18000e608ec1e2e6d61f2d2b0423cf3152d07291"
+    }
+  ],
+  "current_server": "http://127.0.0.1:8765",
+  "served_source_hashes": {
+    "app/customer.js": "101ee537da77d7d30d6dc3afd084dc51d24db495dab807e7ea0c5d554918b6d6",
+    "app/customer.css": "b498922ae6bd70e3b7de4c3b82d616ea500c8bc6ec4515d11903e55742065a91"
+  },
+  "source_hashes": {
+    "app/customer.js": "101ee537da77d7d30d6dc3afd084dc51d24db495dab807e7ea0c5d554918b6d6",
+    "app/customer.css": "b498922ae6bd70e3b7de4c3b82d616ea500c8bc6ec4515d11903e55742065a91",
+    "scripts/check_mobile_customer_goal.cjs": "2434d6ff1fe6fb72dc724ee211b7aaa454b2235a9c55f207a17b9b08d0da4900",
+    "scripts/check_customer_experience.cjs": "e78df21c86e6bdd5ef4e276879c446761de7d15c3d1f5381d5415080e7d1ecd7",
+    "scripts/check_app_browser.cjs": "621b8f652db6069c5e53ca87b50f5a9a60d4c489283e11e6ed7f9d9f0caab771"
+  },
+  "screenshots": [
+    "docs/evidence/styling-products-office-390.png",
+    "docs/evidence/styling-products-date-390.png",
+    "docs/evidence/styling-products-daily-390.png",
+    "docs/evidence/styling-products-office-320.png"
+  ],
+  "limits": [
+    "Uses existing verified product snapshot; external inventory and pricing not revalidated.",
+    "Main item uses existing ordinary source link; candidate bottom/shoe links retain Director SKU click tracking.",
+    "The previous mobile completion audit is the pre-correction snapshot; only the three affected browser suites were rerun."
+  ],
+  "user_server_restarted": false
+}

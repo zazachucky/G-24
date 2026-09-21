@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "started_at": "2026-09-21T10:20:53.477Z",
-  "server": "http://127.0.0.1:8791",
+  "started_at": "2026-09-21T10:55:07.675Z",
+  "server": "http://127.0.0.1:8804",
   "scope": "Actual private sizing form, transparent garment-comparison rules, manual purchase options and customer isolation. No predictive body-fit or synthetic review claims.",
   "checks": [
     {
@@ -97,5 +97,5 @@
     "size-profile-personalized.png",
     "size-profile-mobile.png"
   ],
-  "completed_at": "2026-09-21T10:20:58.175Z"
+  "completed_at": "2026-09-21T10:55:12.337Z"
 }

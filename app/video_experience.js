@@ -9,7 +9,7 @@ export function videoAnswerCard(message) {
   return `<button type="button" class="message-action video-answer-action" data-video-jump="${esc(citation.asset_id)}" data-video-chapter="${esc(citation.chapter_id || '')}" data-video-start="${citation.start}">${clock(citation.start)} · ${esc(citation.label || '해당 장면')} 보기</button>`;
 }
 
-export function setupVideoKnowledge({data, video, getUI, getState, patch, track, toast, restoreVideo, onInteraction, onAsk}) {
+export function setupVideoKnowledge({data, video, getUI, getState, patch, track, toast, restoreVideo, onInteraction, onSelection, onAsk}) {
   const catalog = Array.isArray(data.video_catalog) ? data.video_catalog : [];
   const byId = new Map(catalog.map(asset => [asset.asset_id, asset]));
   const toolbar = document.querySelector('.media-toolbar');
@@ -19,7 +19,7 @@ export function setupVideoKnowledge({data, video, getUI, getState, patch, track,
   if (!document.querySelector('#video-knowledge-style')) {
     const style = document.createElement('style');
     style.id = 'video-knowledge-style';
-    style.textContent = `.media-toolbar{flex-wrap:wrap}.video-asset-choice{display:flex;align-items:center;gap:6px;max-width:100%}.video-asset-choice select{max-width:210px;min-width:0}.video-knowledge{margin-top:10px;font-size:11px;line-height:1.5}.video-knowledge summary{cursor:pointer;font-weight:700}.video-knowledge p{margin:8px 0}.video-chapter-list{display:grid;gap:5px;max-height:210px;overflow:auto;margin:8px 0}.video-chapter-list button{text-align:left;white-space:normal}.video-knowledge-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.video-knowledge button{font:inherit;border:1px solid #cee0d7;border-radius:7px;background:#fff;color:#245d44;padding:7px 9px;cursor:pointer}.video-knowledge button:disabled{opacity:.5;cursor:default}.video-knowledge-status{font-size:10px;color:#54695e}.video-answer-action{white-space:normal;text-align:left}`;
+    style.textContent = `.media-toolbar{flex-wrap:wrap}.video-asset-choice{display:flex;align-items:center;gap:6px;max-width:100%}.video-asset-choice select{max-width:210px;min-width:0}.video-knowledge{margin-top:10px;font-size:11px;line-height:1.5}.video-knowledge summary{cursor:pointer;font-weight:700}.video-knowledge p{margin:8px 0}.video-chapter-list{display:grid;gap:5px;max-height:210px;overflow:auto;margin:8px 0}.video-chapter-list button{text-align:left;white-space:normal}.video-knowledge-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.video-knowledge button{font:inherit;border:1px solid #e5deef;border-radius:7px;background:#fff;color:#7644CF;padding:7px 9px;cursor:pointer}.video-knowledge button:disabled{opacity:.5;cursor:default}.video-knowledge-status{font-size:10px;color:#62636f}.video-answer-action{white-space:normal;text-align:left}`;
     document.head.append(style);
   }
   const assetLabel = document.createElement('label');
@@ -27,6 +27,10 @@ export function setupVideoKnowledge({data, video, getUI, getState, patch, track,
   assetLabel.append(document.createTextNode('영상 선택 '));
   const select = document.createElement('select');
   select.id = 'video-asset'; select.setAttribute('aria-label', '영상 자료 선택');
+  const placeholder = document.createElement('option');
+  placeholder.value = ''; placeholder.disabled = true;
+  placeholder.textContent = '재생할 영상을 선택하세요';
+  select.append(placeholder);
   for (const asset of catalog) {
     const option = document.createElement('option'); option.value = asset.asset_id;
     option.textContent = asset.product_match ? '상품 설명 샘플 · 제작 대본' : '코어어센틱 녹화 참고 영상';
@@ -59,14 +63,19 @@ export function setupVideoKnowledge({data, video, getUI, getState, patch, track,
     if (context && context !== nextContext) {prior = null; status.textContent = ''; navigation++;}
     context = nextContext;
     const ui = getUI(), asset = byId.get(ui.video_asset_id) || catalog[0];
-    select.value = asset.asset_id;
+    // An image preview has no active video selection. A placeholder lets the
+    // user choose the reference even when it is already the remembered asset.
+    const selectedAsset = ui.media_mode === 'video' ? asset.asset_id : '';
+    if (select.value !== selectedAsset) select.value = selectedAsset;
     const modeOption = document.querySelector('#media-mode option[value="video"]');
-    if (modeOption) modeOption.textContent = asset.product_match ? '상품 설명 샘플' : '녹화 참고 영상';
+    const modeLabel = asset.product_match ? '상품 설명 샘플' : '녹화 참고 영상';
+    // Even identical option text replaces its DOM and closes an open native menu.
+    if (modeOption && modeOption.textContent !== modeLabel) modeOption.textContent = modeLabel;
     const path = safePath(asset);
     // Preserve the native player across polls, orientation changes and sheets.
     if (path && assignedPath !== path) {
       assignedPath = path;
-      if (video.getAttribute('src') !== path) {
+      if (video.getAttribute('src') !== path || video.error) {
         restoreVideo?.(); // Quiet native save events while the media identity changes.
         video.src = path;
         video.load();
@@ -97,6 +106,9 @@ export function setupVideoKnowledge({data, video, getUI, getState, patch, track,
 
   function move(asset, target, paused, mode = 'video') {
     if (!asset || !safePath(asset) || !Number.isFinite(target) || target < 0 || target >= asset.duration_s) return;
+    // Retry the chosen asset after a load failure, including the same asset.
+    // Only explicit navigation retries; background polling must not reload it.
+    if (video.error || video.getAttribute('src') !== safePath(asset)) assignedPath = '';
     onInteraction?.();
     const movement = ++navigation;
     patch({video_asset_id: asset.asset_id, media_mode: mode, video_time: target, video_paused: paused});
@@ -135,6 +147,7 @@ export function setupVideoKnowledge({data, video, getUI, getState, patch, track,
     prior = null; status.textContent = '';
     move(asset, 0, true);
     render();
+    onSelection?.();
   });
   returnButton.addEventListener('click', () => {
     if (!prior) return;

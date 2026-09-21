@@ -1,0 +1,25 @@
+PASS Monitor initially distinguishes all three offline customers
+PASS Monitor displays an explicit connection count
+PASS Opening B updates the monitor without entering activity view
+PASS Opening B leaves A and C offline
+PASS Benefit action updates current screen, latest action, and count
+PASS Benefit use does not falsely set Size Need
+PASS Returning to LIVE is visible in the monitor
+PASS Manual size result alone remains a non-detected Need
+PASS First distinct Size signal is shown without premature detection
+PASS Size chart and size reviews update actual Need in same row
+PASS Purchase view and actual selected color and size reach monitor
+PASS Styling view and actual chosen look reach monitor
+PASS Question receipt and following latest action agree with the same monitor row
+PASS Director DOM and public API exclude private question text
+PASS Customer orientation update is visible beside current screen
+PASS Customer media mode updates the connected monitor row
+PASS Desktop monitor has no page-level horizontal overflow
+PASS Mobile monitor keeps wide customer table within its own scroller
+PASS Two B tabs remain one connected customer
+PASS Leaving one B tab retains its remaining connection
+PASS Leaving final customer tab sets disconnected while retaining activity
+PASS Director API failure marks presence unknown rather than treating it as customer state
+PASS Director reconnect restores last known activity and current presence
+PASS Connected-row additions preserve actual A approval and unrelated B exclusion
+PASS No uncaught browser exceptions

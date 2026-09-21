@@ -1,0 +1,24 @@
+PASS Catalog offers separate reference and authored sample assets
+PASS Reference keeps explicit current-product mismatch label
+PASS Reference summary cites reviewed original frames
+PASS Reference jacket question returns actual 34-second evidence
+PASS Message scene button changes native video time
+PASS Previous viewing position restores original asset time and pause state
+PASS Current scene question uses actual 47-second player clock
+PASS Unverified worn size stays unsupported without a scene citation
+PASS Other customer and public Director state exclude private video question
+PASS Video seek is present in shared event data without question text
+PASS Sample selection uses real 120-second asset and authored-source label
+PASS Sample size answer preserves script provenance and real garment measurements
+PASS Sample MP4 has decoded frames and audio with functioning volume controls
+PASS Video playback and seeks leave frozen Need/approval clock unchanged
+PASS Orientation preserves selected sample and native paused position
+PASS Refresh restores asset time pause state and private video answer
+PASS Cross-asset citation returns to original sample and paused position
+PASS Customer switch resets citation return state and excludes A answers
+PASS Returning to A restores its asset and private video answers
+PASS Reset clears video questions previous-position memory and playback state
+PASS Video error falls back to images and preserves customer actions
+PASS Selecting a known asset recovers from simulated media failure
+PASS Video controls and scene catalog fit mobile viewport
+PASS No uncaught browser exceptions during video evidence workflow

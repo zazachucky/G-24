@@ -108,7 +108,9 @@ class NeedDirector:
                   if at >= now - 30]
         recent.append((now, signal))
         self.signals[key] = recent
-        if len({kind for _, kind in recent}) < 2:
+        # The mobile goal counts two real size-related actions, including repeat
+        # visits of the same kind. Re-deliveries were deduplicated by event_id above.
+        if len(recent) < 2:
             return "SIGNAL_RECORDED"
         self.detected[key] = now
         if dismiss_key not in self.dismissed:

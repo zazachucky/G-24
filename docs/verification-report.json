@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-09-21T10:12:16.733187+00:00",
+  "verified_at": "2026-09-21T10:47:45.525737+00:00",
   "status": "PASS",
   "scope": "Offline fixture, image integrity, cross-file references, deterministic logic; not app UI testing",
   "main_product_images": 13,

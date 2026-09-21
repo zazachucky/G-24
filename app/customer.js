@@ -169,9 +169,13 @@ function renderUI() {
   document.body.dataset.runId=state.run_id;
   document.body.dataset.currentCustomer=customerId;
   $$('[data-mode]').forEach(b => { const yes = b.dataset.mode === ui.orientation; b.classList.toggle('active', yes); b.setAttribute('aria-pressed', yes); });
-  $('#expand-label').textContent = ui.orientation === 'landscape' ? '세로로 보기' : '확장해서 보기';
+  const orientationLabel = ui.orientation === 'landscape' ? '세로로 보기' : '확장해서 보기';
+  $('#expand-label').textContent = orientationLabel;
+  $('#orientation-toggle').setAttribute('aria-label', orientationLabel);
+  $('#orientation-toggle').setAttribute('aria-pressed', String(ui.orientation === 'landscape'));
   $('#mode-description').textContent = ui.orientation === 'landscape' ? 'LANDSCAPE · 가로형 모바일' : 'PORTRAIT · 세로형 모바일';
   $('#profile-name').textContent = ({'customer-A':'지수님','customer-B':'민서님','customer-C':'서연님'})[customerId];
+  $('#suggestion .between > p').textContent = `${$('#profile-name').textContent}에게 맞는 사이즈 정보를 확인해볼까요?`;
   $('.benefit-link span').innerHTML = '가상 VIP · GS Pay 데모 혜택가 <strong>45,515원</strong>';
   $('#live-clock').textContent = `${state.ended ? '방송 종료' : 'LIVE'} · 시연 ${Number(state.now || 0).toFixed(0)}초`;
   $('.live-tag').innerHTML = state.ended ? '방송 종료' : '<i></i>LIVE DEMO';
@@ -194,7 +198,9 @@ function renderUI() {
   $('#gallery-position').textContent = `${index+1} / ${data.product.images.length}`;
   $('#gallery-color').textContent = `${img.color_label} · 실제 상품 이미지`;
   const mode = ui.media_mode === 'video' && !videoFailed;
-  $('#media-mode').value = mode ? 'video' : 'image';
+  const selectedMediaMode = mode ? 'video' : 'image';
+  // Rewriting a native select during polling can cancel its open picker.
+  if ($('#media-mode').value !== selectedMediaMode) $('#media-mode').value = selectedMediaMode;
   $('#media-stage').classList.toggle('playing-video', mode);
   video.hidden = !mode; $('#gallery-image').hidden = mode || !$('#image-error').hidden;
   $('#gallery-controls').hidden = mode; $('#video-info').hidden = !mode;
@@ -225,7 +231,8 @@ function renderMessages() {
     const cls = ({CUSTOMER:'customer', OPERATOR:'op', ASK_LIVE:'ai', SYSTEM:'system'})[actor] || 'system';
     const title = ({CUSTOMER:'CUSTOMER · 나',OPERATOR:'OPERATOR · 운영자',ASK_LIVE:'ASK LIVE',SYSTEM:'SYSTEM'})[actor] || actor;
     const route = m.action?.route || (typeof m.route === 'object' ? m.route.route : m.route);
-    return `<article class="message ${cls}" data-message-id="${esc(m.message_id)}"${m.notice_id?` data-notice-id="${esc(m.notice_id)}"`:''}><div class="message-label"><strong>${esc(title)}</strong>${actor==='OPERATOR'?'<span>공용</span>':actor!=='SYSTEM'?'<span>나에게만</span>':''}</div><p>${esc(m.text).replace(/\n/g,'<br>')}</p>${m.status==='pending'?'<span class="processing">준비된 정보를 확인하고 있어요…</span>':''}${m.status!=='pending'&&actor==='ASK_LIVE'?inlineReviewCards(m):''}${sourceFor(m)}${videoAnswerCard(m)}${route?`<button class="message-action" data-route="${esc(route)}">${esc(m.action?.label || '관련 정보 보기')} ${icon('chevron')}</button>`:''}</article>`;
+    const pending = m.status === 'pending';
+    return `<article class="message ${cls}" data-message-id="${esc(m.message_id)}"${m.notice_id?` data-notice-id="${esc(m.notice_id)}"`:''} aria-busy="${pending}"><div class="message-label"><strong>${esc(title)}</strong>${actor==='OPERATOR'?'<span>공용</span>':actor!=='SYSTEM'?'<span>나에게만</span>':''}</div><p${pending?' class="processing"':''}>${esc(m.text).replace(/\n/g,'<br>')}</p>${!pending&&actor==='ASK_LIVE'?inlineReviewCards(m):''}${pending?'':sourceFor(m)+videoAnswerCard(m)}${!pending&&route?`<button class="message-action" data-route="${esc(route)}">${esc(m.action?.label || '관련 정보 보기')} ${icon('chevron')}</button>`:''}</article>`;
   }).join('');
   if (nearBottom || messages.length < 4) box.scrollTop = box.scrollHeight;
   scheduleExposure();
@@ -256,7 +263,7 @@ function result(type, trackView = true) {
   if (type === 'size') renderSize(); else if (type === 'benefit') renderBenefit(); else renderStyling();
 }
 const returnButton = '<button class="btn primary full" data-close>LIVE로 돌아가기</button>';
-const source = () => `<a class="source" href="${esc(data.product.source_url)}" target="_blank" rel="noopener noreferrer">GS SHOP 실제 상품 보기 ↗</a>`;
+const source = () => `<a class="source" href="${esc(data.product.source_url)}" target="_blank" rel="noopener noreferrer">상품 상세 보기 ↗</a>`;
 function sizeContext() {
   const product = state?.customers.find(customer=>customer.id===customerId)?.current_product || data?.product.product_id;
   return `${state?.run_id}:${customerId}:${product}`;
@@ -309,10 +316,10 @@ function renderSize() {
   const fit=group.responses.find(r=>r.label==='잘 맞아요');
   const measurements=Object.entries(recommendation.measurements || {});
   sizeProfileSignature=JSON.stringify([state.customer.profile,state.customer.size_recommendation]);
-  sheet('내 사이즈', `<div class="sheet-body"><div class="sheet-kicker">${icon('size')}입력한 기준 · 실제 상품 실측 비교</div><h2>${esc(name)}님의<br>사이즈 선택을 도와드려요.</h2><p class="sheet-intro">${esc(recommendation.label)}</p><div class="size-hero"><span id="recommended-size" class="size-num" data-recommended-size="${esc(recommended || '')}">${esc(recommended || '—')}</span><p><strong>${recommended?'먼저 확인할 사이즈':'실측 확인이 필요해요'}</strong>추천과 현재 구매 옵션은 별개예요.<br>저장만으로 구매 옵션을 바꾸지 않아요.</p></div><ul class="size-recommendation-reasons" id="size-recommendation-reasons">${(recommendation.reasons || []).map(reason=>`<li>${esc(reason)}</li>`).join('')}</ul>${recommendation.unavailable_reason?`<p class="stock-notice">${esc(recommendation.unavailable_reason)}</p>`:''}<fieldset class="option-field size-result-options"><legend>구매할 사이즈 선택${recommended?' · 추천은 '+esc(recommended):' · 실측을 비교해주세요'}</legend>${data.product.sizes.map(size=>`<button class="option-button ${ui.size===size?'active':''}" data-size="${esc(size)}" aria-pressed="${ui.size===size}">${esc(size)}${size===recommended?'<small>추천</small>':''}</button>`).join('')}</fieldset><p id="size-result-selection" class="fine-print">현재 선택 ${esc(ui.color)} ${esc(ui.size)} · ${stockLabel(selectedOption())}</p>
+  sheet('내 사이즈', `<div class="sheet-body"><div class="sheet-kicker">${icon('size')}입력한 기준 · 실제 상품 실측 비교</div><h2>${esc(name)}님의<br>사이즈 선택을 도와드려요.</h2><p class="sheet-intro">${esc(recommendation.label)}</p><div class="size-hero"><span id="recommended-size" class="size-num" data-recommended-size="${esc(recommended || '')}">${esc(recommended || '—')}</span><p><strong>${recommended?esc(recommended)+' 사이즈를 먼저 확인해보세요.':'실측 확인이 필요해요'}</strong>추천과 현재 구매 옵션은 별개예요.<br>저장만으로 구매 옵션을 바꾸지 않아요.</p></div><ul class="size-recommendation-reasons" id="size-recommendation-reasons">${(recommendation.reasons || []).map(reason=>`<li>${esc(reason)}</li>`).join('')}</ul>${recommendation.unavailable_reason?`<p class="stock-notice">${esc(recommendation.unavailable_reason)}</p>`:''}<fieldset class="option-field size-result-options"><legend>구매할 사이즈 선택${recommended?' · 추천은 '+esc(recommended):' · 실측을 비교해주세요'}</legend>${data.product.sizes.map(size=>`<button class="option-button ${ui.size===size?'active':''}" data-size="${esc(size)}" aria-pressed="${ui.size===size}">${esc(size)}${size===recommended?'<small>추천</small>':''}</button>`).join('')}</fieldset><p id="size-result-selection" class="fine-print">현재 선택 ${esc(ui.color)} ${esc(ui.size)} · ${stockLabel(selectedOption())}</p>
   <section class="prepared-profile" aria-label="내 사이즈 선택 기준"><h3>내 기준을 입력해주세요</h3><p class="fine-print">입력값과 추천은 내 고객 화면에만 표시돼요. 키만으로 사이즈를 결정하지 않아요.</p><form id="size-profile-form" class="size-profile-form"><label>키 (선택, cm)<input id="size-profile-height" name="height_cm" type="number" inputmode="decimal" min="140" max="200" step="0.1" value="${esc(profile.height_cm ?? '')}" placeholder="예: 165"></label><label>평소 상의 사이즈<select id="size-profile-usual" name="usual_size">${data.product.sizes.map(size=>`<option value="${esc(size)}" ${profile.usual_size===size?'selected':''}>${esc(size)}</option>`).join('')}</select></label><label class="size-profile-half"><input id="size-profile-half" name="half_size" type="checkbox" ${profile.half_size?'checked':''}>평소 반사이즈에 걸쳐 입어요</label><label>선호하는 여유감<select id="size-profile-fit" name="fit"><option value="regular" ${profile.fit==='regular'?'selected':''}>기본 핏</option><option value="relaxed" ${profile.fit==='relaxed'?'selected':''}>여유 있는 핏</option></select></label><label class="size-profile-garment">잘 맞는 보유 상의 가슴단면 (선택, cm)<input id="size-profile-garment" name="garment_chest_cm" type="number" inputmode="decimal" min="30" max="80" step="0.1" value="${esc(profile.garment_chest_cm ?? '')}" placeholder="예: 45"><span class="fine-print">옷을 평평하게 놓고 잰 한쪽 가슴 너비예요. 신체 가슴둘레를 입력하지 마세요.</span></label><button id="size-profile-save" class="btn primary full" type="submit" ${sizeProfileSaveToken||state.ended?'disabled':''}>내 기준 저장 · 추천 확인</button><p id="size-profile-status" class="fine-print" role="status"></p></form></section>
   ${measurements.length?`<section class="size-measurement-card"><h3>${esc(recommended)} 사이즈 실제 의류 실측</h3><dl>${measurements.map(([key,value])=>`<div><dt>${esc(key)}</dt><dd>${esc(value)} cm</dd></div>`).join('')}</dl><p class="fine-print">상품 페이지 실측표 기준 · 신체 치수가 아니에요.</p></section>`:''}
-  <section class="size-review-evidence" data-provenance="actual_snapshot"><div class="between"><h3>구매자들이 남긴 사이즈 평가</h3><span class="badge mint">리뷰 집계</span></div><div class="data-row"><span>구매후기 ‘잘 맞아요’</span><strong>${fit.percentage}%</strong></div><div class="review-meter"><i style="width:${fit.percentage}%"></i></div><p>${fit.response_count.toLocaleString('ko-KR')}개 응답이 ‘잘 맞아요’를 선택했어요.</p><p class="fine-print">상품 전체 사이즈 리뷰 · 문항 응답 ${group.response_count_sum.toLocaleString('ko-KR')}건</p><p class="fine-print">전체 상품 리뷰 집계이며 비슷한 체형 고객의 만족률이 아니에요.</p><button class="message-action" data-detail="reviews">전체 리뷰 보기 ${icon('chevron')}</button></section><div class="note">${esc(s.guidance_text)}</div><div class="stock-notice">${esc(s.stock_note)}</div><p class="fine-print">실측과 선택 기준을 비교하는 규칙 기반 안내예요. 착용감이나 구매 가능한 재고를 보장하지 않아요.</p></div>`, `<button class="btn primary full" data-detail="size">실제 사이즈표 확인하기</button><button class="btn outline full" id="size-purchase">${esc(ui.size)} 선택 · 구매 시뮬레이션</button>`, 'size');
+  <section class="size-review-evidence" data-provenance="actual_snapshot"><div class="between"><h3>구매자들이 남긴 사이즈 평가</h3><span class="badge mint">리뷰 집계</span></div><div class="data-row"><span>구매후기 ‘잘 맞아요’</span><strong>${fit.percentage}%</strong></div><div class="review-meter"><i style="width:${fit.percentage}%"></i></div><p>${fit.response_count.toLocaleString('ko-KR')}개 응답이 ‘잘 맞아요’를 선택했어요.</p><p class="fine-print">상품 전체 사이즈 리뷰 · 문항 응답 ${group.response_count_sum.toLocaleString('ko-KR')}건</p><p class="fine-print">전체 상품 리뷰 집계이며 비슷한 체형 고객의 만족률이 아니에요.</p><button class="message-action" data-detail="reviews">전체 리뷰 보기 ${icon('chevron')}</button></section><div class="note">${esc(s.guidance_text)}<p>데모 선택 규칙: 반사이즈에 걸치는 경우 한 사이즈 크게 권장해요.</p></div><div class="stock-notice">${esc(s.stock_note)}</div><p class="fine-print">실측과 선택 기준을 비교하는 규칙 기반 안내예요. 착용감이나 구매 가능한 재고를 보장하지 않아요.</p></div>`, `<button class="btn primary full" data-detail="size">실제 사이즈표 확인하기</button><button class="btn outline full" id="size-purchase">${esc(ui.size)} 선택 · 구매 시뮬레이션</button>`, 'size');
   const form=$('#size-profile-form');
   form.onsubmit=saveSizeProfile;
   const remember=()=>{sizeProfileDraft=readSizeProfile(form);sizeProfileDirty=true;};
@@ -324,10 +331,39 @@ function renderBenefit() {
   const conditions=data.experience?.benefit_conditions || [];
   sheet('내 혜택', `<div class="sheet-body"><div class="sheet-kicker">${icon('ticket')}${esc(b.label)} · 가상 VIP / GS Pay</div><h2>혜택까지,<br>꼼꼼하게 챙겼어요.</h2><div class="benefit-hero"><p>예시 최종 혜택가</p><strong>${Number(b.final_price_krw).toLocaleString('ko-KR')}<small>원</small></strong><span class="savings">총 ${won(b.total_discount_krw)} 할인</span></div><div class="data-row"><span>판매가</span><strong>${won(b.base_price_krw)}</strong></div>${b.discounts.map(d=>`<div class="data-row discount"><span>${esc(d.label)}</span><strong>−${won(d.amount_krw)}</strong></div>`).join('')}<div class="data-row"><span>배송비</span><strong>무료배송</strong></div><div class="data-row total"><span>예시 최종 혜택가</span><strong>${won(b.final_price_krw)}</strong></div><p class="calculation">49,900 − 2,495 − 1,890 = 45,515원</p><div class="note">${esc(b.note)}</div><section class="benefit-conditions"><h3>추가 혜택 · 적용 조건</h3><p class="fine-print">아래 안내를 새로운 할인이나 적립으로 합산하지 않아요.</p>${conditions.map(item=>`<article class="benefit-condition" data-benefit-condition="${esc(item.id)}">${icon(item.icon)}<div><h4>${esc(item.title)}</h4><span class="benefit-condition-label">${esc(item.label)}</span><p>${esc(item.description)}</p>${item.route==='product'?source():`<button class="message-action" data-route="${esc(item.route)}">배송 안내 보기 ${icon('chevron')}</button>`}</div></article>`).join('')}</section></div>`, '<button class="btn primary full" data-purchase>옵션 확인 · 구매 시뮬레이션</button>', 'benefit');
 }
+const stylingLabel = look => ({OFFICE:'오피스', DATE:'데이트', CASUAL_COMFORT:'데일리'})[look.style] || look.mood_name;
+function confirmedStylingProduct(productId) {
+  const product = data.candidates.products.find(item => item.product_id === productId);
+  // Prepared product IDs are only linkable after their public page and image were verified.
+  return product?.runtime_eligible === true && product.verification_status === 'PUBLIC_PAGE_AND_IMAGE_VERIFIED' ? product : null;
+}
 function renderStyling() {
   const looks = data.looks.looks, look = looks.find(l=>l.look_id===ui.look) || looks[0];
-  const cards = [look.bottom_product_id, look.shoes_product_id].map(id=>data.candidates.products.find(p=>p.product_id===id)).filter(Boolean);
-  sheet('코디 추천', `<div class="sheet-body"><div class="sheet-kicker">${icon('hanger')}가상 고객 취향으로 준비한 세 가지 코디</div><div class="look-tabs" aria-label="코디 선택">${looks.map((l,i)=>`<button data-look="${l.look_id}" aria-pressed="${l.look_id===look.look_id}" class="${l.look_id===look.look_id?'active':''}">${['오피스','데이트','편안한 일상'][i]}</button>`).join('')}</div><div class="look-gallery"><div class="look-image"><img src="${asset(look.static_lookbook_image)}" alt="${esc(look.mood_name)} AI 코디 예시"><span class="badge">AI 코디 예시</span></div><div class="look-thumbnails" aria-label="코디 이미지로 선택">${looks.map((item,i)=>`<button data-look="${item.look_id}" class="look-thumbnail ${item.look_id===look.look_id?'active':''}" aria-pressed="${item.look_id===look.look_id}" aria-label="LOOK ${i+1} ${esc(item.mood_name)} 이미지 선택"><img src="${asset(item.static_lookbook_image)}" alt="${esc(item.mood_name)} AI 코디 썸네일"><span>LOOK 0${i+1}</span></button>`).join('')}</div></div><div class="look-description"><h3>${esc(look.mood_name)}</h3><p>${esc(look.reason)}</p></div><p class="fine-print">AI 코디 이미지는 분위기 예시로 실제 상품과 다를 수 있어요.</p><h3 class="actual-products-title">실제 상품으로 살펴보기</h3><div class="look-items"><article class="look-item"><img src="${asset(data.product.images[4].local_path)}" alt="실제 SJ와니 그레이 풀오버"><div><strong>${esc(data.product.display_name)}</strong><p>그레이 · ${won(data.product.price.sale_price_krw)}</p><p>확인 당시 그레이 66 일시품절</p></div>${source()}</article>${cards.map(p=>`<article class="look-item"><img src="${asset(p.image)}" alt="${esc(p.product_name)} 실제 상품 이미지"><div><strong>${esc(p.product_name)}</strong><p>${esc(p.color)} · ${won(p.price)} · 확인 당시 가격</p><p>하의·신발 사이즈는 별도로 확인해주세요.</p></div><a href="${esc(p.product_url)}" target="_blank" rel="noopener noreferrer" data-product-link="${esc(p.product_id)}">상품 상세 보기 ↗</a></article>`).join('')}</div><div class="note">스타일 설명은 데모 편집 정보입니다. 재고와 적용 혜택은 각 상품 페이지에서 확인해주세요. 메인 상의 사이즈를 하의·신발에 적용하지 않습니다.</div></div>`, '<button class="btn primary full" id="styling-all-button">전체 코디 상품 보기 '+icon('chevron')+'</button>'+returnButton, 'styling');
+  const cards = [look.bottom_product_id, look.shoes_product_id].map(confirmedStylingProduct).filter(Boolean);
+  const topImage = data.product.images.find(image=>image.kind==='product_only' && image.color_label===look.top_color);
+  const top = look.top_product_id===data.product.product_id && topImage ? {
+    product_id:data.product.product_id, product_name:data.product.display_name,
+    image:topImage.local_path, product_url:data.product.source_url, category:'TOP'
+  } : null;
+  const products = [top, ...cards].filter(Boolean);
+  const productThumbnails = products.map(product=>{
+    const category = {TOP:'상의',BOTTOM:'하의',SHOES:'신발'}[product.category];
+    return `<a class="look-product-thumbnail" data-styling-product="${esc(product.product_id)}" data-category="${esc(product.category)}" href="${esc(product.product_url)}" target="_blank" rel="noopener noreferrer" aria-label="${category} · ${esc(product.product_name)} 실제 상품 상세 보기 (새 창)" title="${esc(product.product_name)}"${product.category==='TOP'?'':` data-product-link="${esc(product.product_id)}"`}><img src="${asset(product.image)}" alt="${esc(product.product_name)} 실제 상품 이미지"><span>${category} ${icon('chevron')}</span></a>`;
+  }).join('');
+  sheet('코디 추천', `<div class="sheet-body">
+    <div class="sheet-kicker">${icon('hanger')}AI 맞춤형 코디 추천</div>
+    <p class="styling-preference-summary">원하는 스타일 취향을 골라보세요. 현재 방송의 그레이 니트와 어울리는 <strong>${esc(stylingLabel(look))}</strong> 코디를 보여드려요.</p>
+    <div class="look-tabs" aria-label="스타일 취향 선택">${looks.map(item=>`<button data-look="${item.look_id}" aria-pressed="${item.look_id===look.look_id}" class="${item.look_id===look.look_id?'active':''}">${esc(stylingLabel(item))}</button>`).join('')}</div>
+    <div class="look-gallery">
+      <div class="look-image"><img src="${asset(look.static_lookbook_image)}" alt="${esc(stylingLabel(look))} · ${esc(look.mood_name)} AI 코디 예시"><span class="badge">AI 코디 예시</span></div>
+      <div class="look-thumbnails look-products" aria-label="${esc(stylingLabel(look))} 코디의 실제 상품"><p class="look-products-label">코디 상품</p>${productThumbnails}</div>
+    </div>
+    <div class="look-description"><h3>${esc(look.mood_name)}</h3><p>${esc(look.reason)}</p></div>
+    <p class="fine-print">사전에 준비한 AI 코디 예시예요. 실제 상품과 다를 수 있으며, 선택할 때 새로 생성하지 않아요. 오른쪽 상품 사진을 누르면 실제 상품 상세를 볼 수 있어요.</p>
+    <h3 class="actual-products-title">실제 상품으로 살펴보기</h3>
+    <div class="look-items"><article class="look-item"><img src="${asset(topImage?.local_path || data.product.images[0].local_path)}" alt="실제 SJ와니 ${esc(look.top_color)} 풀오버"><div><strong>${esc(data.product.display_name)}</strong><p>${esc(look.top_color)} · ${won(data.product.price.sale_price_krw)}</p><p>확인 당시 그레이 66 일시품절</p></div>${source()}</article>${cards.map(p=>`<article class="look-item"><img src="${asset(p.image)}" alt="${esc(p.product_name)} 실제 상품 이미지"><div><strong>${esc(p.product_name)}</strong><p>${esc(p.color)} · ${won(p.price)} · 확인 당시 가격</p><p>${p.category==='SHOES'?'신발은 디자인·색상·스타일만 추천해요. 사이즈는 추천하지 않아요.':'하의 사이즈는 실제 상품에서 별도로 확인해주세요.'}</p></div><a href="${esc(p.product_url)}" target="_blank" rel="noopener noreferrer" data-product-link="${esc(p.product_id)}">상품 상세 보기 ↗</a></article>`).join('')}</div>
+    <div class="note">스타일 설명은 데모 편집 정보입니다. 재고와 적용 혜택은 각 상품 페이지에서 확인해주세요. 메인 상의 사이즈를 하의·신발에 적용하지 않습니다.</div>
+  </div>`, '<button class="btn primary full" id="styling-all-button">전체 코디 상품 보기 '+icon('chevron')+'</button>'+returnButton, 'styling');
 }
 function reviewGroup(g) { return `<section class="review-group" id="review-${g.group_id}"><strong>${esc(g.label)}</strong>${g.responses.map(r=>`<div class="review-line"><span>${esc(r.label)}</span><div class="bar"><i style="width:${r.percentage}%"></i></div><b>${r.percentage}%</b></div>`).join('')}<p class="fine-print">문항 응답 ${g.response_count_sum.toLocaleString('ko-KR')}건 · 원본 비율 합계 ${g.percentage_sum}%</p></section>`; }
 function detail(tab = 'description', emit = true) {
@@ -365,7 +401,7 @@ async function completePurchase(button) {
     }
   }catch{}finally{if(button.isConnected)button.disabled=false;}
 }
-function guide(persist = true) { if(persist)patch({active_result:'guide'});sheet('GS AI LIVE 체험 안내', '<div class="sheet-body"><span class="badge mint">Prototype Simulation</span><h2>LIVE 안에서,<br>나에게 필요한 답을 찾아요.</h2><ol class="help-list"><li><strong>ASK LIVE와 빠른 결과</strong><br>후기·두께·색상·배송을 질문하고 내 사이즈·코디·혜택을 확인하세요.</li><li><strong>개인 사이즈 제안</strong><br>30초 안에 사이즈표와 사이즈 리뷰를 확인하면 제안이 나타납니다. 확인하기를 누르기 전에는 결과가 열리지 않아요.</li><li><strong>Director와 같은 방송</strong><br>PD가 APP 제안을 승인하면 관련 고객의 기존 내 사이즈 버튼에 추천 표시가 나타납니다.</li><li><strong>녹화 참고 영상</strong><br>코어어센틱 가디건 영상은 현재 SJ와니 상품과 다릅니다. 확인한 화면 자막과 장면을 질문하고 해당 위치로 이동할 수 있어요. 상품 설명 샘플은 제작 대본 기반으로 따로 표시합니다.</li></ol><div class="note">실제 상품·리뷰는 2026.09.21 스냅샷입니다. 고객 프로필·혜택·배송·성과는 데모 예시입니다. 위 시연 도구와 Director에서 고객 전환·초기화·시나리오를 제어할 수 있어요.</div></div>', returnButton, 'guide'); }
+function guide(persist = true) { if(persist)patch({active_result:'guide'});sheet('GS AI LIVE 체험 안내', '<div class="sheet-body"><span class="badge mint">Prototype Simulation</span><h2>LIVE 안에서,<br>나에게 필요한 답을 찾아요.</h2><ol class="help-list"><li><strong>ASK LIVE와 빠른 결과</strong><br>후기·두께·색상·배송을 질문하고 내 사이즈·코디·혜택을 확인하세요. AI 답변과 추천은 준비된 자료·규칙을 사용하는 데모입니다.</li><li><strong>개인 사이즈 제안</strong><br>30초 안에 사이즈 관련 행동이 2건 발생하면 작은 제안이 나타납니다. 같은 행동을 다시 이용해도 포함하며, 동일 요청의 재전송은 중복 집계하지 않아요. 확인하기를 누르기 전에는 결과가 열리지 않아요.</li><li><strong>Director와 고객 행동 연동</strong><br>고객 행동과 Director는 같은 로컬 서버로 연동됩니다. PD가 APP 제안을 승인하면 관련 고객의 기존 내 사이즈 버튼에 추천 표시가 나타납니다.</li><li><strong>녹화 참고 영상</strong><br>코어어센틱 가디건 영상은 현재 SJ와니 상품과 다릅니다. 확인한 화면 자막과 장면을 질문하고 해당 위치로 이동할 수 있어요. 상품 설명 샘플은 제작 대본 기반으로 따로 표시합니다.</li></ol><div class="note">실제 상품·리뷰는 2026.09.21 스냅샷입니다. 가상 고객 김지수의 기본 상의 사이즈는 66, 초기 코디 취향은 오피스입니다. 프로필·혜택·배송과 고정 성과 카드는 데모 예시입니다. 실제 방송·주문·결제·배송 시스템과 외부 송출은 연결하지 않았습니다. 시연 도구와 Director에서 고객 전환·초기화·시나리오를 제어할 수 있어요.</div></div>', returnButton, 'guide'); }
 function route(value) {
   const r = String(value || '');
   if(r==='styling_all')openStylingAll();
@@ -488,8 +524,8 @@ async function checkoutCart(itemId) {
 function openStylingAll(emit=true) {if(emit)track('STYLING_ALL_OPEN');patch({active_result:'styling_all'});renderStylingAll();}
 function renderStylingAll() {
   const ids=[...new Set(data.looks.looks.flatMap(look=>[look.top_product_id,look.bottom_product_id,look.shoes_product_id]))];
-  const products=ids.map(id=>id===data.product.product_id?{product_id:id,product_name:data.product.display_name,image:data.product.images[4].local_path,price:data.product.price.sale_price_krw,product_url:data.product.source_url,category:'TOP'}:data.candidates.products.find(product=>product.product_id===id)).filter(Boolean);
-  sheet('전체 코디 상품',`<div class="sheet-body"><div class="sheet-kicker">${icon('hanger')}확정 코디 3개 · 중복을 제외한 실제 상품 ${products.length}개</div><p class="sheet-intro">AI 코디 이미지와 별도로 실제 상품을 확인하세요. 가격은 확인 당시 스냅샷입니다.</p><div class="styling-all-grid">${products.map(product=>`<article class="styling-all-item" data-styling-sku="${esc(product.product_id)}"><img src="${asset(product.image)}" alt="${esc(product.product_name)} 실제 상품 이미지"><div><span class="badge mint">${{TOP:'방송 상의',BOTTOM:'하의',SHOES:'신발'}[product.category]}</span><h3>${esc(product.product_name)}</h3><p>${won(product.price)} · 확인 당시 가격</p><p class="fine-print">${data.looks.looks.filter(look=>[look.top_product_id,look.bottom_product_id,look.shoes_product_id].includes(product.product_id)).map(look=>look.look_id.replace('_',' ')).join(' · ')}</p><a class="source" href="${esc(product.product_url)}" target="_blank" rel="noopener noreferrer" ${product.category==='TOP'?'':`data-product-link="${esc(product.product_id)}"`}>실제 상품 상세 보기 ↗</a></div></article>`).join('')}</div><div class="note">확인 당시 그레이 66은 일시품절입니다. 현재 재고·혜택은 각 상품에서 확인해주세요. 상의 추천 사이즈를 하의·신발에 적용하지 않습니다.</div></div>`,'<button class="btn primary full" id="styling-back">코디 이미지로 돌아가기</button>'+returnButton,'styling_all');
+  const products=ids.map(id=>id===data.product.product_id?{product_id:id,product_name:data.product.display_name,image:data.product.images[4].local_path,price:data.product.price.sale_price_krw,product_url:data.product.source_url,category:'TOP'}:confirmedStylingProduct(id)).filter(Boolean);
+  sheet('전체 코디 상품',`<div class="sheet-body"><div class="sheet-kicker">${icon('hanger')}확정 코디 3개 · 중복을 제외한 실제 상품 ${products.length}개</div><p class="sheet-intro">AI 코디 이미지와 별도로 실제 상품을 확인하세요. 가격은 확인 당시 스냅샷입니다.</p><div class="styling-all-grid">${products.map(product=>`<article class="styling-all-item" data-styling-sku="${esc(product.product_id)}"><img src="${asset(product.image)}" alt="${esc(product.product_name)} 실제 상품 이미지"><div><span class="badge mint">${{TOP:'방송 상의',BOTTOM:'하의',SHOES:'신발'}[product.category]}</span><h3>${esc(product.product_name)}</h3><p>${won(product.price)} · 확인 당시 가격</p><p class="fine-print">${data.looks.looks.filter(look=>[look.top_product_id,look.bottom_product_id,look.shoes_product_id].includes(product.product_id)).map(look=>look.look_id.replace('_',' ')).join(' · ')}</p><a class="source" href="${esc(product.product_url)}" target="_blank" rel="noopener noreferrer" ${product.category==='TOP'?'':`data-product-link="${esc(product.product_id)}"`}>상품 상세 보기 ↗</a></div></article>`).join('')}</div><div class="note">확인 당시 그레이 66은 일시품절입니다. 현재 재고·혜택은 각 상품에서 확인해주세요. 상의 추천 사이즈를 하의·신발에 적용하지 않습니다.</div></div>`,'<button class="btn primary full" id="styling-back">코디 이미지로 돌아가기</button>'+returnButton,'styling_all');
 }
 function restoreSavedView() {
   if(!joined)return;
@@ -502,8 +538,19 @@ async function ask(text) {
   text = text.trim(); if (!text || !state || state.ended) return;
   if (ui.media_mode === 'video') saveVideo(true);
   $('#ask-input').value = '';
-  const request_id = uid(), requestedRun = state.run_id, requestedCustomer = customerId;
-  try { await action('ask', {text, request_id, fault:$('#ask-fault').value || undefined}); } catch {};
+  const request_id = uid(), requestedRun = state.run_id, requestedCustomer = customerId, requestedEpoch = customerEpoch;
+  const requestedProduct = state.customers.find(customer=>customer.id===customerId)?.current_product;
+  try {
+    await action('ask', {text, request_id, fault:$('#ask-fault').value || undefined});
+    requestAnimationFrame(() => {
+      if (!joined || state?.run_id!==requestedRun || customerId!==requestedCustomer || customerEpoch!==requestedEpoch ||
+          state.customers.find(customer=>customer.id===customerId)?.current_product!==requestedProduct || $('#dialog').open || $('#share-dialog').open) return;
+      const message = (state.customer.messages || []).filter(item=>item.request_id===request_id).slice(-1)[0];
+      const article = $$('#messages [data-message-id]').find(element=>element.dataset.messageId===message?.message_id);
+      // Only an explicitly submitted question reveals its reply. Polling and rotation do not move the reader.
+      (article?.querySelector('p') || article)?.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+    });
+  } catch {};
 }
 function wireImageFallbacks() { $$('#sheet-content img').forEach(img => { img.addEventListener('error', () => { const note = document.createElement('p'); note.className = 'image-fallback'; note.textContent = img.closest('.look-image') ? 'AI 코디 이미지를 불러오지 못했어요. 아래 실제 상품 카드를 확인해주세요.' : '상품 이미지 없음 · 상품 정보와 링크를 확인해주세요.'; img.replaceWith(note);track('MEDIA_ERROR',{metadata:{kind:'image'}}); }, {once:true}); }); }
 
@@ -542,6 +589,13 @@ function restoreVideo() {
   renderVideoControls();
 }
 function videoInteraction() {videoRestoreGeneration++;restoringVideo=false;}
+function revealMediaSelection() {
+  const run=state?.run_id, customer=customerId, epoch=customerEpoch;
+  requestAnimationFrame(()=>{
+    if (!joined || state?.run_id!==run || customerId!==customer || customerEpoch!==epoch || $('#dialog').open || $('#share-dialog').open) return;
+    $('#media-stage').scrollIntoView({block:'start',inline:'nearest',behavior:'instant'});
+  });
+}
 function mediaError(event) {
   const simulated=event?.type!=='error',code=simulated?0:(video.error?.code||0);
   const info={at:new Date().toISOString(),code,name:({0:'SIMULATED_MEDIA_ERROR',1:'MEDIA_ERR_ABORTED',2:'MEDIA_ERR_NETWORK',3:'MEDIA_ERR_DECODE',4:'MEDIA_ERR_SRC_NOT_SUPPORTED'})[code],message:video.error?.message||'',source:video.currentSrc||video.src,time:video.currentTime,simulated};
@@ -561,7 +615,7 @@ $('#video-seek').oninput=e=>{videoInteraction();video.currentTime=Number(e.targe
 video.addEventListener('pointerdown',videoInteraction);
 video.addEventListener('keydown',videoInteraction);
 $('#gallery-image').onerror=()=>{ $('#image-error').hidden=false; $('#gallery-image').hidden=true;track('MEDIA_ERROR',{metadata:{kind:'image'}}); };
-$('#media-mode').onchange=e=>{videoInteraction();const mode=e.target.value; if(mode==='video' && videoFailed){videoFailed=false;video.load();} if(mode==='image')video.pause();$('#media-error').hidden=true;patch({media_mode:mode}); };
+$('#media-mode').onchange=e=>{videoInteraction();const mode=e.target.value; if(mode==='video' && videoFailed){videoFailed=false;video.load();} if(mode==='image')video.pause();$('#media-error').hidden=true;patch({media_mode:mode});revealMediaSelection(); };
 $('#gallery-prev').onclick=()=>patch({image_index:(Number(ui.image_index)-1+data.product.images.length)%data.product.images.length});
 $('#gallery-next').onclick=()=>patch({image_index:(Number(ui.image_index)+1)%data.product.images.length});
 $('#orientation-toggle').onclick=()=>patch({orientation:ui.orientation==='portrait'?'landscape':'portrait'});
@@ -648,7 +702,7 @@ async function boot() {
     $('.product-thumb').onerror=()=>{ $('.product-thumb').hidden=true;track('MEDIA_ERROR',{metadata:{kind:'image'}}); };
     applyState(await get('/api/state?customer_id='+encodeURIComponent(customerId)));
     if (!videoKnowledge) videoKnowledge = setupVideoKnowledge({data,video,getUI:()=>ui,getState:()=>state,
-      patch,track,toast,restoreVideo,onInteraction:()=>{videoFailed=false;$('#media-error').hidden=true;videoInteraction();},onAsk:ask});
+      patch,track,toast,restoreVideo,onInteraction:()=>{videoFailed=false;$('#media-error').hidden=true;videoInteraction();},onSelection:revealMediaSelection,onAsk:ask});
     restoreVideo(); initialized=true;presence(true);scheduleExposure();
     restoreSavedView();
     if(new URLSearchParams(location.search).get('mode')==='landscape')patch({orientation:'landscape'});

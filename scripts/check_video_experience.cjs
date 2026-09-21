@@ -37,9 +37,9 @@ const citationSelector = answer => `[data-message-id="${answer.message_id}"] [da
   const b=await browser.page(base+'/app/customer.html?customer=customer-B',390,844,true);
   await Promise.all([boot(a),boot(b)]);
   const domainBefore=(await state()).now;
-  await a.fill('#media-mode','video');
+  await a.fill('#video-asset',REF);
   await a.wait('document.querySelector("#live-video").readyState>=2&&!document.querySelector("#live-video").hidden','reference loads');
-  check('Catalog offers separate reference and authored sample assets',await a.evaluate(`document.querySelectorAll('#video-asset option').length===2 && gsApp.getState().ui.video_asset_id===${JSON.stringify(REF)}`));
+  check('Catalog offers separate reference and authored sample assets',await a.evaluate(`[...document.querySelectorAll('#video-asset option')].filter(option=>option.value).length===2 && gsApp.getState().ui.video_asset_id===${JSON.stringify(REF)}`));
   check('Reference keeps explicit current-product mismatch label',await a.evaluate('document.querySelector("#video-info").innerText.includes("현재 상품과 다름")'));
   await pauseAt(a,12.3);
   const summary=await ask(a,'방송 내용 요약해줘');
@@ -96,14 +96,14 @@ const citationSelector = answer => `[data-message-id="${answer.message_id}"] [da
   check('Cross-asset citation returns to original sample and paused position',await a.evaluate(`gsApp.getState().ui.video_asset_id===${JSON.stringify(SAMPLE)}`));
 
   await a.fill('#customer-select','customer-B');
-  await a.wait('gsApp.getState().state?.customer?.id==="customer-B"&&document.querySelector("#video-asset").value==="'+REF+'"','switch customer media isolation');
+  await a.wait('gsApp.getState().state?.customer?.id==="customer-B"&&document.querySelector("#video-asset").value===""&&gsApp.getState().ui.video_asset_id==="'+REF+'"','switch customer media isolation');
   check('Customer switch resets citation return state and excludes A answers',await a.evaluate('document.querySelector("#video-return").hidden&&!document.querySelector("#messages").innerText.includes("검수 A만")&&gsApp.getState().ui.media_mode==="image"'));
   await a.fill('#customer-select','customer-A');
   await a.wait('gsApp.getState().state?.customer?.id==="customer-A"&&Math.abs(document.querySelector("#live-video").duration-120)<.1&&Math.abs(document.querySelector("#live-video").currentTime-42.2)<.3','A media restored');
   check('Returning to A restores its asset and private video answers',await a.evaluate('document.querySelector("#messages").innerText.includes("검수 A만")&&document.querySelector("#live-video").paused'));
   const runBefore=(await state()).run_id;
   const reset=await action('reset');
-  await a.wait(`gsApp.getState().state.run_id===${JSON.stringify(reset.run_id)}&&document.querySelector('#video-asset').value===${JSON.stringify(REF)}`,'reset clears selected asset');
+  await a.wait(`gsApp.getState().state.run_id===${JSON.stringify(reset.run_id)}&&document.querySelector('#video-asset').value===''&&gsApp.getState().ui.video_asset_id===${JSON.stringify(REF)}`,'reset clears selected asset');
   check('Reset clears video questions previous-position memory and playback state',reset.run_id!==runBefore&&await a.evaluate('gsApp.getState().ui.media_mode==="image"&&document.querySelector("#video-return").hidden&&!document.querySelector("#messages").innerText.includes("검수 A만")&&document.querySelector("#live-video").currentTime===0'));
   await a.fill('#media-mode','video');await a.wait('document.querySelector("#live-video").readyState>=2','reference reload');
   await a.evaluate('document.querySelector(".demo-toolbar details").open=true');await a.click('#simulate-media-error');

@@ -1,0 +1,12 @@
+PASS Archived direct result remains closed after customer switch
+PASS Customer switch does not emit duplicate result view
+PASS Delayed B response cannot replace active C conversation
+PASS Prepared review action reaches reviews
+PASS Unsupported/video question offers product inquiry
+PASS Product change drops old product pending reply
+PASS Canceled request does not turn into completed answer
+PASS Adapter error renders same-intent delivery fallback
+PASS Returning to product does not restore old highlight
+PASS Post-approval dismissal preserves manual size
+PASS Broadcast end removes highlight and preserves manual browsing
+PASS No browser exceptions

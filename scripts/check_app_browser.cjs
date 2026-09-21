@@ -65,17 +65,17 @@ async function highlight(page,expected){await page.wait(`document.querySelector(
 
   await a.click('#styling-button');
   for(const [id,productIds] of [['LOOK_01',['1103554292','1092943486']],['LOOK_02',['1103680106','1110407317']],['LOOK_03',['1052764372','1085417942']]]){
-    await a.click(`[data-look="${id}"]`);
+    await a.click(`.look-tabs [data-look="${id}"]`);
     await a.wait('!!document.querySelector(".look-image img")?.naturalWidth','lookbook loaded');
     await a.wait('document.querySelectorAll(".look-items img").length===3&&[...document.querySelectorAll(".look-items img")].every(i=>i.complete&&i.naturalWidth>0)','all selected Look product images loaded');
-    const links=await a.evaluate('[...document.querySelectorAll("[data-product-link]")].map(a=>a.href)');
+    const links=await a.evaluate('[...document.querySelectorAll(".look-items [data-product-link]")].map(a=>a.href)');
     assert('S01 actual linked products '+id,productIds.every(id=>links.some(link=>link.includes(id))));
     assert('S01 loaded real product cards '+id,await a.evaluate('[...document.querySelectorAll(".look-items img")].every(i=>i.complete&&i.naturalWidth>0)'));
   }
   await screenshot(a,'customer-styling');
   await a.evaluate('document.querySelector(".look-image img").src="/assets/lookbooks/missing-test.png"');
   await a.wait('document.querySelector("#sheet-content").innerText.includes("불러오지 못했어요")','image fallback');
-  assert('S02 image failure retains real cards',await a.evaluate('document.querySelectorAll("[data-product-link]").length===2'));
+  assert('S02 image failure retains actual product cards and thumbnails',await a.evaluate('document.querySelectorAll(".look-items [data-product-link]").length===2&&document.querySelectorAll(".look-products [data-styling-product]").length===3&&[...document.querySelectorAll(".look-products img")].every(i=>i.complete&&i.naturalWidth>0)'));
   await closeSheet(a);
   await a.click('[data-size="77"]');await a.click('#gallery-next');
   const preserved=await a.evaluate('gsApp.getState()');

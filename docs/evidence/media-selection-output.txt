@@ -1,0 +1,19 @@
+PASS Image mode shows a choice prompt while preserving reference identity
+PASS Reference and sample remain the two playable catalog choices
+PASS Image-mode polling leaves select values and option DOM untouched
+PASS Choosing the initial reference explicitly enters video mode
+PASS Explicit selection reveals the video inside the mobile scroll viewport
+PASS Paused-video polling leaves select values and option DOM untouched
+PASS Reference MP4 plays with advancing time and decoded portrait frames
+PASS Switching to the sample changes the native source and label
+PASS Image mode hides and pauses video while retaining the remembered sample
+PASS Reference remains selectable after changing sample back to images
+PASS Choosing the same remembered reference after image mode starts video again
+PASS Broadcast-screen mode selector still restores the remembered video
+PASS Media error returns to images and the video-choice prompt
+PASS The same reference can be reselected after the error fallback
+PASS Retried reference actually resumes playback
+PASS A real missing MP4 returns to images and the choice prompt
+PASS Explicit same-reference retry reloads the valid source after a real MP4 failure
+PASS The reloaded reference decodes and plays after real-file error recovery
+PASS No uncaught browser exceptions in media selection workflows

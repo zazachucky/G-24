@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "started_at": "2026-09-21T10:22:39.683Z",
-  "base": "http://127.0.0.1:8793",
+  "started_at": "2026-09-21T10:55:12.519Z",
+  "base": "http://127.0.0.1:8807",
   "scope": "Real Chrome Customer A/B/C interactions and all four Director views; isolated run; fixed Simulation remains separate from actual counts",
   "setup": "Reset and virtual-clock actions are explicit test setup. Behavioral events are emitted by actual Customer UI interactions.",
   "checks": [
@@ -62,15 +62,15 @@
       "status": "PASS",
       "details": {
         "before": {
-          "events": 14,
+          "events": 13,
           "detected": 1,
-          "ui_events": 14,
+          "ui_events": 13,
           "fixture_events": 0
         },
         "after": {
-          "events": 14,
+          "events": 13,
           "detected": 1,
-          "ui_events": 14,
+          "ui_events": 13,
           "fixture_events": 0
         }
       }
@@ -243,10 +243,10 @@
     "dashboard-slots-analytics.png"
   ],
   "reconnect_snapshot": {
-    "sha256": "ba3acf50cbe7c29fe00a752e0eb1fcc6fc509306ad2b8d9905d8f9d28cd2739d",
+    "sha256": "e36039b9f6ba0b4f79e26e825834a9b56b7f83162fa3823eac10b008d81fc819",
     "source": "Actual HTTP 200 response captured immediately before outage",
-    "monitor_as_of": 3.767427916999992,
+    "monitor_as_of": 3.6823227500000044,
     "policy": "Await original fetch, propagate network/HTTP failures, replay unchanged body only after successful HTTP"
   },
-  "completed_at": "2026-09-21T10:23:05.580Z"
+  "completed_at": "2026-09-21T10:55:38.911Z"
 }

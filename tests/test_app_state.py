@@ -97,8 +97,10 @@ class AppStateTests(unittest.TestCase):
         self.event("SIZE_TAB_OPEN", event_id="tab")
         duplicate = self.event("SIZE_TAB_OPEN", event_id="tab")
         self.assertEqual(duplicate["event_outcome"], "DUPLICATE")
-        self.event("SIZE_TAB_OPEN", event_id="tab-2")
         self.assertEqual(self.service.state()["counts"]["detected"], 0)
+        second = self.event("SIZE_TAB_OPEN", event_id="tab-2")
+        self.assertEqual(second["event_outcome"], "NEED_DETECTED")
+        self.assertEqual(self.service.state()["counts"]["detected"], 1)
         with self.assertRaises(APIError):
             self.event("REVIEW_SIZE_VIEW", event_id="tab")
         self.event("REVIEW_SIZE_VIEW", event_id="review")

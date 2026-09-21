@@ -39,17 +39,28 @@ class NeedDirectorTests(unittest.TestCase):
         self.assertEqual(result["source"], "Prototype Simulation")
         self.assertEqual([m["change_percent"] for m in result["metrics"]], [-58, 207, 16])
 
-    def test_same_signal_and_one_customer_cannot_create_spike(self):
+    def test_repeated_actions_detect_once_and_one_customer_cannot_create_spike(self):
         engine = NeedDirector()
         for i in range(100):
             engine.ingest(event("one", "SIZE_TAB_OPEN", f"tab-{i}"), 70 + i / 100)
-        self.assertFalse(engine.suggestion_visible(LIVE, PRODUCT, "one"))
-        self.assertEqual(engine.ingest(event("one", "REVIEW_SIZE_VIEW", "review"), 72), "NEED_DETECTED")
+        self.assertTrue(engine.suggestion_visible(LIVE, PRODUCT, "one"))
+        first_detection = engine.detected[(LIVE, PRODUCT, "one")]
+        self.assertEqual(engine.ingest(event("one", "REVIEW_SIZE_VIEW", "review"), 72), "ALREADY_DETECTED")
         for i in range(100):
             engine.ingest(event("one", "REVIEW_SIZE_VIEW", f"review-{i}"), 73 + i / 100)
         evidence = engine.evaluate_spike(LIVE, PRODUCT, 120)
         self.assertEqual(evidence["current_customers"], 1)
         self.assertFalse(evidence["spike"])
+        self.assertEqual(engine.detected[(LIVE, PRODUCT, "one")], first_detection)
+
+    def test_same_kind_second_real_action_counts_but_retry_does_not(self):
+        engine = NeedDirector()
+        first = event("A", "SIZE_TAB_OPEN", "visit-1")
+        self.assertEqual(engine.ingest(first, 10), "SIGNAL_RECORDED")
+        self.assertEqual(engine.ingest(first, 11), "DUPLICATE")
+        self.assertFalse(engine.suggestion_visible(LIVE, PRODUCT, "A"))
+        self.assertEqual(engine.ingest(event("A", "SIZE_TAB_OPEN", "visit-2"), 12), "NEED_DETECTED")
+        self.assertTrue(engine.suggestion_visible(LIVE, PRODUCT, "A"))
 
     def test_signals_must_share_customer_broadcast_and_product(self):
         engine = NeedDirector()
@@ -60,10 +71,12 @@ class NeedDirectorTests(unittest.TestCase):
         self.assertEqual(engine.detected, {})
 
     def test_thirty_second_boundary_is_inclusive(self):
-        for second_at, expected in [(40, "NEED_DETECTED"), (40.001, "SIGNAL_RECORDED")]:
-            engine = NeedDirector()
-            engine.ingest(event("A", "SIZE_TAB_OPEN", "a"), 10)
-            self.assertEqual(engine.ingest(event("A", "REVIEW_SIZE_VIEW", "b"), second_at), expected)
+        for kind in ["SIZE_TAB_OPEN", "REVIEW_SIZE_VIEW"]:
+            for second_at, expected in [(40, "NEED_DETECTED"), (40.001, "SIGNAL_RECORDED")]:
+                with self.subTest(kind=kind, second_at=second_at):
+                    engine = NeedDirector()
+                    engine.ingest(event("A", "SIZE_TAB_OPEN", "a"), 10)
+                    self.assertEqual(engine.ingest(event("A", kind, "b"), second_at), expected)
 
     def test_size_question_signal_requires_explicit_size_intent(self):
         engine = NeedDirector()

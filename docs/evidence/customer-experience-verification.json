@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "started_at": "2026-09-21T10:20:55.235Z",
-  "base": "http://127.0.0.1:8792",
+  "started_at": "2026-09-21T11:16:26.547Z",
+  "base": "http://127.0.0.1:8814",
   "scope": "Actual Chrome Customer actions for share, cart, per-tab leave, public comments, review cards, size, benefits and styling; existing product facts retained",
   "checks": [
     {
@@ -145,12 +145,38 @@
       "status": "PASS"
     },
     {
-      "name": "STYLE01 thumbnail selects actual second look and matching products",
+      "name": "STYLE01 preference tab selects the large AI look and matching actual products",
       "status": "PASS"
+    },
+    {
+      "name": "STYLE05 actual product thumbnail records one SKU click without changing the selected AI look",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE06 all three current-look product links use the same detail label",
+      "status": "PASS",
+      "details": [
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗"
+      ]
     },
     {
       "name": "STYLE02 all products contains exactly seven unique confirmed SKUs",
       "status": "PASS"
+    },
+    {
+      "name": "STYLE07 all seven catalog product links use the same detail label",
+      "status": "PASS",
+      "details": [
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗",
+        "상품 상세 보기 ↗"
+      ]
     },
     {
       "name": "STYLE03 actual catalog product click reaches Director attribution",
@@ -166,6 +192,144 @@
     },
     {
       "name": "UI02 seven-product catalog fits mobile width",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE UI 320x740 all-products label and arrow share one horizontal row",
+      "status": "PASS",
+      "details": {
+        "direction": "row",
+        "labelCenter": 649.34375,
+        "arrowCenter": 650,
+        "arrowAfterLabel": true,
+        "height": 44,
+        "uncovered": true
+      }
+    },
+    {
+      "name": "STYLE UI 320x740 seven-product catalog has no horizontal overflow",
+      "status": "PASS",
+      "details": {
+        "viewport": [
+          320,
+          740
+        ],
+        "documentWidth": 320,
+        "dialogWidth": 318,
+        "contentWidth": 318,
+        "overflowingCards": [],
+        "count": 7
+      }
+    },
+    {
+      "name": "STYLE UI 320x740 last product detail link is tappable above the footer",
+      "status": "PASS",
+      "details": {
+        "top": 430.90625,
+        "bottom": 474.90625,
+        "left": 117,
+        "right": 290,
+        "height": 44,
+        "headerBottom": 129.203125,
+        "footerTop": 615,
+        "uncovered": true,
+        "sku": "1085417942"
+      }
+    },
+    {
+      "name": "STYLE UI 320x740 return preserves the selected daily look",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE UI 390x844 all-products label and arrow share one horizontal row",
+      "status": "PASS",
+      "details": {
+        "direction": "row",
+        "labelCenter": 753.34375,
+        "arrowCenter": 754,
+        "arrowAfterLabel": true,
+        "height": 44,
+        "uncovered": true
+      }
+    },
+    {
+      "name": "STYLE UI 390x844 seven-product catalog has no horizontal overflow",
+      "status": "PASS",
+      "details": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "dialogWidth": 388,
+        "contentWidth": 388,
+        "overflowingCards": [],
+        "count": 7
+      }
+    },
+    {
+      "name": "STYLE UI 390x844 last product detail link is tappable above the footer",
+      "status": "PASS",
+      "details": {
+        "top": 554.640625,
+        "bottom": 598.640625,
+        "left": 119,
+        "right": 358,
+        "height": 44,
+        "headerBottom": 137.53125,
+        "footerTop": 719,
+        "uncovered": true,
+        "sku": "1085417942"
+      }
+    },
+    {
+      "name": "STYLE UI 390x844 return preserves the selected daily look",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE UI 844x390 all-products label and arrow share one horizontal row",
+      "status": "PASS",
+      "details": {
+        "direction": "row",
+        "labelCenter": 288.59375,
+        "arrowCenter": 289.25,
+        "arrowAfterLabel": true,
+        "height": 44,
+        "uncovered": true
+      }
+    },
+    {
+      "name": "STYLE UI 844x390 seven-product catalog has no horizontal overflow",
+      "status": "PASS",
+      "details": {
+        "viewport": [
+          844,
+          390
+        ],
+        "documentWidth": 844,
+        "dialogWidth": 678,
+        "contentWidth": 678,
+        "overflowingCards": [],
+        "count": 7
+      }
+    },
+    {
+      "name": "STYLE UI 844x390 last product detail link is tappable above the footer",
+      "status": "PASS",
+      "details": {
+        "top": 172.6875,
+        "bottom": 216.6875,
+        "left": 226,
+        "right": 728,
+        "height": 44,
+        "headerBottom": 71.75,
+        "footerTop": 254.25,
+        "uncovered": true,
+        "sku": "1085417942"
+      }
+    },
+    {
+      "name": "STYLE UI 844x390 return preserves the selected daily look",
       "status": "PASS"
     },
     {
@@ -209,7 +373,16 @@
     "customer-experience-size-mobile.png",
     "customer-experience-benefit-mobile.png",
     "customer-experience-styling-all-mobile.png",
+    "customer-experience-styling-footer-320x740.png",
+    "customer-experience-styling-all-320x740.png",
+    "customer-experience-styling-all-last-320x740.png",
+    "customer-experience-styling-footer-390x844.png",
+    "customer-experience-styling-all-390x844.png",
+    "customer-experience-styling-all-last-390x844.png",
+    "customer-experience-styling-footer-844x390.png",
+    "customer-experience-styling-all-844x390.png",
+    "customer-experience-styling-all-last-844x390.png",
     "customer-experience-live-mobile.png"
   ],
-  "completed_at": "2026-09-21T10:21:12.958Z"
+  "completed_at": "2026-09-21T11:16:47.236Z"
 }

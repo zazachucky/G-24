@@ -16,6 +16,40 @@ async function ask(page,text){await page.fill('#ask-input',text);await page.clic
 async function boot(page){await page.wait('!!window.gsApp?.getState().state');}
 async function shot(page,name){await page.wait('!document.querySelector("#toast").classList.contains("show")');await delay(300);const file='customer-experience-'+name+'.png';await page.screenshot(path.join(output,file));report.screenshots.push(file);}
 async function switchCustomer(page,id){await page.fill('#customer-select',id);await page.wait(`gsApp.getState().state?.customer.id===${JSON.stringify(id)}`);await delay(250);}
+async function stylingLayout(page,width,height){
+ await close(page);await page.viewport(width,height,true);
+ const landscape=width>height;
+ if(await page.evaluate('document.body.classList.contains("landscape")')!==landscape){await page.click('#orientation-toggle');await page.wait(`document.body.classList.contains('landscape')===${landscape}`);}
+ await page.click('#styling-button');await page.wait('!!document.querySelector("#styling-all-button")');
+ const cta=await page.evaluate(`(() => {
+  const button=document.querySelector('#styling-all-button');button.scrollIntoView({block:'center',behavior:'instant'});
+  const walker=document.createTreeWalker(button,NodeFilter.SHOW_TEXT);let node;while(node=walker.nextNode()){if(node.textContent.trim())break;}
+  const range=document.createRange();range.selectNodeContents(node);const label=range.getBoundingClientRect(),arrow=button.querySelector('svg').getBoundingClientRect(),rect=button.getBoundingClientRect();
+  const hit=document.elementFromPoint(rect.x+rect.width/2,rect.y+rect.height/2);
+  return {direction:getComputedStyle(button).flexDirection,labelCenter:label.y+label.height/2,arrowCenter:arrow.y+arrow.height/2,arrowAfterLabel:arrow.left>=label.right-1,height:rect.height,uncovered:hit===button||button.contains(hit)};
+ })()`);
+ check(`STYLE UI ${width}x${height} all-products label and arrow share one horizontal row`,cta.direction==='row'&&Math.abs(cta.labelCenter-cta.arrowCenter)<=4&&cta.arrowAfterLabel&&cta.uncovered,cta);
+ await shot(page,`styling-footer-${width}x${height}`);
+ await page.click('#styling-all-button');await page.wait('document.querySelector("#sheet-title").textContent==="전체 코디 상품"');
+ await page.wait('[...document.querySelectorAll(".styling-all-item>img")].every(image=>image.complete&&image.naturalWidth>0)');
+ const catalog=await page.evaluate(`(() => {
+  const dialog=document.querySelector('#dialog'),content=document.querySelector('#sheet-content'),cards=[...document.querySelectorAll('.styling-all-item')];
+  return {viewport:[innerWidth,innerHeight],documentWidth:document.documentElement.scrollWidth,dialogWidth:dialog.clientWidth,contentWidth:content.scrollWidth,overflowingCards:cards.filter(card=>card.scrollWidth>card.clientWidth+1).map(card=>card.dataset.stylingSku),count:cards.length};
+ })()`);
+ check(`STYLE UI ${width}x${height} seven-product catalog has no horizontal overflow`,catalog.count===7&&catalog.documentWidth<=width+1&&catalog.contentWidth<=catalog.dialogWidth+1&&!catalog.overflowingCards.length,catalog);
+ await shot(page,`styling-all-${width}x${height}`);
+ const lastLink=await page.evaluate(`(() => {
+  const link=[...document.querySelectorAll('.styling-all-item a')].at(-1);link.scrollIntoView({block:'center',behavior:'instant'});
+  const rect=link.getBoundingClientRect(),footer=document.querySelector('#sheet-footer').getBoundingClientRect(),header=document.querySelector('.sheet-header').getBoundingClientRect();
+  const hits=[.2,.5,.8].every(fraction=>{const hit=document.elementFromPoint(rect.x+rect.width*fraction,rect.y+rect.height/2);return hit===link||link.contains(hit);});
+  return {top:rect.top,bottom:rect.bottom,left:rect.left,right:rect.right,height:rect.height,headerBottom:header.bottom,footerTop:footer.top,uncovered:hits,sku:link.closest('[data-styling-sku]').dataset.stylingSku};
+ })()`);
+ check(`STYLE UI ${width}x${height} last product detail link is tappable above the footer`,lastLink.uncovered&&lastLink.height>=44&&lastLink.top>=lastLink.headerBottom-1&&lastLink.bottom<=lastLink.footerTop+1&&lastLink.left>=0&&lastLink.right<=width+1,lastLink);
+ await shot(page,`styling-all-last-${width}x${height}`);
+ await page.click('#styling-back');await page.wait('document.querySelector("#sheet-title").textContent==="코디 추천"');
+ check(`STYLE UI ${width}x${height} return preserves the selected daily look`,await page.evaluate('gsApp.getState().ui.look==="LOOK_03"&&document.querySelector(".look-tabs .active").dataset.look==="LOOK_03"&&document.querySelector(".look-image img").src.includes("look-03.png")'));
+ await close(page);
+}
 
 (async()=>{
  if(new URL(base).port==='8765')throw new Error('Use an isolated server. This suite does not reset port 8765.');
@@ -132,13 +166,23 @@ async function switchCustomer(page,id){await page.fill('#customer-select',id);aw
  check('BENEFIT01 extra conditions preserve existing benefit arithmetic',await a.evaluate('document.querySelectorAll("[data-benefit-condition]").length===3&&document.querySelector("#sheet-content").innerText.includes("45,515")&&document.querySelector("#sheet-content").innerText.includes("4,385")&&document.querySelector("[data-benefit-condition=installments]").innerText.includes("확인되지 않았습니다")'));
  await a.click('[data-benefit-condition="delivery"] [data-route]');await a.wait('document.querySelector("#sheet-content").innerText.includes("배송 시뮬레이션")');
  check('BENEFIT02 delivery condition opens the prepared delivery explanation',await a.evaluate('document.querySelector("#sheet-content").innerText.includes("2~3영업일")'));await close(a);
- await a.click('#styling-button');await a.click('.look-thumbnails [data-look="LOOK_02"]');
- await a.wait(`document.querySelector('.look-thumbnails [data-look="LOOK_02"]').getAttribute('aria-pressed')==='true'`);
- check('STYLE01 thumbnail selects actual second look and matching products',await a.evaluate('document.querySelector(".look-image img").src.includes("look-02.png")&&[...document.querySelectorAll(".look-items [data-product-link]")].map(e=>e.dataset.productLink).join(",")==="1103680106,1110407317"'));
- await a.click('.look-thumbnails [data-look="LOOK_03"]');await a.wait('document.querySelector(".look-image img").src.includes("look-03.png")');
+ await a.click('#styling-button');await a.click('.look-tabs [data-look="LOOK_02"]');
+ await a.wait(`document.querySelector('.look-tabs [data-look="LOOK_02"]').getAttribute('aria-pressed')==='true'`);
+ check('STYLE01 preference tab selects the large AI look and matching actual products',await a.evaluate('document.querySelector(".look-image img").src.includes("look-02.png")&&[...document.querySelectorAll(".look-items [data-product-link]")].map(e=>e.dataset.productLink).join(",")==="1103680106,1110407317"&&[...document.querySelectorAll(".look-products [data-styling-product]")].map(e=>e.dataset.stylingProduct).join(",")==="1084192893,1103680106,1110407317"&&!document.querySelector(".look-products [data-look]")'));
+ await a.evaluate('document.querySelectorAll(".look-products a").forEach(link=>link.addEventListener("click",event=>event.preventDefault()))');
+ const railSku='1110407317',railBefore=(await state()).integration.linked_products.find(row=>row.product_id===railSku)?.count||0;
+ await a.click('.look-products [data-styling-product="'+railSku+'"]');
+ await until(s=>s.integration.linked_products.some(row=>row.product_id===railSku&&row.count===railBefore+1),'actual shoe thumbnail attributed once');
+ await delay(250);
+ check('STYLE05 actual product thumbnail records one SKU click without changing the selected AI look',(await state()).integration.linked_products.find(row=>row.product_id===railSku).count===railBefore+1&&await a.evaluate('gsApp.getState().ui.look==="LOOK_02"&&document.querySelector(".look-tabs .active").dataset.look==="LOOK_02"&&document.querySelector(".look-image img").src.includes("look-02.png")'));
+ await a.click('.look-tabs [data-look="LOOK_03"]');await a.wait('document.querySelector(".look-image img").src.includes("look-03.png")');
+ const stylingLabels=await a.evaluate('[...document.querySelectorAll(".look-items a")].map(link=>link.textContent.trim())');
+ check('STYLE06 all three current-look product links use the same detail label',stylingLabels.length===3&&stylingLabels.every(label=>label==='상품 상세 보기 ↗'),stylingLabels);
  await a.click('#styling-all-button');await a.wait('document.querySelector("#sheet-title").textContent==="전체 코디 상품"');
  const skus=await a.evaluate('[...document.querySelectorAll("[data-styling-sku]")].map(e=>e.dataset.stylingSku).sort()');
  check('STYLE02 all products contains exactly seven unique confirmed SKUs',JSON.stringify(skus)===JSON.stringify(['1084192893','1103554292','1092943486','1103680106','1110407317','1052764372','1085417942'].sort()));
+ const catalogLabels=await a.evaluate('[...document.querySelectorAll(".styling-all-item a")].map(link=>link.textContent.trim())');
+ check('STYLE07 all seven catalog product links use the same detail label',catalogLabels.length===7&&catalogLabels.every(label=>label==='상품 상세 보기 ↗'),catalogLabels);
  await a.evaluate('document.querySelectorAll("[data-product-link]").forEach(link=>link.addEventListener("click",event=>event.preventDefault()))');
  await a.click('.styling-all-grid [data-product-link]');await until(s=>s.integration.linked_products.some(row=>row.product_id==='1103554292'&&row.count===1),'catalog link click attributed to real SKU');
  check('STYLE03 actual catalog product click reaches Director attribution',true);
@@ -152,6 +196,8 @@ async function switchCustomer(page,id){await page.fill('#customer-select',id);aw
  await a.click('#styling-button');await a.click('#styling-all-button');
  check('UI02 seven-product catalog fits mobile width',await a.evaluate('document.querySelector("#sheet-content").scrollWidth<=document.querySelector("#dialog").clientWidth&&document.documentElement.scrollWidth<=innerWidth'));
  await shot(a,'styling-all-mobile');await close(a);
+ for(const [width,height] of [[320,740],[390,844],[844,390]])await stylingLayout(a,width,height);
+ await a.viewport(390,844,true);if(await a.evaluate('document.body.classList.contains("landscape")')){await a.click('#orientation-toggle');await a.wait('!document.body.classList.contains("landscape")');}
  await a.evaluate('window.scrollTo({top:0,behavior:"instant"})');await shot(a,'live-mobile');
  await a.fill('#media-mode','video');await a.wait('document.querySelector("#live-video").readyState>=2');await a.click('#video-play');await a.wait('document.querySelector("#live-video").currentTime>.2');
  await a.fill('#video-seek','8');await a.click('#video-play');const videoBefore=await a.evaluate('gsApp.getVideo()');
