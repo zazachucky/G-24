@@ -12,6 +12,7 @@ python3 app/server.py
 - [첨부 화면 기준 기능 보완](docs/experience-extension.md) / [요구사항별 구현 검토](docs/experience-completion-review.md)
 - [Director 구좌별 데이터 원천·연동 점검](docs/director-data-audit.md)
 - [구현 구조·기술 결정](docs/app-architecture.md)
+- [Vercel 배포·공유 저장소 연결](docs/vercel-deployment.md)
 - [고객 · Director 연동 항목과 집계 기준](docs/cross-screen-contract.md)
 - [구현 Goal 명세](docs/GS_AI_LIVE_Goal_Prompt.md)
 

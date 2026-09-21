@@ -37,6 +37,10 @@ class LiveServer(ThreadingHTTPServer):
 class LiveHandler(BaseHTTPRequestHandler):
     server_version = "GS-AI-LIVE/1.0"
 
+    @property
+    def application_state(self):
+        return self.server.state
+
     def _headers(self, status, content_type, length, extra=None):
         self.send_response(status)
         self.send_header("Content-Type", content_type)
@@ -69,13 +73,13 @@ class LiveHandler(BaseHTTPRequestHandler):
             if parsed.path == "/":
                 self._headers(302, "text/plain; charset=utf-8", 0, {"Location": "/app/customer.html"})
             elif parsed.path == "/api/bootstrap":
-                self._json(200, self.server.state.bootstrap(), head)
+                self._json(200, self.application_state.bootstrap(), head)
             elif parsed.path == "/api/state":
                 query = parse_qs(parsed.query, keep_blank_values=True)
                 if set(query) - {"customer_id"} or any(len(values) != 1 for values in query.values()):
                     raise APIError("지원하지 않는 쿼리입니다.")
                 customer = query.get("customer_id", [None])[0]
-                self._json(200, self.server.state.state(customer), head)
+                self._json(200, self.application_state.state(customer), head)
             elif parsed.path.startswith("/api/"):
                 self._error(404, "API를 찾을 수 없습니다.", head)
             else:
@@ -94,8 +98,10 @@ class LiveHandler(BaseHTTPRequestHandler):
             origin = self.headers.get("Origin")
             if origin:
                 parsed_origin = urlsplit(origin)
-                if parsed_origin.scheme != "http" or parsed_origin.netloc != self.headers.get("Host"):
-                    self._error(403, "같은 로컬 앱에서 요청해주세요.")
+                if (parsed_origin.scheme not in {"http", "https"}
+                        or parsed_origin.netloc != self.headers.get("Host")
+                        or parsed_origin.path or parsed_origin.query or parsed_origin.fragment):
+                    self._error(403, "같은 앱에서 요청해주세요.")
                     return
             if self.headers.get_content_type() != "application/json":
                 self._error(415, "application/json 요청이 필요합니다.")
@@ -112,7 +118,7 @@ class LiveHandler(BaseHTTPRequestHandler):
                                   parse_constant=lambda value: (_ for _ in ()).throw(ValueError(value)))
             except (UnicodeDecodeError, ValueError, RecursionError):
                 raise APIError("올바른 JSON 요청이 필요합니다.")
-            self._json(200, self.server.state.action(data))
+            self._json(200, self.application_state.action(data))
         except APIError as exc:
             self._error(exc.status, str(exc))
         except (BrokenPipeError, ConnectionResetError):
@@ -129,7 +135,7 @@ class LiveHandler(BaseHTTPRequestHandler):
                 or relative.suffix.lower() not in allowed_extensions or "\x00" in decoded):
             self._error(404, "파일을 찾을 수 없습니다.", head)
             return
-        root = self.server.state.root.resolve()
+        root = self.application_state.root.resolve()
         path = (root / relative).resolve()
         if not path.is_relative_to(root / relative.parts[0]) or not path.is_file():
             self._error(404, "파일을 찾을 수 없습니다.", head)
