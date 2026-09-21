@@ -7,7 +7,7 @@
   "functions": {
     "api/*.py": {
       "maxDuration": 30,
-      "excludeFiles": "{public/**,tests/**,scripts/**,tools-local/**,docs/**,aidlc-docs/**,requirements/**,deliverables/**,preview/**,assets/lookbooks/**,assets/products/**,assets/video/full-body/**,assets/video/home-shopping/**,assets/video/reference-review/**,assets/video/test-live/**,assets/video/sample-live/**,assets/video/reference/*.mp4,assets/video/reference/*.wav,assets/video/reference/*.mp3,assets/video/reference/transcript-frames/**}"
+      "excludeFiles": "{public/**,tests/**,scripts/**,tools-local/**,docs/**,aidlc-docs/**,requirements/**,deliverables/**,preview/**,**/*.{mp4,mp3,wav,aiff,png,jpg,jpeg,webp,mat}}"
     }
   },
   "redirects": [
