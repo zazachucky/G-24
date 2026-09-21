@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-21T10:20:55.235Z",
+  "base": "http://127.0.0.1:8792",
+  "scope": "Actual Chrome Customer actions for share, cart, per-tab leave, public comments, review cards, size, benefits and styling; existing product facts retained",
+  "checks": [
+    {
+      "name": "SHARE01 rejected clipboard permission provides a selectable public link",
+      "status": "PASS"
+    },
+    {
+      "name": "SHARE02 failed copy does not claim a successful share event",
+      "status": "PASS"
+    },
+    {
+      "name": "SHARE03 successful copy writes only the actual product URL",
+      "status": "PASS"
+    },
+    {
+      "name": "SHARE04 keyboard can close the share dialog",
+      "status": "PASS"
+    },
+    {
+      "name": "LIVE01 exit removes only this tab presence without ending the broadcast",
+      "status": "PASS"
+    },
+    {
+      "name": "LIVE02 exited state survives reload in the same tab",
+      "status": "PASS"
+    },
+    {
+      "name": "LIVE03 another virtual customer does not inherit A departure",
+      "status": "PASS"
+    },
+    {
+      "name": "LIVE04 returning to A restores this tab departure",
+      "status": "PASS"
+    },
+    {
+      "name": "LIVE05 rejoin retains original run and avoids duplicate customer entry",
+      "status": "PASS"
+    },
+    {
+      "name": "ASK01 thickness answer renders original 63/35/2 bars inside the conversation",
+      "status": "PASS"
+    },
+    {
+      "name": "ASK02 full review action opens actual review data",
+      "status": "PASS"
+    },
+    {
+      "name": "ASK03 inline color card preserves 99 percent total",
+      "status": "PASS"
+    },
+    {
+      "name": "ASK04 private question remains absent from public API and other customer",
+      "status": "PASS"
+    },
+    {
+      "name": "CHAT01 explicit public comment reaches another customer and Director",
+      "status": "PASS"
+    },
+    {
+      "name": "CHAT02 public markup is escaped and private ASK is never overlaid",
+      "status": "PASS"
+    },
+    {
+      "name": "CHAT03 uncertain-response retry retains one public comment",
+      "status": "PASS"
+    },
+    {
+      "name": "CART01 sold-out gray 66 cannot be added",
+      "status": "PASS"
+    },
+    {
+      "name": "CART02 duplicate option adds quantity to one cart line",
+      "status": "PASS"
+    },
+    {
+      "name": "CART03 increase updates actual quantity and merchandise subtotal",
+      "status": "PASS"
+    },
+    {
+      "name": "CART04 decrease updates actual quantity",
+      "status": "PASS"
+    },
+    {
+      "name": "CART05 other customer and public snapshot do not receive A cart",
+      "status": "PASS"
+    },
+    {
+      "name": "CART06 refresh restores cart without duplicating open or add",
+      "status": "PASS"
+    },
+    {
+      "name": "CART07 changing customer clears the previous cart content",
+      "status": "PASS"
+    },
+    {
+      "name": "CART08 checkout keeps selected options, two items and prepared total",
+      "status": "PASS"
+    },
+    {
+      "name": "CART09 checkout records one purchase entry",
+      "status": "PASS"
+    },
+    {
+      "name": "CART10 demo completion removes its cart line and creates no real order",
+      "status": "PASS"
+    },
+    {
+      "name": "CART11 explicit deletion updates cart and badge",
+      "status": "PASS"
+    },
+    {
+      "name": "CART12 uncertain-response retry does not add a duplicate quantity",
+      "status": "PASS"
+    },
+    {
+      "name": "CART13 maximum quantity enforces 10 and exact 499000 merchandise total",
+      "status": "PASS"
+    },
+    {
+      "name": "CART14 concurrent same-customer tab retains newly added quantity",
+      "status": "PASS"
+    },
+    {
+      "name": "SIZE01 result-level selection reaches common options and Director",
+      "status": "PASS"
+    },
+    {
+      "name": "SIZE02 profile and review evidence avoid invented body cohorts or individual reviews",
+      "status": "PASS"
+    },
+    {
+      "name": "SIZE03 chosen 88 reaches purchase without resetting to recommended 66",
+      "status": "PASS"
+    },
+    {
+      "name": "BENEFIT01 extra conditions preserve existing benefit arithmetic",
+      "status": "PASS"
+    },
+    {
+      "name": "BENEFIT02 delivery condition opens the prepared delivery explanation",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE01 thumbnail selects actual second look and matching products",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE02 all products contains exactly seven unique confirmed SKUs",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE03 actual catalog product click reaches Director attribution",
+      "status": "PASS"
+    },
+    {
+      "name": "STYLE04 returning to look images retains selected look 03",
+      "status": "PASS"
+    },
+    {
+      "name": "UI01 new size result fits 390px and keyboard closes it",
+      "status": "PASS"
+    },
+    {
+      "name": "UI02 seven-product catalog fits mobile width",
+      "status": "PASS"
+    },
+    {
+      "name": "MEDIA01 new cart and existing orientation preserve video and frozen domain time",
+      "status": "PASS"
+    },
+    {
+      "name": "RESET01 reset clears carts public comments and old private messages",
+      "status": "PASS"
+    },
+    {
+      "name": "RESET02 customer public overlays and cart badge clear after reset",
+      "status": "PASS"
+    },
+    {
+      "name": "CHAT04 count remains total after recent 100 comments roll over",
+      "status": "PASS"
+    },
+    {
+      "name": "PERSONAL01 actual targeted button exposure is measured once",
+      "status": "PASS"
+    },
+    {
+      "name": "PERSONAL02 refresh does not duplicate approval exposure",
+      "status": "PASS"
+    },
+    {
+      "name": "PERSONAL03 unrelated customer receives neither highlight nor exposure",
+      "status": "PASS"
+    },
+    {
+      "name": "END01 ended broadcast disables new public comments and cart additions",
+      "status": "PASS"
+    },
+    {
+      "name": "ALL01 no uncaught browser exceptions",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "customer-experience-size-mobile.png",
+    "customer-experience-benefit-mobile.png",
+    "customer-experience-styling-all-mobile.png",
+    "customer-experience-live-mobile.png"
+  ],
+  "completed_at": "2026-09-21T10:21:12.958Z"
+}

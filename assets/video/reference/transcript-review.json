@@ -1,0 +1,136 @@
+{
+  "asset_id": "reference-core-authentic-cardigan-01",
+  "source_sha256": "b945e14a8b71ce82056c43eff8af59095b32e7a5289a8d7c4abf736e15c64d3b",
+  "created_at": "2026-09-21T10:04:14.073949+00:00",
+  "status": "PARTIAL_VIDEO_KNOWLEDGE_REVIEWED_FRAMES_ONLY",
+  "method": "Local Whisper base and small ran against the actual MP4 audio without initial prompt or script; inspected 14 original frames with image viewer; runtime answers are authored only from directly visible captions or scene composition. This is not independent human audio verification or unrestricted semantic video understanding.",
+  "official_engine_documentation": "https://github.com/openai/whisper",
+  "asr_runs": [
+    {
+      "model": "base",
+      "output": "assets/video/reference/transcript-asr-base.json",
+      "elapsed_seconds": 28.334,
+      "segments": 30,
+      "validation": "EXECUTED_DRAFT_NOT_AUDIO_VERIFIED",
+      "no_initial_prompt": true,
+      "external_audio_upload": false
+    },
+    {
+      "model": "small",
+      "output": "assets/video/reference/transcript-asr-small.json",
+      "elapsed_seconds": 71.477,
+      "segments": 15,
+      "validation": "EXECUTED_DRAFT_NOT_AUDIO_VERIFIED",
+      "no_initial_prompt": true,
+      "external_audio_upload": false
+    }
+  ],
+  "frames": [
+    {
+      "time_s": 2,
+      "path": "assets/video/reference/transcript-frames/02s.jpg",
+      "sha256": "54d3c39289732ed1a470157233bf5a0a01423364795b8b446a2dac1a9c801e5b",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 6,
+      "path": "assets/video/reference/transcript-frames/06s.jpg",
+      "sha256": "e73681162be0318f974967b919e7fb105d8b6fc03a4ea89e9097255c186aedd6",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 10,
+      "path": "assets/video/reference/transcript-frames/10s.jpg",
+      "sha256": "36c8fe5f81be558357a5f4e251e15f667280b63eda3b91df6f643f2d4213f999",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 14,
+      "path": "assets/video/reference/transcript-frames/14s.jpg",
+      "sha256": "a077e691212f0025c622da30c2164115977fb837c9929abc487d12226363a8ac",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 18,
+      "path": "assets/video/reference/transcript-frames/18s.jpg",
+      "sha256": "b16e57304c2ff059006232f3ae60c49e3806ec579fb0a141f25006f365ffecac",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 22,
+      "path": "assets/video/reference/transcript-frames/22s.jpg",
+      "sha256": "12bee4228d6677915199f7ea201cf0e113a37e14a6f061cd88aebc6fd9ec4119",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 26,
+      "path": "assets/video/reference/transcript-frames/26s.jpg",
+      "sha256": "86673bdfc35e082eac91c2515f88b5a41182bc506df13562dc07637f56529758",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 30,
+      "path": "assets/video/reference/transcript-frames/30s.jpg",
+      "sha256": "6ded594c3f09dc9662f73f06e4cb1bdd1a5aba90d271420eb811deb581ab56b2",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 34,
+      "path": "assets/video/reference/transcript-frames/34s.jpg",
+      "sha256": "03a189f912a0ad24e14ce952376b2cfacc81f71bd6d7fc1359ad7337d693d780",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 38,
+      "path": "assets/video/reference/transcript-frames/38s.jpg",
+      "sha256": "59e5fca4fb605ad14c8336aad7a109865340949819c0b0d977177bd9da47d7f0",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 42,
+      "path": "assets/video/reference/transcript-frames/42s.jpg",
+      "sha256": "5876959d563f37a93cb768b23679c1e4eb54d5890edf8a7a5d338197efabc22d",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 46,
+      "path": "assets/video/reference/transcript-frames/46s.jpg",
+      "sha256": "00df1034ec35680d57355e7a62b36c5df32f91ab67cccdb1ee519fcdc9858b1c",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 50,
+      "path": "assets/video/reference/transcript-frames/50s.jpg",
+      "sha256": "1e5fce4922814515d5ef9180af42378fdd7ea10848a08934ba7810bf8d1b04b9",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    },
+    {
+      "time_s": 54,
+      "path": "assets/video/reference/transcript-frames/54s.jpg",
+      "sha256": "99845eb76b1f529188336be16fab90360f31485be1bf2d9e68f5b58f29ceac52",
+      "review": "ASSISTANT_VISUAL_INSPECTION_OF_EXTRACTED_ORIGINAL_FRAME"
+    }
+  ],
+  "reviewed_chapter_ids": [
+    "REF_MATERIAL",
+    "REF_NECKLINE",
+    "REF_PLACKET",
+    "REF_JACKET",
+    "REF_COMFORT",
+    "REF_COLORS",
+    "REF_PROMOTION"
+  ],
+  "limitations": [
+    "ASR base and small both misrecognize cashmere, V-neck and overlapping speech; preserve original drafts without silently correcting.",
+    "No worn size, body size, exact price, composition percentages, current benefits, or reference-to-current-SKU facts are asserted.",
+    "Only seven selected reference ranges are verified; uncovered playback positions return a bounded unsupported answer.",
+    "Promotion frame year and current validity are unknown; historic recording text is not an applicable current benefit.",
+    "A separate authored 120-second sample is explicitly script based and never substituted for reference video evidence."
+  ],
+  "unit_check_command": "python3 -m unittest tests.test_video_knowledge -v",
+  "unit_checks": 16,
+  "unit_result": "PASS",
+  "customer_seek_browser_validation": "PASS_24_CHECKS",
+  "customer_seek_browser_evidence": "docs/evidence/video-experience-verification.json",
+  "customer_seek_browser_verified_at": "2026-09-21T10:09:03.192Z"
+}

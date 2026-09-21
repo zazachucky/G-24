@@ -1,0 +1,30 @@
+{
+  "status": "FIRST_NONFINITE_MODULE_BOUNDARY_FOUND",
+  "dtype": "float16",
+  "device": "mps",
+  "width": 128,
+  "height": 224,
+  "frames": 2,
+  "steps": 1,
+  "module_tensor_checks": 3866,
+  "scope": "module boundaries; functional operations between modules may need a follow-up probe",
+  "attention_upcast_layers": [
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn1"
+  ],
+  "module": "up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0",
+  "module_type": "Linear",
+  "stage": "input",
+  "tensor": "value[0][0]",
+  "shape": [
+    4,
+    448,
+    320
+  ],
+  "tensor_dtype": "torch.float16",
+  "nan_count": 411520,
+  "inf_count": 0,
+  "finite_min": -1.40234375,
+  "finite_max": 1.0361328125,
+  "message": "up_blocks.3.attentions.2.transformer_blocks.0.attn1.to_out.0 input value[0][0]",
+  "elapsed_seconds": 4.444
+}

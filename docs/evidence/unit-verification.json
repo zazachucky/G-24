@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-21T09:28:45.548644+00:00",
+  "command": "python3 -m unittest discover -s tests -p 'test*.py' -v",
+  "tests": 55,
+  "scope": "15 domain + 23 app state / HTTP + 17 cross-screen service edge tests",
+  "output": "docs/evidence/unit-test-output.txt"
+}

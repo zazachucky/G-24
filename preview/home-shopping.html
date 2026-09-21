@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>GS AI LIVE · 가상 쇼호스트 홈쇼핑 샘플</title>
+  <style>
+    :root{--ink:#24322b;--muted:#64736a;--paper:#f4f5ef;--line:#dce3d9;--green:#235b42}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;word-break:keep-all}a{color:var(--green);text-underline-offset:4px}button,input{font:inherit}button{cursor:pointer}button,a,input{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #34845e;outline-offset:3px}.wrap{width:min(1280px,100%);margin:auto;padding:24px 32px}header{display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid var(--line)}.brand{font-size:24px;font-weight:800;letter-spacing:-1px}.eyebrow{color:var(--green);font-size:12px;font-weight:750;letter-spacing:1px}h1{font-size:clamp(25px,4vw,39px);letter-spacing:-1.5px;line-height:1.3;margin:10px 0}h2{font-size:19px;letter-spacing:-.5px;margin:0 0 15px}p{margin:8px 0}.intro{padding:28px 0 20px}.muted{color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(270px,1fr);gap:24px;align-items:start}.player{background:#16221c;border-radius:18px;overflow:hidden;border:1px solid #23342a}.video-wrap{position:relative;aspect-ratio:16/9;background:#16221c}video{display:block;width:100%;height:100%;object-fit:contain}.caption{position:absolute;bottom:60px;left:4%;right:4%;color:white;text-align:center;pointer-events:none}.caption span{display:inline;padding:4px 9px;background:rgba(0,0,0,.78);box-decoration-break:clone;-webkit-box-decoration-break:clone;font-size:clamp(12px,1.5vw,20px);line-height:1.7}.player-info{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:#dce9df;padding:12px 18px;font-size:13px}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:9px;padding:9px 12px;text-decoration:none;font-size:13px}.button.primary{background:var(--green);color:white;border-color:var(--green)}.status{font-size:13px;min-height:22px}.card{padding:23px;background:white;border:1px solid var(--line);border-radius:18px;margin-bottom:20px}.search{width:100%;padding:11px 13px;border:1px solid #c8d4ca;border-radius:9px;margin-bottom:14px;color:var(--ink);background:#fff}.chapters{display:grid;gap:6px;max-height:500px;overflow:auto}.chapter{display:flex;gap:13px;align-items:baseline;text-align:left;border:0;background:#f5f7f3;color:var(--ink);border-radius:9px;padding:11px 12px;width:100%}.chapter[aria-current="true"]{background:#e2eee2;box-shadow:inset 3px 0 var(--green)}.chapter time{color:var(--green);font-size:12px;flex-shrink:0;font-variant-numeric:tabular-nums}.chapter span{font-size:13px}.transcript{margin-top:24px}.transcript p{font-size:18px;line-height:1.8}.tag{display:inline-block;padding:3px 9px;background:#edf2e9;color:var(--green);border-radius:5px;font-size:11px}.bookmarks{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.small{font-size:12px}.links{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}footer{padding:20px 0 40px;color:var(--muted);font-size:12px}.empty{font-size:13px;color:var(--muted);padding:10px}button:disabled{opacity:.5;cursor:default}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}.wrap{padding:18px}.chapters{max-height:300px}.caption{bottom:46px}.intro{padding-top:22px}.card{padding:18px}header a{font-size:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><div class="brand">GS AI LIVE</div><a href="index.html">상품·코디 자료 보기 ↗</a></header>
+    <section class="intro"><div class="eyebrow">DEMO HOME SHOPPING / 02:00</div><h1>가상 쇼호스트 홈쇼핑 샘플</h1><p class="muted">2분 · 가로 16:9 · AI 가상 진행자 · 실제 방송 아님<br>가상의 실사형 쇼호스트가 상품을 소개하는 데모 영상입니다. 한국어 합성 음성과 실제 상품 자료를 함께 사용했습니다.</p></section>
+    <main class="layout">
+      <div>
+        <section class="player" aria-label="가상 쇼호스트 홈쇼핑 영상 플레이어">
+          <div class="video-wrap"><video id="video" controls playsinline preload="metadata" poster="../assets/video/home-shopping/host-source.png"><source src="../assets/video/home-shopping/gs-ai-live-home-shopping-120s.mp4" type="video/mp4">이 브라우저는 MP4 재생을 지원하지 않습니다.</video><div class="caption" id="caption" hidden><span></span></div></div>
+          <div class="player-info"><span id="now">영상 정보 읽는 중</span><span id="clock">00:00 / 02:00</span></div>
+        </section>
+        <div class="controls">
+          <button class="button primary" id="play" type="button">처음부터 재생</button>
+          <button class="button" data-seek="40" type="button">00:40 사이즈 설명</button>
+          <button class="button" data-seek="60" type="button">01:00 코디 보기</button>
+          <button class="button" id="bookmark" type="button">현재 위치 북마크</button>
+          <a class="button" href="../assets/video/home-shopping/gs-ai-live-home-shopping-120s.mp4" download>MP4 다운로드</a>
+        </div>
+        <p id="status" class="status muted" role="status">재생 버튼을 누르면 설명 음성이 나옵니다.</p>
+        <section class="card transcript"><span class="tag">제작 대본 · ASR 결과 아님</span><h2 style="margin-top:12px" id="transcript-title">오늘 만나볼 캐시미어 풀오버</h2><p id="transcript"></p><p class="muted small" id="provenance"></p></section>
+        <section class="card"><h2>저장한 재생 위치</h2><div class="bookmarks" id="bookmarks"></div><button type="button" id="clear-bookmarks" class="button">북마크 지우기</button></section>
+      </div>
+      <aside class="card"><h2>장면으로 이동</h2><label class="small muted" for="search">대본에서 찾기 — 키워드 검색</label><input class="search" id="search" type="search" placeholder="예: 사이즈, 63%, 무료배송" autocomplete="off"><div class="chapters" id="chapters"></div><p class="small muted">장면 버튼을 누르면 실제 MP4의 해당 시점으로 이동합니다. 검색은 제작 대본의 단어 일치 방식입니다.</p><div class="links small"><a href="../assets/video/home-shopping/subtitles.ko.srt" download>자막 SRT</a><a href="../assets/video/home-shopping/subtitles.ko.vtt" download>자막 VTT</a><a href="../assets/video/home-shopping/chapters.ko.vtt" download>챕터 VTT</a><a href="../docs/home-shopping-video.md">영상 제작안</a></div></aside>
+    </main>
+    <footer>가격·리뷰·재고는 2026.09.21 확인 자료입니다. 현재 재고·혜택·도착 일정은 실제 상품 페이지와 주문 단계에서 확인해주세요.<br>영상 AI 모델과 연결하기 전까지 음성 인식·의미 검색·요약 품질 검수는 미실행 상태입니다.</footer>
+  </div>
+  <script src="../assets/video/home-shopping/timeline.js"></script>
+  <script>
+    "use strict";
+    const data = window.GS_HOME_VIDEO;
+    const video = document.getElementById("video");
+    const status = document.getElementById("status");
+    const chapterList = document.getElementById("chapters");
+    const caption = document.getElementById("caption");
+    const bookmarkKey = "gs-ai-live-home-shopping-bookmarks-v1";
+    let bookmarks = [];
+    try { const stored = JSON.parse(localStorage.getItem(bookmarkKey) || "[]"); if(Array.isArray(stored)) bookmarks = stored.filter(t => Number.isFinite(t) && t >= 0 && t < 120); } catch (_) {}
+    function time(t) { t = Math.max(0,Math.floor(t)); return String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0"); }
+    function currentScene() { return data.scenes.find(s => video.currentTime >= s.start_s && video.currentTime < s.start_s + s.duration_s) || data.scenes[data.scenes.length-1]; }
+    function update() {
+      const scene = currentScene();
+      document.getElementById("clock").textContent = time(video.currentTime)+" / "+time(Number.isFinite(video.duration)?video.duration:120);
+      document.getElementById("now").textContent = scene.title;
+      document.getElementById("transcript-title").textContent = scene.title;
+      document.getElementById("transcript").textContent = scene.narration;
+      document.getElementById("provenance").textContent = scene.label;
+      chapterList.querySelectorAll("button").forEach(button => button.setAttribute("aria-current",String(button.dataset.sceneId === scene.id)));
+      // The MP4 already has burned-in captions; do not duplicate them here.
+      caption.hidden = true;
+    }
+    function seek(seconds, play=true) {
+      if(video.readyState < 1) { status.textContent = "영상 정보를 불러온 뒤 다시 눌러주세요."; return; }
+      video.currentTime = Math.min(seconds,video.duration - 0.05);
+      update();
+      if(play) video.play().then(() => { status.textContent=time(seconds)+"부터 재생합니다."; }).catch(() => { status.textContent="위치가 이동했습니다. 영상의 재생 버튼을 눌러주세요."; });
+    }
+    function renderChapters() {
+      const query = document.getElementById("search").value.trim().toLocaleLowerCase("ko");
+      chapterList.replaceChildren();
+      const scenes = data.scenes.filter(s => [s.title,s.narration,...s.caption_lines].join(" ").toLocaleLowerCase("ko").includes(query));
+      for(const scene of scenes) {
+        const button=document.createElement("button"); button.type="button"; button.className="chapter"; button.dataset.sceneId=scene.id;
+        const clock=document.createElement("time"); clock.textContent=time(scene.start_s);
+        const label=document.createElement("span"); label.textContent=scene.title;
+        button.append(clock,label); button.addEventListener("click",()=>seek(scene.start_s)); chapterList.append(button);
+      }
+      if(!scenes.length) { const empty=document.createElement("p"); empty.className="empty";empty.textContent="일치하는 대본이 없습니다.";chapterList.append(empty); }
+      update();
+    }
+    function renderBookmarks() {
+      const holder=document.getElementById("bookmarks"); holder.replaceChildren();
+      for(const seconds of bookmarks) { const button=document.createElement("button");button.type="button";button.className="button";button.textContent=time(seconds);button.addEventListener("click",()=>seek(seconds));holder.append(button); }
+      if(!bookmarks.length) { const p=document.createElement("p");p.className="muted small";p.textContent="저장한 위치가 없습니다.";holder.append(p); }
+      try { localStorage.setItem(bookmarkKey,JSON.stringify(bookmarks)); } catch (_) {}
+    }
+    document.getElementById("play").addEventListener("click",()=>seek(0));
+    document.querySelectorAll("[data-seek]").forEach(button=>button.addEventListener("click",()=>seek(Number(button.dataset.seek))));
+    document.getElementById("search").addEventListener("input",renderChapters);
+    document.getElementById("bookmark").addEventListener("click",()=>{ const seconds=Math.min(119.95,Math.round(video.currentTime*100)/100);if(!bookmarks.some(t=>Math.abs(t-seconds)<.5))bookmarks.push(seconds);bookmarks.sort((a,b)=>a-b);renderBookmarks();status.textContent=time(seconds)+" 위치를 저장했습니다."; });
+    document.getElementById("clear-bookmarks").addEventListener("click",()=>{bookmarks=[];renderBookmarks();status.textContent="저장한 위치를 지웠습니다.";});
+    video.addEventListener("timeupdate",update);
+    video.addEventListener("seeked",update);
+    video.addEventListener("loadedmetadata",()=>{update();status.textContent="영상 준비 완료 · "+video.videoWidth+"×"+video.videoHeight+" · "+video.duration.toFixed(2)+"초";});
+    video.addEventListener("error",()=>{status.textContent="영상 파일을 읽지 못했습니다. MP4 다운로드 링크로 파일을 열어 확인해주세요.";});
+    renderChapters();renderBookmarks();
+  </script>
+</body>
+</html>

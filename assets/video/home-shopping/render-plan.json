@@ -1,0 +1,659 @@
+{
+  "title": "GS AI LIVE · SJ와니 캐시미어 풀오버 데모 방송",
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "duration_s": 120,
+  "host_type": "photorealistic_fictional_talking_host",
+  "audio_path": "assets/video/home-shopping/narration.wav",
+  "host_video_path": "assets/video/home-shopping/host-120s.mp4",
+  "persistent_label": "AI 가상 쇼호스트 · 데모 방송",
+  "source_snapshot_date": "2026-09-21",
+  "scenes": [
+    {
+      "id": "S01_INTRO",
+      "start_s": 0,
+      "duration_s": 10,
+      "title": "오늘 만나볼 캐시미어 풀오버",
+      "kicker": "오늘의 상품",
+      "caption_lines": [
+        "SJ와니 샤이니 크리즈 캐시미어 풀오버 1종",
+        "색상부터 세 가지 코디까지"
+      ],
+      "narration": "안녕하세요! 오늘 함께 볼 상품은 에스제이와니 샤이니 크리즈 캐시미어 풀오버예요. 색상부터 코디까지 만나보세요.",
+      "images": [
+        "assets/products/main/gallery-01.jpg",
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/display_name",
+        "fixtures/main-product.json#/images"
+      ],
+      "label": "실제 상품 이미지 · 2026.09.21 확인",
+      "host_delivery": "정면을 보며 밝게 인사한다. 말의 첫머리와 끝에 작은 고개 움직임을 주고 자연스럽게 미소 짓는다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "호스트 옆 큰 상품 카드",
+        "image_order": [
+          0,
+          1
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "상품 착용 이미지",
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다."
+      },
+      "narration_spoken": "안녕하세요! 오늘 함께 볼 상품은 에스제이와니 샤이니 크리즈 캐시미어 풀오버예요. 색상부터 코디까지 만나보세요.",
+      "narration_char_count": 62,
+      "narration_spoken_char_count": 62,
+      "layout": "host_product",
+      "planned_speech_start_s": 0.45,
+      "planned_speech_end_limit_s": 9.5,
+      "measured_speech_duration_s": 7.937142857142857,
+      "image_labels": [
+        "상품 착용 이미지",
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 0.45,
+      "audio_end_s": 8.387143,
+      "audio_path": "assets/video/home-shopping/audio/01.wav"
+    },
+    {
+      "id": "S02_MATERIAL",
+      "start_s": 10,
+      "duration_s": 10,
+      "title": "캐시미어 85%의 소재 구성",
+      "kicker": "소재를 가까이",
+      "caption_lines": [
+        "캐시미어 85%",
+        "나일론 10% · 폴리에스터 5%"
+      ],
+      "narration": "소재부터 볼까요? 캐시미어 85%, 나일론 10%, 폴리에스터 5%예요. 목선과 소매도 살펴보세요.",
+      "images": [
+        "assets/products/main/detail-10.jpg",
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/material/composition",
+        "fixtures/main-product.json#/detail_images/2"
+      ],
+      "label": "상품 소재 안내 기준 · 2026.09.21",
+      "host_delivery": "소재 비율마다 짧게 쉰다. 얼굴과 고개만 자연스럽게 움직이며 상품 접사 화면에 설명을 붙인다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "실제 상세 이미지 크게 + 단품 썸네일 + 소재 비율 자막",
+        "image_order": [
+          0,
+          1
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "실제 상품 상세 이미지",
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "detail-10의 목선·소매 패널은 위치를 시각 확인한 뒤 원본 비율로만 접사 크롭한다. 제품 형태·색상·문자는 재생성하지 않는다. 패널 좌표 미확인 시 전체 contain과 단품 이미지를 사용한다.",
+        "detail_crop": "optional_after_visual_verification"
+      },
+      "narration_spoken": "소재부터 볼까요? 캐시미어 팔십오 퍼센트, 나일론 십 퍼센트, 폴리에스터 오 퍼센트예요. 목선과 소매도 살펴보세요.",
+      "narration_char_count": 55,
+      "narration_spoken_char_count": 64,
+      "layout": "product_focus",
+      "planned_speech_start_s": 10.45,
+      "planned_speech_end_limit_s": 19.5,
+      "measured_speech_duration_s": 8.945487528344671,
+      "image_labels": [
+        "실제 상품 상세 이미지",
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 10.45,
+      "audio_end_s": 19.395488,
+      "audio_path": "assets/video/home-shopping/audio/02.wav"
+    },
+    {
+      "id": "S03_COLORS",
+      "start_s": 20,
+      "duration_s": 10,
+      "title": "어떤 색이 마음에 드세요?",
+      "kicker": "네 가지 소개 색상",
+      "caption_lines": [
+        "그레이 · 블랙 · 크림 · 라벤더",
+        "현재 선택 옵션·재고는 상품 페이지 확인"
+      ],
+      "narration": "그레이, 블랙, 크림, 라벤더 네 가지를 소개해요. 마음에 드는 색상과 현재 재고는 상품 페이지에서 확인해주세요.",
+      "images": [
+        "assets/products/main/gallery-05.jpg",
+        "assets/products/main/gallery-06.jpg",
+        "assets/products/main/gallery-07.jpg",
+        "assets/products/main/gallery-08.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/colors",
+        "fixtures/main-product.json#/images",
+        "fixtures/main-product.json#/option_policy"
+      ],
+      "label": "소개 색상 기준 · 라벤더는 확인 당시 옵션 응답에 없음",
+      "host_delivery": "네 색상을 또렷하게 나눠 말한다. 고개를 크게 돌리지 않고 정면 시선을 유지한다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "네 색상 2×2 배열; 각 색상명과 라벤더 옵션 확인 문구",
+        "image_order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "그레이",
+          "블랙",
+          "크림",
+          "라벤더 · 현재 옵션 응답에 없음"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다."
+      },
+      "narration_spoken": "그레이, 블랙, 크림, 라벤더 네 가지를 소개해요. 마음에 드는 색상과 현재 재고는 상품 페이지에서 확인해주세요.",
+      "narration_char_count": 63,
+      "narration_spoken_char_count": 63,
+      "layout": "product_focus",
+      "planned_speech_start_s": 20.45,
+      "planned_speech_end_limit_s": 29.5,
+      "measured_speech_duration_s": 7.961859410430839,
+      "image_labels": [
+        "그레이",
+        "블랙",
+        "크림",
+        "라벤더 · 현재 옵션 응답에 없음"
+      ],
+      "audio_start_s": 20.45,
+      "audio_end_s": 28.411859,
+      "audio_path": "assets/video/home-shopping/audio/03.wav"
+    },
+    {
+      "id": "S04_THICKNESS",
+      "start_s": 30,
+      "duration_s": 10,
+      "title": "두께감, 함께 살펴볼까요?",
+      "kicker": "구매자 리뷰와 상품 안내",
+      "caption_lines": [
+        "구매자 리뷰: 얇아요 63%",
+        "제조사 안내: 약간 두꺼움"
+      ],
+      "narration": "두께도 궁금하시죠? 구매자 리뷰는 얇아요가 63%예요. 제조사 안내는 약간 두꺼움이니 함께 참고해주세요.",
+      "images": [
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/review_summary/groups/3",
+        "fixtures/main-product.json#/manufacturer_guidance/thickness",
+        "fixtures/main-product.json#/source_disagreements/0"
+      ],
+      "label": "구매자 리뷰·제조사 안내 · 2026.09.21",
+      "host_delivery": "첫 문장은 친근하게 묻는 억양으로 말한다. 리뷰와 제조사 안내 사이에 짧게 쉬어 두 출처를 구분한다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "그레이 단품과 두께 평가 두 줄; 리뷰와 제조사 출처 별도",
+        "image_order": [
+          0
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다."
+      },
+      "narration_spoken": "두께도 궁금하시죠? 구매자 리뷰는 얇아요가 육십삼 퍼센트예요. 제조사 안내는 약간 두꺼움이니 함께 참고해주세요.",
+      "narration_char_count": 58,
+      "narration_spoken_char_count": 62,
+      "layout": "host_product",
+      "planned_speech_start_s": 30.45,
+      "planned_speech_end_limit_s": 39.5,
+      "measured_speech_duration_s": 8.099319727891157,
+      "image_labels": [
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 30.45,
+      "audio_end_s": 38.54932,
+      "audio_path": "assets/video/home-shopping/audio/04.wav"
+    },
+    {
+      "id": "S05_SIZE_GUIDE",
+      "start_s": 40,
+      "duration_s": 10,
+      "title": "옷장 속 상의와 비교해보세요",
+      "kicker": "상품 실측 안내",
+      "caption_lines": [
+        "66 가슴단면 45cm · 총길이 61cm",
+        "어깨너비 36cm · 의류 실측 기준"
+      ],
+      "narration": "옷장 속 상의와 비교해보세요. 66 사이즈 가슴단면은 45센티미터, 총길이는 61센티미터로 안내돼 있어요.",
+      "images": [
+        "assets/products/main/detail-11.jpg",
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/size_guide",
+        "fixtures/main-product.json#/sizes"
+      ],
+      "label": "실제 상품 사이즈표 · 단위 cm",
+      "host_delivery": "가슴단면과 총길이를 천천히 구분해 읽는다. 의류 실측 숫자를 강조하되 체형에 따른 착용 결과를 예측하지 않는다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "실제 사이즈표 + 66 실측 세 값 확대 자막",
+        "image_order": [
+          0,
+          1
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "실제 상품 사이즈표",
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "원본 사이즈표의 단위와 열 제목을 보존한다. 66 가슴단면 45cm, 총길이 61cm, 어깨너비 36cm를 읽을 수 있는 별도 자막으로 올린다."
+      },
+      "narration_spoken": "옷장 속 상의와 비교해보세요. 육육 사이즈 가슴단면은 사십오 센티미터, 총길이는 육십일 센티미터로 안내돼 있어요.",
+      "narration_char_count": 59,
+      "narration_spoken_char_count": 63,
+      "layout": "product_focus",
+      "planned_speech_start_s": 40.45,
+      "planned_speech_end_limit_s": 49.5,
+      "measured_speech_duration_s": 8.235283446712018,
+      "image_labels": [
+        "실제 상품 사이즈표",
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 40.45,
+      "audio_end_s": 48.685283,
+      "audio_path": "assets/video/home-shopping/audio/05.wav"
+    },
+    {
+      "id": "S06_SIZE_AND_STOCK",
+      "start_s": 50,
+      "duration_s": 10,
+      "title": "사이즈와 재고를 확인해요",
+      "kicker": "55 · 66 · 77 · 88",
+      "caption_lines": [
+        "55 · 66 · 77 · 88 — 상세 치수 확인",
+        "그레이 66: 확인 당시 일시품절"
+      ],
+      "narration": "사이즈는 55부터 88까지예요. 상세 치수를 먼저 살펴보세요. 그레이 66은 확인 당시 일시품절이었어요.",
+      "images": [
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/sizes",
+        "fixtures/main-product.json#/size_guide",
+        "fixtures/main-product.json#/demo_size_stock_note",
+        "fixtures/main-product.json#/options/1"
+      ],
+      "label": "상품 안내 · 재고는 2026.09.21 확인 당시 기준",
+      "host_delivery": "사이즈 이름을 또렷하게 읽고 마지막 품절 문장을 생략 없이 말한다. 표정은 차분하게 유지한다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "그레이 단품 + 사이즈 목록 + 그레이 66 일시품절 표시",
+        "image_order": [
+          0
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "그레이 66 · 확인 당시 일시품절"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다.",
+        "required_callout": "그레이 66: 확인 당시 일시품절"
+      },
+      "narration_spoken": "사이즈는 오오부터 팔팔까지예요. 상세 치수를 먼저 살펴보세요. 그레이 육육은 확인 당시 일시품절이었어요.",
+      "narration_char_count": 58,
+      "narration_spoken_char_count": 58,
+      "layout": "host_product",
+      "planned_speech_start_s": 50.45,
+      "planned_speech_end_limit_s": 59.5,
+      "measured_speech_duration_s": 7.8796371882086165,
+      "image_labels": [
+        "그레이 66 · 확인 당시 일시품절"
+      ],
+      "audio_start_s": 50.45,
+      "audio_end_s": 58.329637,
+      "audio_path": "assets/video/home-shopping/audio/06.wav"
+    },
+    {
+      "id": "S07_OFFICE",
+      "start_s": 60,
+      "duration_s": 10,
+      "title": "출근하는 날, 이렇게",
+      "kicker": "코디 01 · 출근",
+      "caption_lines": [
+        "그레이 + 아이보리 롤업 슬랙스",
+        "검정 로퍼로 마무리"
+      ],
+      "narration": "출근하는 날엔 이렇게 어떠세요? 그레이 상의에 아이보리 롤업 슬랙스, 검정 로퍼를 더한 코디 예시를 준비했어요.",
+      "images": [
+        "assets/lookbooks/look-01.png",
+        "assets/products/styling/1103554292.jpg",
+        "assets/products/styling/1092943486.jpg"
+      ],
+      "source_refs": [
+        "fixtures/styling-looks.json#/looks/0"
+      ],
+      "label": "AI 코디 예시",
+      "host_delivery": "친근하게 코디를 제안하고 하의와 신발 사이에서 짧게 쉰다. 호스트 의상은 같은 중립 의상으로 유지한다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "AI 코디 예시 크게 + 실제 추천 하의·신발 썸네일 두 개",
+        "image_order": [
+          0,
+          1,
+          2
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "AI 코디 예시",
+          "실제 추천 슬랙스",
+          "실제 추천 로퍼"
+        ],
+        "ai_image_indices": [
+          0
+        ],
+        "actual_product_image_indices": [
+          1,
+          2
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "생성된 코디 이미지에는 AI 코디 예시를 고정 표시한다. 실제 추천 하의와 신발은 각각 출처가 구분된 썸네일로 보여주며 가격바는 메인 상의 1종 가격임을 유지한다."
+      },
+      "narration_spoken": "출근하는 날엔 이렇게 어떠세요? 그레이 상의에 아이보리 롤업 슬랙스, 검정 로퍼를 더한 코디 예시를 준비했어요.",
+      "narration_char_count": 62,
+      "narration_spoken_char_count": 62,
+      "layout": "styling",
+      "planned_speech_start_s": 60.45,
+      "planned_speech_end_limit_s": 69.5,
+      "measured_speech_duration_s": 7.4786848072562355,
+      "image_labels": [
+        "AI 코디 예시",
+        "실제 추천 슬랙스",
+        "실제 추천 로퍼"
+      ],
+      "audio_start_s": 60.45,
+      "audio_end_s": 67.928685,
+      "audio_path": "assets/video/home-shopping/audio/07.wav"
+    },
+    {
+      "id": "S08_DATE",
+      "start_s": 70,
+      "duration_s": 10,
+      "title": "약속 있는 날, 이렇게",
+      "kicker": "코디 02 · 약속",
+      "caption_lines": [
+        "그레이 + 브라운 새틴 스커트",
+        "아이보리 메리제인과 함께"
+      ],
+      "narration": "약속 있는 날에는 분위기를 바꿔볼까요? 브라운 새틴 스커트와 아이보리 메리제인을 더한 코디 예시를 만나보세요.",
+      "images": [
+        "assets/lookbooks/look-02.png",
+        "assets/products/styling/1103680106.jpg",
+        "assets/products/styling/1110407317-7.jpg"
+      ],
+      "source_refs": [
+        "fixtures/styling-looks.json#/looks/1"
+      ],
+      "label": "AI 코디 예시",
+      "host_delivery": "밝고 부드러운 말투로 두 번째 코디를 소개한다. 얼굴과 고개가 작고 자연스럽게 움직인다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "AI 코디 예시 크게 + 실제 추천 하의·신발 썸네일 두 개",
+        "image_order": [
+          0,
+          1,
+          2
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "AI 코디 예시",
+          "실제 추천 스커트",
+          "실제 추천 메리제인"
+        ],
+        "ai_image_indices": [
+          0
+        ],
+        "actual_product_image_indices": [
+          1,
+          2
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "생성된 코디 이미지에는 AI 코디 예시를 고정 표시한다. 실제 추천 하의와 신발은 각각 출처가 구분된 썸네일로 보여주며 가격바는 메인 상의 1종 가격임을 유지한다."
+      },
+      "narration_spoken": "약속 있는 날에는 분위기를 바꿔볼까요? 브라운 새틴 스커트와 아이보리 메리제인을 더한 코디 예시를 만나보세요.",
+      "narration_char_count": 61,
+      "narration_spoken_char_count": 61,
+      "layout": "styling",
+      "planned_speech_start_s": 70.45,
+      "planned_speech_end_limit_s": 79.5,
+      "measured_speech_duration_s": 7.236825396825397,
+      "image_labels": [
+        "AI 코디 예시",
+        "실제 추천 스커트",
+        "실제 추천 메리제인"
+      ],
+      "audio_start_s": 70.45,
+      "audio_end_s": 77.686825,
+      "audio_path": "assets/video/home-shopping/audio/08.wav"
+    },
+    {
+      "id": "S09_CASUAL",
+      "start_s": 80,
+      "duration_s": 10,
+      "title": "여유로운 주말에는",
+      "kicker": "코디 03 · 주말",
+      "caption_lines": [
+        "그레이 + 청색 와이드 데님",
+        "아이보리 메쉬 스니커즈와 함께"
+      ],
+      "narration": "주말 코디도 준비했어요. 청색 와이드 데님에 아이보리 메쉬 스니커즈를 더했어요. 취향에 맞게 참고해보세요.",
+      "images": [
+        "assets/lookbooks/look-03.png",
+        "assets/products/styling/1052764372-2.jpg",
+        "assets/products/styling/1085417942.jpg"
+      ],
+      "source_refs": [
+        "fixtures/styling-looks.json#/looks/2"
+      ],
+      "label": "AI 코디 예시",
+      "host_delivery": "세 번째 코디를 편안하게 소개한다. 실제 착용 경험을 말하는 듯한 시연 표정이나 동작은 넣지 않는다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "AI 코디 예시 크게 + 실제 추천 하의·신발 썸네일 두 개",
+        "image_order": [
+          0,
+          1,
+          2
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "AI 코디 예시",
+          "실제 추천 데님",
+          "실제 추천 스니커즈"
+        ],
+        "ai_image_indices": [
+          0
+        ],
+        "actual_product_image_indices": [
+          1,
+          2
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "생성된 코디 이미지에는 AI 코디 예시를 고정 표시한다. 실제 추천 하의와 신발은 각각 출처가 구분된 썸네일로 보여주며 가격바는 메인 상의 1종 가격임을 유지한다."
+      },
+      "narration_spoken": "주말 코디도 준비했어요. 청색 와이드 데님에 아이보리 메쉬 스니커즈를 더했어요. 취향에 맞게 참고해보세요.",
+      "narration_char_count": 59,
+      "narration_spoken_char_count": 59,
+      "layout": "styling",
+      "planned_speech_start_s": 80.45,
+      "planned_speech_end_limit_s": 89.5,
+      "measured_speech_duration_s": 7.491428571428571,
+      "image_labels": [
+        "AI 코디 예시",
+        "실제 추천 데님",
+        "실제 추천 스니커즈"
+      ],
+      "audio_start_s": 80.45,
+      "audio_end_s": 87.941429,
+      "audio_path": "assets/video/home-shopping/audio/09.wav"
+    },
+    {
+      "id": "S10_PRICE_AND_BENEFIT",
+      "start_s": 90,
+      "duration_s": 10,
+      "title": "확인한 판매가 49,900원",
+      "kicker": "가격과 혜택",
+      "caption_lines": [
+        "확인 판매가 49,900원",
+        "앱의 내 혜택은 데모 예시",
+        "실제 적용 조건은 구매 전 확인"
+      ],
+      "narration": "확인한 판매가는 49,900원이에요. 앱에서 데모 혜택도 살펴보시고 실제 적용 조건은 구매 전에 확인해주세요.",
+      "images": [
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/price",
+        "fixtures/demo-config.json#/benefit_result"
+      ],
+      "label": "판매가: 2026.09.21 확인 · 앱 혜택은 데모 예시",
+      "host_delivery": "가격은 금액을 나누어 또렷하게 읽는다. 앱의 혜택이 데모임을 설명하는 문장도 같은 음량으로 말한다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "그레이 단품 + 메인 상의 판매가 크게 + 내 혜택 데모 안내",
+        "image_order": [
+          0
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다.",
+        "required_callouts": [
+          "메인 상의 1종 49,900원 · 2026.09.21 확인",
+          "앱의 내 혜택은 데모 예시"
+        ]
+      },
+      "narration_spoken": "확인한 판매가는 사만 구천구백 원이에요. 앱에서 데모 혜택도 살펴보시고 실제 적용 조건은 구매 전에 확인해주세요.",
+      "narration_char_count": 61,
+      "narration_spoken_char_count": 63,
+      "layout": "host_product",
+      "planned_speech_start_s": 90.45,
+      "planned_speech_end_limit_s": 99.5,
+      "measured_speech_duration_s": 7.988163265306122,
+      "image_labels": [
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 90.45,
+      "audio_end_s": 98.438163,
+      "audio_path": "assets/video/home-shopping/audio/10.wav"
+    },
+    {
+      "id": "S11_DELIVERY",
+      "start_s": 100,
+      "duration_s": 10,
+      "title": "배송 안내도 확인하세요",
+      "kicker": "무료배송 안내",
+      "caption_lines": [
+        "상품 페이지 안내: 무료배송",
+        "실제 도착 일정은 주문 단계에서 확인"
+      ],
+      "narration": "배송도 확인해볼게요. 상품 페이지에는 무료배송으로 안내돼 있어요. 실제 도착 일정은 주문 단계에서 확인해주세요.",
+      "images": [
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/shipping"
+      ],
+      "label": "상품 페이지 무료배송 안내 · 2026.09.21 확인",
+      "host_delivery": "무료배송과 도착 일정 확인을 차분히 나누어 말한다. 배송일을 보장하는 억양이나 추가 문구를 넣지 않는다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "그레이 단품 + 무료배송 + 실제 도착 일정은 주문 단계에서 확인",
+        "image_order": [
+          0
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다."
+      },
+      "narration_spoken": "배송도 확인해볼게요. 상품 페이지에는 무료배송으로 안내돼 있어요. 실제 도착 일정은 주문 단계에서 확인해주세요.",
+      "narration_char_count": 62,
+      "narration_spoken_char_count": 62,
+      "layout": "host_product",
+      "planned_speech_start_s": 100.45,
+      "planned_speech_end_limit_s": 109.5,
+      "measured_speech_duration_s": 8.236598639455782,
+      "image_labels": [
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 100.45,
+      "audio_end_s": 108.686599,
+      "audio_path": "assets/video/home-shopping/audio/11.wav"
+    },
+    {
+      "id": "S12_SUMMARY",
+      "start_s": 110,
+      "duration_s": 10,
+      "title": "나에게 맞는 코디를 골라보세요",
+      "kicker": "상품 소개 마무리",
+      "caption_lines": [
+        "사이즈 · 색상 · 세 가지 코디",
+        "현재 재고와 구매 조건은 상품 페이지 확인"
+      ],
+      "narration": "마음에 드는 코디를 찾으셨나요? 사이즈와 색상을 살펴보시고, 현재 재고와 구매 조건은 상품 페이지에서 확인해주세요.",
+      "images": [
+        "assets/products/main/gallery-01.jpg",
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/links/product",
+        "fixtures/main-product.json#/demo_size_stock_note",
+        "fixtures/styling-looks.json#/looks"
+      ],
+      "label": "현재 재고·구매 조건은 상품 페이지에서 확인",
+      "host_delivery": "정면을 보며 자연스럽게 마무리한다. 마지막 발화 뒤 짧은 미소와 작은 고개 움직임을 유지한다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "실제 상품 이미지와 사이즈·색상·코디 마무리 자막",
+        "image_order": [
+          0,
+          1
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "상품 착용 이미지",
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다."
+      },
+      "narration_spoken": "마음에 드는 코디를 찾으셨나요? 사이즈와 색상을 살펴보시고, 현재 재고와 구매 조건은 상품 페이지에서 확인해주세요.",
+      "narration_char_count": 64,
+      "narration_spoken_char_count": 64,
+      "layout": "host_product",
+      "planned_speech_start_s": 110.45,
+      "planned_speech_end_limit_s": 119.5,
+      "measured_speech_duration_s": 8.222222222222221,
+      "image_labels": [
+        "상품 착용 이미지",
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 110.45,
+      "audio_end_s": 118.672222,
+      "audio_path": "assets/video/home-shopping/audio/12.wav"
+    }
+  ]
+}

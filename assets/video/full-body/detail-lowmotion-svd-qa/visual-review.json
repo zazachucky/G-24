@@ -1,0 +1,41 @@
+{
+  "status": "INITIAL_REVIEW_CANDIDATE_WITH_MINOR_ARTIFACTS",
+  "reviewed_from": "Actual MP4 decoded with CPU FFmpeg",
+  "reviewed_frame_indices": [
+    0,
+    6,
+    12,
+    18,
+    24
+  ],
+  "review_scope": "Five sampled frames; final composite temporal QA remains separate",
+  "observations": [
+    {
+      "frame": 0,
+      "note": "Two hands hold sleeve edge separately; torso and garment silhouette stable."
+    },
+    {
+      "frame": 6,
+      "note": "Upper hand shifts slightly with visible motion softness; lower hand maintains sleeve grip."
+    },
+    {
+      "frame": 12,
+      "note": "Upper hand returns closer to sleeve pinch; no gross limb merge observed."
+    },
+    {
+      "frame": 18,
+      "note": "Small finger/cloth changes; sleeve and lower hand remain separated."
+    },
+    {
+      "frame": 24,
+      "note": "Ends in a similar sleeve-grip pose; no large posture collapse."
+    }
+  ],
+  "limitations": [
+    "320x576 source resolution",
+    "Some hand motion blur and mild knit-texture variation",
+    "Face is largely outside this close-up"
+  ],
+  "suggested_use": "Short material/sleeve cutaway in the first review video",
+  "full_clip_candidate": true
+}

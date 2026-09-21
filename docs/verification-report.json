@@ -1,0 +1,36 @@
+{
+  "verified_at": "2026-09-21T10:12:16.733187+00:00",
+  "status": "PASS",
+  "scope": "Offline fixture, image integrity, cross-file references, deterministic logic; not app UI testing",
+  "main_product_images": 13,
+  "verified_review_groups": 5,
+  "size_measurement_rows": 8,
+  "styling_bottoms": 8,
+  "styling_shoes": 6,
+  "generated_lookbooks": 3,
+  "spike": {
+    "previous": 8,
+    "current": 26,
+    "change_percent": 225
+  },
+  "approval_targets": 33,
+  "customer_personalization": {
+    "target": true,
+    "non_target": false,
+    "dismissed": false
+  },
+  "paused_resume_scenario": "PASS",
+  "app_ui_tests": "SEPARATE_BROWSER_VERIFICATION_REQUIRED",
+  "app_ui_report": "docs/evidence/browser-verification.json",
+  "legacy_media_fixture_status": "NOT_INTEGRATED_TEST_VIDEO_AVAILABLE",
+  "video_knowledge": {
+    "scope": "Bounded reviewed frames and authored sample script; not unrestricted video AI",
+    "assets": 2,
+    "indexed_chapters": 19,
+    "verified_reference_frames": 14,
+    "asr_status": "EXECUTED_DRAFT_NOT_AUDIO_VERIFIED",
+    "browser_report": "docs/evidence/video-experience-verification.json"
+  },
+  "test_video_asset": "AVAILABLE",
+  "home_shopping_video_asset": "NOT_CONFIGURED"
+}

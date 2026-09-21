@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-21T10:21:04.598Z",
+  "checks": [
+    {
+      "name": "Customer presence reaches Director",
+      "status": "PASS"
+    },
+    {
+      "name": "Polling and heartbeat do not inflate behavior totals",
+      "status": "PASS"
+    },
+    {
+      "name": "Multi-intent question reaches categories once",
+      "status": "PASS"
+    },
+    {
+      "name": "Director API and other customer exclude private question",
+      "status": "PASS"
+    },
+    {
+      "name": "Director DOM excludes private question",
+      "status": "PASS"
+    },
+    {
+      "name": "Prepared fallback is counted once per request",
+      "status": "PASS"
+    },
+    {
+      "name": "Need detail signals and suggestion exposure connected",
+      "status": "PASS"
+    },
+    {
+      "name": "Suggestion acceptance appears in actual activity",
+      "status": "PASS"
+    },
+    {
+      "name": "Benefit and styling results and quick actions connected",
+      "status": "PASS"
+    },
+    {
+      "name": "Look selection is recorded with its actual SKU",
+      "status": "PASS"
+    },
+    {
+      "name": "Repeated same option does not count as a change",
+      "status": "PASS"
+    },
+    {
+      "name": "Purchase attempt and demo completion measured separately",
+      "status": "PASS"
+    },
+    {
+      "name": "Image/orientation/media changes reach the same event stream",
+      "status": "PASS"
+    },
+    {
+      "name": "All ten Director metric cards render received actual values",
+      "status": "PASS"
+    },
+    {
+      "name": "Director announcement is shared with display acknowledgments",
+      "status": "PASS"
+    },
+    {
+      "name": "Notice HTML is rendered as text",
+      "status": "PASS"
+    },
+    {
+      "name": "Public notice CTA opens actual customer detail",
+      "status": "PASS"
+    },
+    {
+      "name": "Late load retains notice without duplicate seen count",
+      "status": "PASS"
+    },
+    {
+      "name": "Retraction removes announcement from all customers",
+      "status": "PASS"
+    },
+    {
+      "name": "Lost connection expires actual presence on wall clock",
+      "status": "PASS"
+    },
+    {
+      "name": "Customer reconnect restores presence without duplicate entry",
+      "status": "PASS"
+    },
+    {
+      "name": "Refresh retains selections and avoids duplicate result views",
+      "status": "PASS"
+    },
+    {
+      "name": "Real measurements split at approval receive order",
+      "status": "PASS"
+    },
+    {
+      "name": "Fixture events remain separate from actual UI data",
+      "status": "PASS"
+    },
+    {
+      "name": "Director measured table renders actual before and after values",
+      "status": "PASS"
+    },
+    {
+      "name": "Fixed Simulation is preserved beside actual usage",
+      "status": "PASS"
+    },
+    {
+      "name": "Broadcast end reaches customer and stops behavior recording",
+      "status": "PASS"
+    },
+    {
+      "name": "Ended broadcast disables public publishing",
+      "status": "PASS"
+    },
+    {
+      "name": "Reset clears analytics notices private messages and approval",
+      "status": "PASS"
+    },
+    {
+      "name": "New Director activity view fits mobile viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "No uncaught exceptions during connected workflow",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "integration-activity.png",
+    "integration-customer-notice.png",
+    "integration-analytics.png",
+    "integration-director-mobile.png"
+  ],
+  "completed_at": "2026-09-21T10:21:39.180Z"
+}

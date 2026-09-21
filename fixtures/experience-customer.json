@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Customer controls and clearly labeled preparation data for the supplied experience reference",
+  "product_id": "1084192893",
+  "profiles": {
+    "customer-A": {"name": "김지수", "usual_top_size": "66", "height_label": "등록된 키 정보 없음", "body_label": "등록된 체형 정보 없음", "provenance": "demo_profile"},
+    "customer-B": {"name": "민서", "usual_top_size": "66", "height_label": "등록된 키 정보 없음", "body_label": "등록된 체형 정보 없음", "provenance": "demo_profile"},
+    "customer-C": {"name": "서연", "usual_top_size": "66", "height_label": "등록된 키 정보 없음", "body_label": "등록된 체형 정보 없음", "provenance": "demo_profile"}
+  },
+  "profile_note": "가상 고객을 위한 준비 프로필입니다. 키·체형을 측정하거나 비슷한 체형의 고객을 분석한 결과가 아닙니다.",
+  "size_evidence": {"group_id": "size", "label": "구매자 선택형 리뷰 집계", "note": "상품 전체의 사이즈 평가입니다. 개인 후기나 비슷한 체형 고객의 만족률을 뜻하지 않습니다. 개별 후기 원문·사진·작성일은 수집하지 않았습니다."},
+  "benefit_conditions": [
+    {"id": "gs_pay", "title": "VIP · GS Pay 혜택", "label": "데모 혜택 예시", "description": "GS Pay 할인 1,890원은 위 최종 혜택가에 이미 포함되어 있습니다. 추가 적립금은 계산에 포함하지 않았습니다.", "icon": "ticket", "route": "product"},
+    {"id": "installments", "title": "카드별 무이자 할부", "label": "결제 단계에서 확인", "description": "현재 카드사·할부 개월별 적용 조건은 확인되지 않았습니다. 실제 상품과 결제 단계에서 확인해주세요.", "icon": "info", "route": "product"},
+    {"id": "delivery", "title": "배송 안내", "label": "배송 시뮬레이션", "description": "준비된 예시는 주문 후 2~3영업일입니다. 무료배송은 상품 스냅샷이며 실제 도착일·당일 배송은 보장하지 않습니다.", "icon": "bag", "route": "product_detail.delivery"}
+  ],
+  "cart": {"max_quantity": 10, "price_basis": "상품가 기준 합계 · 개인 혜택 적용 전", "note": "이 장바구니는 가상 고객별 체험용입니다. 실제 주문·결제·재고 예약이 발생하지 않습니다."},
+  "public_comments": {"max_length": 300, "notice": "공개 댓글은 이 로컬 LIVE의 다른 고객과 Director에게 표시됩니다. ASK LIVE의 개인 질문과 별개입니다. 개인 정보는 입력하지 마세요."}
+}

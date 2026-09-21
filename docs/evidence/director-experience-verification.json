@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-21T10:23:09.090Z",
+  "scope": "Actual Chrome UI and isolated HTTP server; injected monotonic receive clock for exact telemetry windows",
+  "base": "http://127.0.0.1:8788",
+  "checks": [
+    {
+      "name": "Actual customer heartbeat supplies viewer KPI",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual compound ASK supplies two normalized TOP5 topics",
+      "status": "PASS"
+    },
+    {
+      "name": "Two product intents count once in the same trend category",
+      "status": "PASS"
+    },
+    {
+      "name": "Private ASK prose is absent from public state and Director",
+      "status": "PASS"
+    },
+    {
+      "name": "Explicit public comment supplies total and safely escaped list",
+      "status": "PASS"
+    },
+    {
+      "name": "Purchase completion rate uses actual unique visitor and completer",
+      "status": "PASS"
+    },
+    {
+      "name": "Trend category legend hides and restores its series",
+      "status": "PASS"
+    },
+    {
+      "name": "Mobile Director has no page-width overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "APP approval and host delivery show distinct target and actual exposure counts",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual size-question outcome separates approval before and after",
+      "status": "PASS"
+    },
+    {
+      "name": "Actual product-detail outcome separates approval before and after",
+      "status": "PASS"
+    },
+    {
+      "name": "Phase conversion shows unique participant numerator and denominator",
+      "status": "PASS"
+    },
+    {
+      "name": "New outcomes retain the four existing actual-use rows",
+      "status": "PASS"
+    },
+    {
+      "name": "Fixed Simulation remains 26→11 / 14→43 / 82→95 independently",
+      "status": "PASS"
+    },
+    {
+      "name": "Publishing Simulation does not change actual outcome aggregates",
+      "status": "PASS"
+    },
+    {
+      "name": "Virtual TTL expiry leaves actual telemetry clock independent",
+      "status": "PASS"
+    },
+    {
+      "name": "Five-minute windows exclude lower and include upper boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "Receive-time progress does not advance frozen Need clock",
+      "status": "PASS"
+    },
+    {
+      "name": "Thirty-minute TOP5 and chart expire the same old question",
+      "status": "PASS"
+    },
+    {
+      "name": "Exact thirty-minute lower boundary ages out the final question",
+      "status": "PASS"
+    },
+    {
+      "name": "Director and customer browser runtime have no exceptions",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "director-experience-desktop.png",
+    "director-experience-mobile.png",
+    "director-experience-analytics.png"
+  ],
+  "completed_at": "2026-09-21T10:23:15.755Z"
+}

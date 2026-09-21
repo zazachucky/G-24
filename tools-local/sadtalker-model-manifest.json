@@ -1,0 +1,32 @@
+[
+  {
+    "file": "checkpoints/SadTalker_V0.0.2_256.safetensors",
+    "source": "https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/SadTalker_V0.0.2_256.safetensors",
+    "bytes": 725066984,
+    "sha256_observed": "c211f5d6de003516bf1bbda9f47049a4c9c99133b1ab565c6961e5af16477bff"
+  },
+  {
+    "file": "checkpoints/mapping_00229-model.pth.tar",
+    "source": "https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00229-model.pth.tar",
+    "bytes": 155521183,
+    "sha256_observed": "62a1e06006cc963220f6477438518ed86e9788226c62ae382ddc42fbcefb83f1"
+  },
+  {
+    "file": "checkpoints/mapping_00109-model.pth.tar",
+    "source": "https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar",
+    "bytes": 155779231,
+    "sha256_observed": "84a8642468a3fcfdd9ab6be955267043116c2bec2284686a5262f1eaf017f64c"
+  },
+  {
+    "file": "gfpgan/weights/alignment_WFLW_4HG.pth",
+    "source": "https://github.com/xinntao/facexlib/releases/download/v0.1.0/alignment_WFLW_4HG.pth",
+    "bytes": 193670248,
+    "sha256_observed": "bbfd137307a4c7debd5c283b9b0ce539466cee417ac0a155e184d857f9f2899c"
+  },
+  {
+    "file": "gfpgan/weights/detection_Resnet50_Final.pth",
+    "source": "https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth",
+    "bytes": 109497761,
+    "sha256_observed": "6d1de9c2944f2ccddca5f5e010ea5ae64a39845a86311af6fdf30841b0a5a16d"
+  }
+]

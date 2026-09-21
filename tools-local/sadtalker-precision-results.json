@@ -1,0 +1,15 @@
+{
+  "fp32_seconds_per_frame": 0.621779333,
+  "fp16_seconds_per_frame": 0.48700175,
+  "relative_time_reduction_percent": 21.676111740433157,
+  "difference": {
+    "mean_abs_0_to_1": 0.0029150790069252253,
+    "max_abs_0_to_1": 0.038465261459350586,
+    "p99_abs_0_to_1": 0.012764172852039327,
+    "rmse_0_to_1": 0.0039857435040175915,
+    "percent_pixels_over_0_02": 0.09307861328125
+  },
+  "autocast": "FAIL: Conv3D input Half and bias Float type mismatch",
+  "scope": "same synthetic input tensors and real generator weights; numeric comparison only, not real portrait/video quality approval",
+  "extra_fp16_patches": "5D grid_sample and avg_pool3d run in float32 CPU then return original dtype on MPS"
+}

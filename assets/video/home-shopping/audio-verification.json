@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "duration_s": 120,
+  "sample_rate": 22050,
+  "voice": "macOS Yuna, 175 words per minute",
+  "clips": [
+    {
+      "scene": "S01_INTRO",
+      "duration_s": 7.937142857142857,
+      "rms": 4607,
+      "peak": 23332
+    },
+    {
+      "scene": "S02_MATERIAL",
+      "duration_s": 8.945487528344671,
+      "rms": 4296,
+      "peak": 26281
+    },
+    {
+      "scene": "S03_COLORS",
+      "duration_s": 7.961859410430839,
+      "rms": 4524,
+      "peak": 21056
+    },
+    {
+      "scene": "S04_THICKNESS",
+      "duration_s": 8.099319727891157,
+      "rms": 4648,
+      "peak": 22689
+    },
+    {
+      "scene": "S05_SIZE_GUIDE",
+      "duration_s": 8.235283446712018,
+      "rms": 4559,
+      "peak": 21160
+    },
+    {
+      "scene": "S06_SIZE_AND_STOCK",
+      "duration_s": 7.8796371882086165,
+      "rms": 4505,
+      "peak": 22175
+    },
+    {
+      "scene": "S07_OFFICE",
+      "duration_s": 7.4786848072562355,
+      "rms": 4771,
+      "peak": 22834
+    },
+    {
+      "scene": "S08_DATE",
+      "duration_s": 7.236825396825397,
+      "rms": 4878,
+      "peak": 24469
+    },
+    {
+      "scene": "S09_CASUAL",
+      "duration_s": 7.491428571428571,
+      "rms": 4600,
+      "peak": 19017
+    },
+    {
+      "scene": "S10_PRICE_AND_BENEFIT",
+      "duration_s": 7.988163265306122,
+      "rms": 4617,
+      "peak": 22855
+    },
+    {
+      "scene": "S11_DELIVERY",
+      "duration_s": 8.236598639455782,
+      "rms": 4633,
+      "peak": 22528
+    },
+    {
+      "scene": "S12_SUMMARY",
+      "duration_s": 8.222222222222221,
+      "rms": 4529,
+      "peak": 22752
+    }
+  ]
+}

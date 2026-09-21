@@ -1,0 +1,1716 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-09-21",
+  "purpose": "Fixed GS AI LIVE prototype styling candidate pool",
+  "source_policy": "Actual GS SHOP product pages and product images. Prices and availability are dated snapshots. No runtime scraping or automatic purchase.",
+  "annotation_policy": "Mood, silhouette summary and style tags are editorial assignments for this demo. They are not site-provided recommendation scores.",
+  "stock_policy": "Show 상품 상세 보기. Do not promise availability or infer shoe size. Source pages are authoritative at click time.",
+  "counts": {
+    "BOTTOM": 8,
+    "SHOES": 6
+  },
+  "products": [
+    {
+      "product_id": "1103554292",
+      "product_name": "코어 어센틱 롤업 슬랙스 [런칭 가격 59,900원]",
+      "category": "BOTTOM",
+      "subcategory": "PANTS",
+      "color": "아이보리",
+      "silhouette": "발목 기장 스트레이트 롤업 슬랙스",
+      "style_tags": [
+        "OFFICE",
+        "CLEAN",
+        "STRAIGHT",
+        "LIGHT_NEUTRAL"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1103554292.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1103554292/1/550",
+      "image_selection_note": "대표 이미지의 아이보리 팬츠. 발목 길이와 넓은 롤업단을 유지한다.",
+      "image_sha256": "710e8825f3c8fdb8628e0e82f3fba40ba6ef22897bed88ed96271f0a5b1ea00f",
+      "price": 39920,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 49900,
+      "public_coupon_discount": 9980,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1103554292",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1103554292001",
+          "name": "블랙 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292002",
+          "name": "블랙 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292003",
+          "name": "블랙 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292004",
+          "name": "블랙 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103554292005",
+          "name": "블랙 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292006",
+          "name": "그레이 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292007",
+          "name": "그레이 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292008",
+          "name": "그레이 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292009",
+          "name": "그레이 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103554292010",
+          "name": "그레이 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103554292011",
+          "name": "아이보리 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292012",
+          "name": "아이보리 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292013",
+          "name": "아이보리 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103554292014",
+          "name": "아이보리 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103554292015",
+          "name": "아이보리 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1078630326",
+      "product_name": "[헤이데이즈]1237 (화이트 크림) 코튼 하이웨스트 와이드 코튼 팬츠 / 아이보리 베이지 면바지 슬랙스",
+      "category": "BOTTOM",
+      "subcategory": "PANTS",
+      "color": "화이트",
+      "silhouette": "하이웨스트 와이드 코튼 팬츠",
+      "style_tags": [
+        "OFFICE",
+        "CASUAL_COMFORT",
+        "WIDE",
+        "LIGHT_NEUTRAL"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1078630326.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1078630326/1/550",
+      "image_selection_note": "대표 이미지의 화이트 코튼 팬츠. 아이보리 정장 슬랙스로 표기하지 않는다.",
+      "image_sha256": "7b79944cd3616b4fd97cdc7bbae149a0670ba2918d8766df4716e013353da9f4",
+      "price": 46800,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 46800,
+      "public_coupon_discount": 0,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1078630326",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1078630326001",
+          "name": "화이트/S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1078630326002",
+          "name": "화이트/M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1078630326003",
+          "name": "크림/S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1078630326004",
+          "name": "크림/M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1078630326005",
+          "name": "블랙/S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1078630326006",
+          "name": "블랙/M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1052764372",
+      "product_name": "[피핀] 710028 3TYPE 아이스텐셀 밴딩 와이드 데님",
+      "category": "BOTTOM",
+      "subcategory": "PANTS",
+      "color": "청",
+      "silhouette": "밴딩 와이드 데님",
+      "style_tags": [
+        "CASUAL_COMFORT",
+        "WIDE",
+        "DENIM",
+        "BLUE"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1052764372-2.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1052764372/2/550",
+      "image_selection_note": "추가 이미지 2의 청색 데님. 숏·중·롱 기장은 상품 페이지에서 직접 선택한다.",
+      "image_sha256": "05374bd8d61dcd078787f8fa6401567b1a361d944640dc8b966ef1ad52e88faa",
+      "price": 34110,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 37900,
+      "public_coupon_discount": 3790,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1052764372",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1052764372001",
+          "name": "블랙_숏 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372002",
+          "name": "블랙_숏 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372003",
+          "name": "블랙_숏 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372004",
+          "name": "블랙_숏 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372005",
+          "name": "블랙_숏 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372006",
+          "name": "블랙_중 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372007",
+          "name": "블랙_중 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372008",
+          "name": "블랙_중 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372009",
+          "name": "블랙_중 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372010",
+          "name": "블랙_중 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372011",
+          "name": "블랙_롱 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372012",
+          "name": "블랙_롱 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372013",
+          "name": "블랙_롱 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372014",
+          "name": "블랙_롱 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372015",
+          "name": "블랙_롱 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372016",
+          "name": "청_숏 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372017",
+          "name": "청_숏 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372018",
+          "name": "청_숏 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372019",
+          "name": "청_숏 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372020",
+          "name": "청_숏 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372021",
+          "name": "청_중 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372022",
+          "name": "청_중 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372023",
+          "name": "청_중 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372024",
+          "name": "청_중 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372025",
+          "name": "청_중 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372026",
+          "name": "청_롱 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372027",
+          "name": "청_롱 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372028",
+          "name": "청_롱 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372029",
+          "name": "청_롱 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372030",
+          "name": "청_롱 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372031",
+          "name": "그레이_숏 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372032",
+          "name": "그레이_숏 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372033",
+          "name": "그레이_숏 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372034",
+          "name": "그레이_숏 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372035",
+          "name": "그레이_숏 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372036",
+          "name": "그레이_중 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372037",
+          "name": "그레이_중 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372038",
+          "name": "그레이_중 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372039",
+          "name": "그레이_중 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372040",
+          "name": "그레이_중 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372041",
+          "name": "그레이_롱 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372042",
+          "name": "그레이_롱 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372043",
+          "name": "그레이_롱 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372044",
+          "name": "그레이_롱 / XL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1052764372045",
+          "name": "그레이_롱 / XXL",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1105260457",
+      "product_name": "SJ와니 그레이스 볼륨라인 데님 팬츠 1종 [런칭 가격 89,900원]",
+      "category": "BOTTOM",
+      "subcategory": "PANTS",
+      "color": "인디고",
+      "silhouette": "발목 기장 볼륨 데님",
+      "style_tags": [
+        "CASUAL_COMFORT",
+        "VOLUME",
+        "DENIM",
+        "DARK_BLUE"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1105260457.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1105260457/1/550",
+      "image_selection_note": "대표 이미지의 인디고 볼륨라인 데님. 긴 와이드 데님과 구분한다.",
+      "image_sha256": "5c17ee8baf5140987ae20d76bbaff2743023cdfb455d9e01d7b023d6da36bc88",
+      "price": 49900,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 49900,
+      "public_coupon_discount": 0,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1105260457",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1105260457001",
+          "name": "블랙 / 44",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457002",
+          "name": "블랙 / 55",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457003",
+          "name": "블랙 / 66",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457004",
+          "name": "블랙 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457005",
+          "name": "블랙 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457006",
+          "name": "인디고 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457007",
+          "name": "인디고 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457008",
+          "name": "인디고 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457009",
+          "name": "인디고 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457010",
+          "name": "인디고 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457011",
+          "name": "베이지 / 44",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457012",
+          "name": "베이지 / 55",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457013",
+          "name": "베이지 / 66",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457014",
+          "name": "베이지 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457015",
+          "name": "베이지 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1105260457016",
+          "name": "아이보리 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457017",
+          "name": "아이보리 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457018",
+          "name": "아이보리 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457019",
+          "name": "아이보리 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1105260457020",
+          "name": "아이보리 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1103680106",
+      "product_name": "코어 어센틱 새틴 스커트 [런칭 가격 59,900원]",
+      "category": "BOTTOM",
+      "subcategory": "SKIRT",
+      "color": "브라운",
+      "silhouette": "롱 새틴 스커트",
+      "style_tags": [
+        "DATE",
+        "OFFICE",
+        "SOFT",
+        "BROWN"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1103680106.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1103680106/1/550",
+      "image_selection_note": "대표 이미지의 브라운 새틴 스커트. 장식 없는 매끈한 표면과 길이를 유지한다.",
+      "image_sha256": "e4328a858632f8cae1887255c9351ae293eee5fd770838fe41d5d9246d376159",
+      "price": 34930,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 49900,
+      "public_coupon_discount": 14970,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1103680106",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1103680106001",
+          "name": "블랙 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106002",
+          "name": "블랙 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106003",
+          "name": "블랙 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106004",
+          "name": "블랙 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106005",
+          "name": "블랙 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106006",
+          "name": "브라운 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106007",
+          "name": "브라운 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106008",
+          "name": "브라운 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106009",
+          "name": "브라운 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103680106010",
+          "name": "브라운 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103680106011",
+          "name": "아이보리 / 44",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103680106012",
+          "name": "아이보리 / 55",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103680106013",
+          "name": "아이보리 / 66",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103680106014",
+          "name": "아이보리 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103680106015",
+          "name": "아이보리 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1103615120",
+      "product_name": "코어 어센틱 티어드 스커트",
+      "category": "BOTTOM",
+      "subcategory": "SKIRT",
+      "color": "브라운",
+      "silhouette": "티어드 플레어 롱 스커트",
+      "style_tags": [
+        "DATE",
+        "ROMANTIC",
+        "TIERED",
+        "BROWN"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1103615120.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1103615120/1/550",
+      "image_selection_note": "대표 이미지의 브라운 티어드 스커트. 여러 단의 셔링과 볼륨이 있다.",
+      "image_sha256": "f4cc61c72971a03326006242d755f56c537f2be3d4516267a0e443a644ce2b5e",
+      "price": 41930,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 59900,
+      "public_coupon_discount": 17970,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1103615120",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1103615120001",
+          "name": "블랙 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120002",
+          "name": "블랙 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120003",
+          "name": "블랙 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120004",
+          "name": "블랙 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120005",
+          "name": "블랙 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120006",
+          "name": "아이보리 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120007",
+          "name": "아이보리 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120008",
+          "name": "아이보리 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120009",
+          "name": "아이보리 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120010",
+          "name": "아이보리 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120011",
+          "name": "그레이 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120012",
+          "name": "그레이 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120013",
+          "name": "그레이 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120014",
+          "name": "그레이 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120015",
+          "name": "그레이 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103615120016",
+          "name": "브라운 / 44",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120017",
+          "name": "브라운 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120018",
+          "name": "브라운 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103615120019",
+          "name": "브라운 / 77",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1103615120020",
+          "name": "브라운 / 88",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1103517129",
+      "product_name": "SJ와니 꾸뛰르 블루밍 스커트 1종 [런칭 가격 139,900원]",
+      "category": "BOTTOM",
+      "subcategory": "SKIRT",
+      "color": "크림",
+      "silhouette": "플로럴 레이스 스커트",
+      "style_tags": [
+        "DATE",
+        "ROMANTIC",
+        "LACE",
+        "LIGHT_NEUTRAL"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1103517129.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1103517129/1/550",
+      "image_selection_note": "대표 이미지에는 별도 상의가 함께 나온다. 후보는 크림 스커트 1종이며 세트가 아니다.",
+      "image_sha256": "34694e7118b69c42e62297ad743a7850e1259d7aabab7e2c89f81237c4841d2b",
+      "price": 69900,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 69900,
+      "public_coupon_discount": 0,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1103517129",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1103517129001",
+          "name": "블랙 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129002",
+          "name": "블랙 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129003",
+          "name": "블랙 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129004",
+          "name": "블랙 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129005",
+          "name": "크림 / 55",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129006",
+          "name": "크림 / 66",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129007",
+          "name": "크림 / 77",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1103517129008",
+          "name": "크림 / 88",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1090656681",
+      "product_name": "SJ와니 캐시미어 울 크로쉐 스커트 1종 (런칭 가격 159,900원)",
+      "category": "BOTTOM",
+      "subcategory": "SKIRT",
+      "color": "크림",
+      "silhouette": "패턴 크로쉐 롱 스커트",
+      "style_tags": [
+        "DATE",
+        "TEXTURED",
+        "CROCHET",
+        "LIGHT_NEUTRAL"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1090656681.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1090656681/1/550",
+      "image_selection_note": "대표 이미지의 크림 크로쉐 스커트. 기하학적인 짜임을 유지한다.",
+      "image_sha256": "bac6519904aa298e7aea5db21ba30aa010339c4671b01ada94d8dff34866ba28",
+      "price": 59900,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 59900,
+      "public_coupon_discount": 0,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1090656681",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1090656681001",
+          "name": "블랙 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1090656681002",
+          "name": "블랙 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1090656681003",
+          "name": "블랙 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1090656681004",
+          "name": "크림 / S",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1090656681005",
+          "name": "크림 / M",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1090656681006",
+          "name": "크림 / L",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1092943486",
+      "product_name": "[핏플랍][삼성물산공식]여성 레더 로퍼_올 블랙 (FT59K2L015)",
+      "category": "SHOES",
+      "subcategory": "LOAFER",
+      "color": "검정색",
+      "silhouette": "라운드 토 청키 레더 로퍼",
+      "style_tags": [
+        "OFFICE",
+        "CLEAN",
+        "LOAFER",
+        "BLACK"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1092943486.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1092943486/1/550",
+      "image_selection_note": "대표 이미지의 검정 가죽 로퍼. 두꺼운 검정 밑창과 무장식 갑피가 특징이다.",
+      "image_sha256": "6d820979f63aebae0019eeedb1230832102818d9c90f519bec76aa856552f38d",
+      "price": 164880,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 183200,
+      "public_coupon_discount": 18320,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1092943486",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1092943486003",
+          "name": "검정색 / 040",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1092943486004",
+          "name": "검정색 / 045",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1092943486005",
+          "name": "검정색 / 050",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1092943486006",
+          "name": "검정색 / 055",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1092943486007",
+          "name": "검정색 / 060",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1110407317",
+      "product_name": "헬시온 발편한 소가죽 메리제인",
+      "category": "SHOES",
+      "subcategory": "MARY_JANE",
+      "color": "아이보리",
+      "silhouette": "더블 스트랩 메리제인",
+      "style_tags": [
+        "DATE",
+        "CASUAL_COMFORT",
+        "MARY_JANE",
+        "LIGHT_NEUTRAL"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1110407317-7.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1110407317/7/550",
+      "image_selection_note": "추가 이미지 7의 아이보리 메리제인. 두 줄 스트랩·스티치·낮은 일체형 밑창을 유지한다.",
+      "image_sha256": "97c8622c3dfb262fd62f41a32bdb15b93de946c9c9050ac103ef12b5799b91a1",
+      "price": 59000,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 59000,
+      "public_coupon_discount": 0,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1110407317",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1110407317001",
+          "name": "블랙 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317002",
+          "name": "블랙 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317003",
+          "name": "블랙 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317004",
+          "name": "블랙 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317005",
+          "name": "블랙 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317006",
+          "name": "블랙 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317007",
+          "name": "아이보리 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317008",
+          "name": "아이보리 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317009",
+          "name": "아이보리 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317010",
+          "name": "아이보리 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317011",
+          "name": "아이보리 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317012",
+          "name": "아이보리 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317013",
+          "name": "브라운 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317014",
+          "name": "브라운 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317015",
+          "name": "브라운 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317016",
+          "name": "브라운 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317017",
+          "name": "브라운 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317018",
+          "name": "브라운 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317019",
+          "name": "핑크 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317020",
+          "name": "핑크 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317021",
+          "name": "핑크 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317022",
+          "name": "핑크 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317023",
+          "name": "핑크 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1110407317024",
+          "name": "핑크 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1085417942",
+      "product_name": "고세 여성 스니커즈 OZP5S902 아이보리 4.5cm",
+      "category": "SHOES",
+      "subcategory": "SNEAKERS",
+      "color": "아이보리",
+      "silhouette": "메쉬 레이스업 스니커즈",
+      "style_tags": [
+        "CASUAL_COMFORT",
+        "SNEAKERS",
+        "MESH",
+        "LIGHT_NEUTRAL"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1085417942.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1085417942/1/550",
+      "image_selection_note": "대표 이미지의 아이보리 메쉬 스니커즈. 베이지 포인트와 흰 중창·베이지 아웃솔이 있다.",
+      "image_sha256": "493e5498dc1e64e628e0dac27ba4f922b097141d5e4cb116771f245c060b1324",
+      "price": 71200,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 89000,
+      "public_coupon_discount": 17800,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1085417942",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1085417942001",
+          "name": "아이보리 / 225",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1085417942002",
+          "name": "아이보리 / 230",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1085417942003",
+          "name": "아이보리 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1085417942004",
+          "name": "아이보리 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1085417942005",
+          "name": "아이보리 / 245",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1085417942006",
+          "name": "아이보리 / 250",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1062950453",
+      "product_name": "[론칭가 149,000] 가이거 헤리티지 칼브펠 로퍼",
+      "category": "SHOES",
+      "subcategory": "LOAFER",
+      "color": "그린",
+      "silhouette": "페니 로퍼",
+      "style_tags": [
+        "OFFICE",
+        "CASUAL_COMFORT",
+        "LOAFER",
+        "COLOR_ACCENT"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1062950453.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1062950453/1/550",
+      "image_selection_note": "대표 이미지는 여러 색상의 합성 이미지이며 그린 제품이 오른쪽 위에 포함된다. 특정 색상 단독 이미지로 표기하지 않는다.",
+      "image_sha256": "fa66f08253a5f78844b9af11ba452d19ae5313f121f098133883bf083dc026da",
+      "price": 69210,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 69900,
+      "public_coupon_discount": 690,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1062950453",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1062950453015",
+          "name": "베이지 / 225mm",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1062950453016",
+          "name": "베이지 / 230mm",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1062950453022",
+          "name": "그린 / 225mm",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1062950453023",
+          "name": "그린 / 230mm",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1062950453024",
+          "name": "그린 / 235mm",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1062950453025",
+          "name": "그린 / 240mm",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1062950453026",
+          "name": "그린 / 245mm",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1062950453027",
+          "name": "그린 / 250mm",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1062950453028",
+          "name": "그린 / 255mm",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1115335590",
+      "product_name": "[올리] 헬시온 더블 스트랩 메리제인 4cm",
+      "category": "SHOES",
+      "subcategory": "MARY_JANE",
+      "color": "브라운",
+      "silhouette": "더블 스트랩 메리제인",
+      "style_tags": [
+        "DATE",
+        "CASUAL_COMFORT",
+        "MARY_JANE",
+        "BROWN"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1115335590-2.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1115335590/2/550",
+      "image_selection_note": "대표 이미지 1은 30px 비정상 이미지여서 사용하지 않는다. 정상 추가 이미지 2에서 브라운 제품을 확인했다.",
+      "image_sha256": "e241209e10f743c88e5fe6a329db0269ee7291cfc500a4cb5d8e0510a342f525",
+      "price": 39900,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 42000,
+      "public_coupon_discount": 2100,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1115335590",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1115335590001",
+          "name": "블랙 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590002",
+          "name": "블랙 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590003",
+          "name": "블랙 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590004",
+          "name": "블랙 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590005",
+          "name": "블랙 / 245",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1115335590006",
+          "name": "블랙 / 250",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1115335590007",
+          "name": "아이보리 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590008",
+          "name": "아이보리 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590009",
+          "name": "아이보리 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590010",
+          "name": "아이보리 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590011",
+          "name": "아이보리 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590012",
+          "name": "아이보리 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590013",
+          "name": "브라운 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590014",
+          "name": "브라운 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590015",
+          "name": "브라운 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590016",
+          "name": "브라운 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590017",
+          "name": "브라운 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590018",
+          "name": "브라운 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590019",
+          "name": "핑크 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590020",
+          "name": "핑크 / 230",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590021",
+          "name": "핑크 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590022",
+          "name": "핑크 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590023",
+          "name": "핑크 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1115335590024",
+          "name": "핑크 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    },
+    {
+      "product_id": "1083000147",
+      "product_name": "고세 여성 망사스니커즈 OZP5S902 그레이 4.5cm",
+      "category": "SHOES",
+      "subcategory": "SNEAKERS",
+      "color": "연그레이",
+      "silhouette": "메쉬 레이스업 스니커즈",
+      "style_tags": [
+        "CASUAL_COMFORT",
+        "SNEAKERS",
+        "MESH",
+        "GRAY"
+      ],
+      "annotation_provenance": "silhouette, style_tags and styling role assigned by agent from product title and inspected images; not GS SHOP recommendation metadata",
+      "image": "assets/products/styling/1083000147.jpg",
+      "source_image_url": "https://asset.m-gs.kr/prod/1083000147/1/550",
+      "image_selection_note": "대표 이미지의 연그레이 메쉬 스니커즈. 상품명은 그레이, 실제 선택 옵션명은 연그레이다.",
+      "image_sha256": "ddace4988239e208b204fa35a4541b30279ac013da34d454da0ce2746059dde9",
+      "price": 71200,
+      "currency": "KRW",
+      "price_basis": "public_page_minPrc_snapshot",
+      "listed_sale_price": 89000,
+      "public_coupon_discount": 17800,
+      "product_url": "https://m.gsshop.com/prd/prd.gs?prdid=1083000147",
+      "verified_at": "2026-09-21",
+      "verification_status": "PUBLIC_PAGE_AND_IMAGE_VERIFIED",
+      "sale_status_at_snapshot": "Y",
+      "stock_verification": "Public page option snapshot only; stock and checkout not live-verified. raw stockFlg Y corresponds to page sold-out label, not in-stock.",
+      "options_snapshot": [
+        {
+          "option_id": "1083000147001",
+          "name": "연그레이 / 225",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1083000147002",
+          "name": "연그레이 / 230",
+          "page_sold_out": true,
+          "raw_stock_flag": "Y"
+        },
+        {
+          "option_id": "1083000147003",
+          "name": "연그레이 / 235",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1083000147004",
+          "name": "연그레이 / 240",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1083000147005",
+          "name": "연그레이 / 245",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        },
+        {
+          "option_id": "1083000147006",
+          "name": "연그레이 / 250",
+          "page_sold_out": false,
+          "raw_stock_flag": "N"
+        }
+      ],
+      "runtime_eligible": true
+    }
+  ]
+}

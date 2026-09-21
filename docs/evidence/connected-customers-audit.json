@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-21T09:38:33.817442+00:00",
+  "request": "연결된 고객화면 연동 안된거 같은데?",
+  "cause": "Monitor customer table rendered only Need and approval state, omitting actual integration usage data that was visible in separate activity view.",
+  "fix": "Bind existing public usage and presence to original customer table; preserve Need and approval; distinguish offline from stale server connection.",
+  "browser_checks": 25,
+  "report": "docs/evidence/connected-customers-verification.json",
+  "report_sha256": "b016b51fc41b65aa1f02e24b1745c9c03ad7894eba48473cc4e7a95b1b960a85",
+  "implementation_sha256": {
+    "app/director.html": "37b0112432227bf2b62dc8836b3c6d73b6243e6d649abfc77353a46d18b78876",
+    "app/director.css": "37f689c4648f9f74a7344906478da35d39a04f59ccb8a45e244cda5b68d7f5aa",
+    "app/director.js": "a8105275351d2eb04cb54d9f99d9c0aca354105d275e4e8d031448f3c0c34ce1",
+    "scripts/check_connected_customers.cjs": "2dbd3ca9005b37b813f43898c909050813873b27a849b1c54541b4ee28ed249d"
+  },
+  "user_run_preserved": "3751eefe2ea1496dbe02bc19d69349bb",
+  "runtime": "http://127.0.0.1:8765/app/director.html#connected-customers",
+  "validation_scope": "Targeted actual Chrome regression on isolated port8773, desktop/mobile visual check; prior full suites not repeated for this presentation-only fix."
+}

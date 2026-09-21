@@ -1,0 +1,12 @@
+# Installed using --target tools-local/i2v-packages --no-deps.
+# Existing venv-sadtalker dependencies and mps-packages torch overlay are reused.
+diffusers==0.35.1
+transformers==4.49.0
+accelerate==1.10.1
+huggingface-hub==0.34.4
+tokenizers==0.21.4
+regex==2025.7.34
+psutil==7.0.0
+importlib-metadata==8.7.0
+safetensors==0.6.2
+hf-xet==1.1.9

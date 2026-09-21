@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-21T10:20:53.477Z",
+  "server": "http://127.0.0.1:8791",
+  "scope": "Actual private sizing form, transparent garment-comparison rules, manual purchase options and customer isolation. No predictive body-fit or synthetic review claims.",
+  "checks": [
+    {
+      "name": "Default private profile preserves the prepared 66 recommendation",
+      "status": "PASS"
+    },
+    {
+      "name": "Sizing form labels garment width separately from body circumference",
+      "status": "PASS"
+    },
+    {
+      "name": "Review evidence remains overall product aggregate without fabricated review portraits",
+      "status": "PASS"
+    },
+    {
+      "name": "Height alone is saved as context and never changes recommended size",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid height is blocked by actual form validity and never saved",
+      "status": "PASS"
+    },
+    {
+      "name": "Half-size preference changes the displayed recommendation and recommended option badge",
+      "status": "PASS"
+    },
+    {
+      "name": "Saving a new recommendation does not change the selected purchase size",
+      "status": "PASS"
+    },
+    {
+      "name": "Manual option selection preserves unsaved profile edits",
+      "status": "PASS"
+    },
+    {
+      "name": "Owned garment width compares against real product 47.5 cm option",
+      "status": "PASS"
+    },
+    {
+      "name": "Relaxed fit uses the saved garment measurement to suggest the next option",
+      "status": "PASS"
+    },
+    {
+      "name": "Director public payload and another customer never receive A profile fields",
+      "status": "PASS"
+    },
+    {
+      "name": "Director DOM excludes raw private height and garment measurements",
+      "status": "PASS"
+    },
+    {
+      "name": "Purchase flow follows manual 55 option rather than automatic 77 recommendation",
+      "status": "PASS"
+    },
+    {
+      "name": "Valid but out-of-table garment width produces manual checking with no invented size",
+      "status": "PASS"
+    },
+    {
+      "name": "Refresh preserves saved private inputs recommendation and manual option",
+      "status": "PASS"
+    },
+    {
+      "name": "Customer B starts with its independent unchanged profile",
+      "status": "PASS"
+    },
+    {
+      "name": "Saving B profile does not overwrite A measurements",
+      "status": "PASS"
+    },
+    {
+      "name": "Returning to A restores its own saved recommendation",
+      "status": "PASS"
+    },
+    {
+      "name": "Private profile form fits mobile without horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "Delayed private save cannot reopen or overwrite another customer screen",
+      "status": "PASS"
+    },
+    {
+      "name": "Reset clears saved profiles and restores default recommendation 66",
+      "status": "PASS"
+    },
+    {
+      "name": "No uncaught browser errors during sizing changes and customer transitions",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "size-profile-personalized.png",
+    "size-profile-mobile.png"
+  ],
+  "completed_at": "2026-09-21T10:20:58.175Z"
+}

@@ -1,0 +1,37 @@
+{
+  "scope": "CPU only; no GPU inference or performance benchmark",
+  "results": [
+    {
+      "case": "spatial_self",
+      "status": "PASS",
+      "device": "cpu",
+      "max_abs_error": 0.0,
+      "chunked_calls": 1,
+      "unchunked_calls": 0
+    },
+    {
+      "case": "spatial_cross",
+      "status": "PASS",
+      "device": "cpu",
+      "max_abs_error": 0.0,
+      "chunked_calls": 1,
+      "unchunked_calls": 0
+    },
+    {
+      "case": "masked_spatial_self",
+      "status": "PASS",
+      "device": "cpu",
+      "max_abs_error": 0.0,
+      "chunked_calls": 1,
+      "unchunked_calls": 0
+    },
+    {
+      "case": "temporal_short_sequence",
+      "status": "PASS",
+      "device": "cpu",
+      "max_abs_error": 0.0,
+      "chunked_calls": 0,
+      "unchunked_calls": 1
+    }
+  ]
+}

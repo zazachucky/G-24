@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "source_policy": "Asset identity and evidence types must remain separate. Never promote ASR drafts or reference video details to current product facts.",
+  "videos": [
+    {
+      "asset_id": "reference-core-authentic-cardigan-01",
+      "path": "assets/video/reference/core-authentic-cardigan.mp4",
+      "duration_s": 57.89746,
+      "label": "녹화 참고 영상 · 코어어센틱 가디건 · 현재 상품과 다름",
+      "subject_product_name": "코어어센틱 캐시니트 가디건",
+      "product_id": null,
+      "product_match": false,
+      "allow_current_product_grounding": false,
+      "provenance": "reviewed_video_frames",
+      "validation": "REVIEWED_SCREEN_CAPTIONS_AND_VISUALS_ONLY",
+      "source_sha256": "b945e14a8b71ce82056c43eff8af59095b32e7a5289a8d7c4abf736e15c64d3b",
+      "scope_note": "실제 MP4에서 추출해 확인한 화면 자막·모습만 안내합니다. 자동 음성 전사 원본은 초안이며 답변 사실 근거로 자동 채택하지 않습니다.",
+      "asr_draft": "assets/video/reference/transcript-asr-small.json",
+      "chapters": [
+        {
+          "id": "REF_MATERIAL",
+          "start": 2,
+          "end": 6.6,
+          "label": "캐시미어와 터치감",
+          "keywords": [
+            "캐시미어",
+            "캐시",
+            "소재",
+            "터치감",
+            "광택",
+            "촉감"
+          ],
+          "text": "02초 화면 자막에 “캐시미어가 들어가 있어서”, 06초에 “터치감이나 광택감이 있지만”이 표시돼요. 참고 영상 속 가디건에 관한 설명이며 혼용률 수치는 확인하지 않았어요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/02s.jpg",
+            "assets/video/reference/transcript-frames/06s.jpg"
+          ]
+        },
+        {
+          "id": "REF_NECKLINE",
+          "start": 10,
+          "end": 15.5,
+          "label": "V넥과 단추 디테일",
+          "keywords": [
+            "브이넥",
+            "v넥",
+            "브이",
+            "목선",
+            "넥라인",
+            "단추"
+          ],
+          "text": "10~14초에는 가디건의 목선과 앞단추를 가까이 보여줘요. 14초 화면 자막은 “다 채우게 되면”이며, 화면에서 V자 모양 목선과 앞단추를 확인할 수 있어요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/10s.jpg",
+            "assets/video/reference/transcript-frames/14s.jpg"
+          ]
+        },
+        {
+          "id": "REF_PLACKET",
+          "start": 26,
+          "end": 31,
+          "label": "가디건 앞중심 디테일",
+          "keywords": [
+            "앞중심",
+            "중간",
+            "마감",
+            "벌어",
+            "후줄",
+            "디테일",
+            "단추사이"
+          ],
+          "text": "26~30초에는 가디건 앞중심과 단추를 가까이 보여줘요. 30초 화면 자막에는 “근데 얘는 중간이 힘이 딱 잡히면서”라고 표시돼요. 이는 영상 속 진행자의 설명이며 제품 성능을 별도로 검증한 결과는 아니에요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/26s.jpg",
+            "assets/video/reference/transcript-frames/30s.jpg"
+          ]
+        },
+        {
+          "id": "REF_JACKET",
+          "start": 34,
+          "end": 39,
+          "label": "재킷을 더한 코디",
+          "keywords": [
+            "재킷",
+            "자켓",
+            "블레이저",
+            "코디",
+            "스타일",
+            "정장"
+          ],
+          "text": "34초에는 가디건 위에 재킷을 걸친 전신 코디를, 38초에는 재킷 안에 가디건을 입은 모습을 보여줘요. 38초 화면 자막은 “재킷에도 찰떡”이에요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/34s.jpg",
+            "assets/video/reference/transcript-frames/38s.jpg"
+          ]
+        },
+        {
+          "id": "REF_COMFORT",
+          "start": 42,
+          "end": 43.5,
+          "label": "착용감에 관한 화면 자막",
+          "keywords": [
+            "맨살",
+            "따가",
+            "피부",
+            "착용감",
+            "부드러"
+          ],
+          "text": "42초 화면 자막에는 “브라만 하고 입으셔도 (안 따가우니까)”라고 표시돼요. 참고 영상의 표현을 안내하는 것이며, 현재 상품의 촉감이나 개인별 피부 반응을 보장하는 설명은 아니에요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/42s.jpg"
+          ]
+        },
+        {
+          "id": "REF_COLORS",
+          "start": 46,
+          "end": 51,
+          "label": "블랙과 선택 컬러 구성",
+          "keywords": [
+            "색상",
+            "색깔",
+            "컬러",
+            "블랙",
+            "검정",
+            "구성",
+            "몇벌"
+          ],
+          "text": "46초 화면에 “공통컬러 블랙”, 50초 화면에 “공통 블랙 + 선택 1컬러”라고 표시돼요. 이는 이 녹화 참고 영상의 구성 안내이며 현재 SJ와니 상품의 옵션·재고와는 관계없어요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/46s.jpg",
+            "assets/video/reference/transcript-frames/50s.jpg"
+          ]
+        },
+        {
+          "id": "REF_PROMOTION",
+          "start": 54,
+          "end": 57.8,
+          "label": "영상 말미의 추석 행사 화면",
+          "keywords": [
+            "프로모션",
+            "추석",
+            "행사",
+            "혜택",
+            "적립"
+          ],
+          "text": "54초 행사 화면에는 “9.2 - 9.21”, “10% 추석 적립금 최대 3만원”, “선물 지원금 5천원”이 표시돼요. 영상에 담긴 과거 행사 화면을 읽은 내용이며 행사 연도·현재 적용 여부는 확인되지 않았어요. 현재 구매 혜택으로 적용하면 안 돼요.",
+          "source_refs": [
+            "assets/video/reference/transcript-frames/54s.jpg"
+          ]
+        }
+      ],
+      "summary_ids": [
+        "REF_MATERIAL",
+        "REF_NECKLINE",
+        "REF_JACKET",
+        "REF_COLORS"
+      ]
+    },
+    {
+      "asset_id": "main-product-sample-120s",
+      "path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+      "duration_s": 120,
+      "label": "상품 설명 샘플 · 합성 음성 · 제작 대본 기반",
+      "subject_product_name": "SJ와니 샤이니 크리즈 캐시미어 풀오버",
+      "product_id": "1084192893",
+      "product_match": true,
+      "allow_current_product_grounding": true,
+      "provenance": "script_reference_not_asr",
+      "validation": "AUTHORED_SAMPLE_SCRIPT_AND_TIMELINE",
+      "source_sha256": "473d67717c22117806d4d58140be474ef44859ac8ca68af8f7c9ce59560a94d6",
+      "scope_note": "합성 음성을 넣어 제작한 기능 검증용 샘플입니다. 제작 대본의 검색·안내이며 실제 방송의 음성 인식이나 영상 의미 분석 결과가 아닙니다. 가격·재고는 고정 스냅샷, 혜택·배송은 대본에 표시한 데모입니다.",
+      "chapters": [
+        {
+          "id": "S01_INTRO",
+          "start": 0,
+          "end": 10,
+          "label": "오늘의 캐시미어 풀오버",
+          "keywords": [
+            "소개",
+            "이름",
+            "상품명"
+          ],
+          "text": "지금 보실 상품은 에스제이와니 캐시미어 풀오버예요. 실제 상품 자료를 바탕으로 만든 데모용 샘플 영상입니다.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S01_INTRO",
+            "assets/video/test-live/render-plan.json#S01_INTRO"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S02_MATERIAL",
+          "start": 10,
+          "end": 20,
+          "label": "소재와 디테일을 가까이",
+          "keywords": [
+            "소재",
+            "캐시미어",
+            "혼용",
+            "함량"
+          ],
+          "text": "캐시미어 85%, 나일론 10%, 폴리에스터 5% 소재예요. 목선과 소매 디테일을 가까이 살펴보세요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S02_MATERIAL",
+            "assets/video/test-live/render-plan.json#S02_MATERIAL"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S03_COLORS",
+          "start": 20,
+          "end": 30,
+          "label": "네 가지 소개 색상",
+          "keywords": [
+            "색상",
+            "컬러",
+            "색깔"
+          ],
+          "text": "그레이, 블랙, 크림, 라벤더 네 가지 소개 색상이에요. 실제 선택 옵션과 재고는 상품 페이지에서 확인해주세요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S03_COLORS",
+            "assets/video/test-live/render-plan.json#S03_COLORS"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S04_THICKNESS",
+          "start": 30,
+          "end": 40,
+          "label": "구매자는 두께를 어떻게 봤을까요",
+          "keywords": [
+            "두께",
+            "얇",
+            "두껍",
+            "제조사",
+            "리뷰"
+          ],
+          "text": "구매자 리뷰에서는 얇아요가 63%예요. 제조사 안내는 약간 두꺼움으로, 출처에 따라 두께 평가가 달라요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S04_THICKNESS",
+            "assets/video/test-live/render-plan.json#S04_THICKNESS"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S05_SIZE_GUIDE",
+          "start": 40,
+          "end": 50,
+          "label": "66 사이즈의 상세 치수",
+          "keywords": [
+            "사이즈",
+            "치수",
+            "가슴",
+            "총길이",
+            "실측"
+          ],
+          "text": "사이즈는 55부터 88까지예요. 66의 가슴단면은 45센티미터, 총길이는 61센티미터로 안내돼 있어요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S05_SIZE_GUIDE",
+            "assets/video/test-live/render-plan.json#S05_SIZE_GUIDE"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S06_SIZE_RECOMMENDATION_AND_STOCK",
+          "start": 50,
+          "end": 60,
+          "label": "지수님의 66 사이즈 안내",
+          "keywords": [
+            "품절",
+            "재고",
+            "추천",
+            "그레이66"
+          ],
+          "text": "평소 66을 입는 가상 고객 지수님께 66을 먼저 안내해요. 다만 그레이 66은 확인 당시 일시품절이에요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S06_SIZE_RECOMMENDATION_AND_STOCK",
+            "assets/video/test-live/render-plan.json#S06_SIZE_RECOMMENDATION_AND_STOCK"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S07_OFFICE",
+          "start": 60,
+          "end": 70,
+          "label": "차분한 출근길",
+          "keywords": [
+            "출근",
+            "슬랙스",
+            "로퍼"
+          ],
+          "text": "첫 번째는 차분한 출근길 코디예요. 그레이 상의에 아이보리 롤업 슬랙스와 검정 로퍼를 함께 제안해요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S07_OFFICE",
+            "assets/video/test-live/render-plan.json#S07_OFFICE"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S08_DATE",
+          "start": 70,
+          "end": 80,
+          "label": "부드러운 약속",
+          "keywords": [
+            "약속",
+            "스커트",
+            "메리제인"
+          ],
+          "text": "두 번째는 부드러운 약속 코디예요. 브라운 새틴 스커트와 아이보리 메리제인을 함께 매치한 예시예요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S08_DATE",
+            "assets/video/test-live/render-plan.json#S08_DATE"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S09_CASUAL",
+          "start": 80,
+          "end": 90,
+          "label": "여유로운 주말",
+          "keywords": [
+            "주말",
+            "데님",
+            "스니커즈"
+          ],
+          "text": "세 번째는 여유로운 주말 코디예요. 청색 와이드 데님과 아이보리 메쉬 스니커즈를 함께 제안해요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S09_CASUAL",
+            "assets/video/test-live/render-plan.json#S09_CASUAL"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S10_PRICE_AND_BENEFIT",
+          "start": 90,
+          "end": 100,
+          "label": "판매가와 내 혜택 예시",
+          "keywords": [
+            "가격",
+            "판매가",
+            "혜택",
+            "금액"
+          ],
+          "text": "확인한 판매가는 49,900원이에요. 가상 고객의 데모 혜택을 적용한 예시는 45,515원입니다.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S10_PRICE_AND_BENEFIT",
+            "assets/video/test-live/render-plan.json#S10_PRICE_AND_BENEFIT"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S11_DELIVERY",
+          "start": 100,
+          "end": 110,
+          "label": "배송 안내를 확인해요",
+          "keywords": [
+            "배송",
+            "도착",
+            "무료"
+          ],
+          "text": "상품 페이지에는 무료배송으로 안내돼요. 주문 후 2~3영업일 도착은 실제 조회가 아닌 배송 시뮬레이션이에요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S11_DELIVERY",
+            "assets/video/test-live/render-plan.json#S11_DELIVERY"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        },
+        {
+          "id": "S12_SUMMARY",
+          "start": 110,
+          "end": 120,
+          "label": "나에게 필요한 정보를 확인해요",
+          "keywords": [
+            "마무리",
+            "정리"
+          ],
+          "text": "사이즈와 혜택을 확인하고 세 가지 코디도 살펴봤어요. 실제 옵션과 재고, 적용 혜택은 상품 페이지에서 확인해주세요.",
+          "source_refs": [
+            "assets/video/test-live/reference-transcript.json#S12_SUMMARY",
+            "assets/video/test-live/render-plan.json#S12_SUMMARY"
+          ],
+          "evidence_kind": "authored_narration_script_not_asr"
+        }
+      ],
+      "summary_ids": [
+        "S02_MATERIAL",
+        "S04_THICKNESS",
+        "S05_SIZE_GUIDE",
+        "S06_SIZE_RECOMMENDATION_AND_STOCK",
+        "S10_PRICE_AND_BENEFIT",
+        "S11_DELIVERY"
+      ]
+    }
+  ]
+}

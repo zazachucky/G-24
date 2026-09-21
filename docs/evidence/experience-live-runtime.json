@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "base": "http://127.0.0.1:8765",
+  "scope": "Current user server after restart; view navigation and ordinary customer presence only. No scenario reset, approval or synthetic purchase.",
+  "restart_applied": true,
+  "previous_in_memory_demo_reset": true,
+  "views": [
+    {
+      "name": "monitor",
+      "width": 1440,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "activity",
+      "width": 1440,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "history",
+      "width": 1440,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "analytics",
+      "width": 1440,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "monitor",
+      "width": 390,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "activity",
+      "width": 390,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "history",
+      "width": 390,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    },
+    {
+      "name": "analytics",
+      "width": 390,
+      "connected": "online",
+      "overflow": false,
+      "run_id": "54adbd46c5c7408296510ff73cd5a599"
+    }
+  ],
+  "run_id": "54adbd46c5c7408296510ff73cd5a599",
+  "customer": {
+    "run_id": "54adbd46c5c7408296510ff73cd5a599",
+    "overflow": false,
+    "controls": [
+      {
+        "id": "share-button",
+        "present": true
+      },
+      {
+        "id": "cart-button",
+        "present": true
+      },
+      {
+        "id": "live-exit",
+        "present": true
+      },
+      {
+        "id": "public-comment-form",
+        "present": true
+      },
+      {
+        "id": "video-asset",
+        "present": true
+      },
+      {
+        "id": "size-button",
+        "present": true
+      }
+    ],
+    "profile": true,
+    "cart": true
+  },
+  "monitor_fields": [
+    "source",
+    "as_of",
+    "time_basis",
+    "viewers",
+    "comments",
+    "conversion",
+    "trend",
+    "top_questions",
+    "insight",
+    "outcomes",
+    "actions"
+  ],
+  "monitor_scope": {
+    "broadcast_id": "GS-LIVE-DEMO-001",
+    "product_id": "1084192893"
+  },
+  "customer_presence": 2,
+  "analytics": {
+    "actual_rows": 4,
+    "actual_outcomes": 3,
+    "approval_status": "APP 승인 대기",
+    "simulation_hidden": true
+  },
+  "uncaught_browser_errors": [],
+  "http_errors": [],
+  "private_fields_absent_from_public": true,
+  "video_assets": [
+    "reference-core-authentic-cardigan-01",
+    "main-product-sample-120s"
+  ],
+  "verified_at": "2026-09-21T10:25:52.389Z"
+}

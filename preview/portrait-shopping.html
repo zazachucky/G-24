@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GS AI LIVE · 홈쇼핑 동작 검수</title>
+<style>
+[hidden]{display:none!important}
+:root{color:#24372f;background:#f4f1eb;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;line-height:1.65}*{box-sizing:border-box}body{margin:0}main{max-width:1020px;margin:auto;padding:28px}header{border-bottom:1px solid #d9ded5;padding-bottom:18px;font-weight:750;font-size:22px}h1{font-size:30px;line-height:1.35;letter-spacing:-1px;margin:24px 0 12px}h2{font-size:19px;margin-top:0}p{margin:10px 0}.muted{color:#607168;font-size:14px}.layout{display:grid;grid-template-columns:minmax(240px,420px) 1fr;gap:30px;align-items:start;margin-top:24px}video{display:block;width:100%;aspect-ratio:9/16;max-height:78vh;background:#202722;object-fit:contain;border-radius:12px}.card{background:white;border:1px solid #dbe0d7;border-radius:14px;padding:22px;margin-bottom:18px}button,a{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #006a52;outline-offset:3px}.scene{display:block;width:100%;text-align:left;background:#f1f5ef;border:1px solid transparent;border-radius:8px;padding:12px;margin:8px 0}.scene[aria-current="true"]{border-color:#006a52;background:#e7f0e8}.scene:disabled{opacity:.6;cursor:default}.time{font-variant-numeric:tabular-nums;margin-right:12px;color:#006a52;font-size:13px}.download{display:inline-block;margin-top:16px;padding:10px 16px;background:#006a52;color:white;border-radius:8px;text-decoration:none}.label{display:inline-block;background:#e8eee5;padding:4px 9px;border-radius:5px;color:#3e5d4b;font-size:12px}.status{min-height:25px;font-size:13px}.transcript{font-size:18px;line-height:1.8}footer{padding:24px 0;color:#607168;font-size:12px}@media(max-width:680px){main{padding:18px}.layout{grid-template-columns:1fr;gap:20px}video{max-height:76vh}.card{padding:18px}h1{font-size:25px}}
+</style>
+<main>
+<header>GS AI LIVE</header>
+<h1>착용부터 전신 코디까지</h1>
+<p class="muted">가상 인물의 착용·소재 접사·전신 동작을 확인하는 짧은 검수 영상입니다.</p>
+<div class="layout">
+  <section aria-label="홈쇼핑 동작 영상">
+    <video id="video" controls playsinline preload="metadata" poster="../assets/video/full-body/tryon-source.png">
+      <source src="../assets/video/full-body/gs-ai-live-portrait-review-24s.mp4" type="video/mp4">
+      MP4를 지원하는 브라우저에서 열어주세요.
+    </video>
+    <p class="status muted" id="status" role="status">영상 정보를 확인하고 있습니다.</p>
+    <a class="download" id="download" hidden href="../assets/video/full-body/gs-ai-live-portrait-review-24s.mp4" download>MP4 다운로드</a>
+  </section>
+  <aside>
+    <section class="card"><h2>장면으로 이동</h2><div id="chapters"></div><p class="muted">24초 동작 검수본 · 세로 9:16<br>처음 계획한 2분 데모는 별도 제작 대상입니다.</p></section>
+    <section class="card"><span class="label">한국어 합성 내레이션</span><h2 id="scene-title" style="margin-top:14px"></h2><p id="transcript" class="transcript"></p><p class="muted">대본 기준 자막이며 음성 인식 결과가 아닙니다. 입모양과 음성의 동기는 검증되지 않았습니다.</p><a href="../assets/video/full-body/review-subtitles.ko.srt" download>자막 SRT</a></section>
+    <section class="card"><h2>검수할 내용</h2><p class="muted">손·몸·옷의 움직임, 얼굴과 상품 형태의 유지, 자막 가독성과 음성 시점을 확인합니다. AI로 만든 착용 모습은 실제 착용감이나 핏을 입증하지 않습니다.</p></section>
+  </aside>
+</div>
+<footer>상품 정보·가격은 2026.09.21 확인 자료입니다. 상의 1종 기준이며 하의·신발은 별도입니다.<br>AI 가상인물 · 데모 영상</footer>
+</main>
+<script src="../assets/video/full-body/review-timeline.js"></script>
+<script>
+"use strict";
+const video=document.getElementById("video"),status=document.getElementById("status"),plan=window.GS_PORTRAIT_REVIEW;
+const chapters=document.getElementById("chapters");
+function update(){const scene=plan.scenes.find(s=>video.currentTime>=s.start_s&&video.currentTime<s.start_s+s.duration_s)||plan.scenes.at(-1);document.getElementById("scene-title").textContent=scene.title;document.getElementById("transcript").textContent=scene.narration;chapters.querySelectorAll("button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.id===scene.id)));}
+for(const scene of plan.scenes){const button=document.createElement("button");button.className="scene";button.type="button";button.disabled=true;button.dataset.id=scene.id;const time=document.createElement("span");time.className="time";time.textContent="00:"+String(scene.start_s).padStart(2,"0");button.append(time,document.createTextNode(scene.title));button.addEventListener("click",()=>{video.currentTime=scene.start_s;video.play().catch(()=>{status.textContent="위치를 옮겼습니다. 영상의 재생 버튼을 눌러주세요.";});});chapters.append(button);}
+video.addEventListener("loadedmetadata",()=>{status.textContent=`${video.videoWidth}×${video.videoHeight} · ${video.duration.toFixed(2)}초 · 동작 검수본`;chapters.querySelectorAll("button").forEach(b=>b.disabled=false);document.getElementById("download").hidden=false;update();});
+video.addEventListener("error",()=>{status.textContent="검수 MP4가 아직 준비되지 않았습니다. 현재 보이는 이미지는 제작용 원본입니다.";document.getElementById("download").hidden=true;});
+video.addEventListener("timeupdate",update);video.addEventListener("seeked",update);update();
+</script>
+</html>

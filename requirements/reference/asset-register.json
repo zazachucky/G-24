@@ -1,0 +1,64 @@
+{
+  "imported_at": "2026-09-21T08:39:18.208897+00:00",
+  "assets": [
+    {
+      "original_file_name": "GS_AI_LIVE_Vision_Document_v1.1.md",
+      "sha256": "d8f924e99e8cb6898a9b1a7f4a6b456e29f1174585c069a7bdada9be33ed316c",
+      "size_bytes": 39813,
+      "local_path": "requirements/reference/GS_AI_LIVE_Vision_Document_v1.1.md",
+      "role": "requirements_reference"
+    },
+    {
+      "original_file_name": "GS_AI_LIVE_Technical_Environment_Document_v1.0 (1).md",
+      "sha256": "f5b6385b1f343921bdfcdcfeb6ca1843763b450bc8cfb32358a41da4e173922e",
+      "size_bytes": 69724,
+      "local_path": "requirements/reference/GS_AI_LIVE_Technical_Environment_Document_v1.0 (1).md",
+      "role": "requirements_reference"
+    },
+    {
+      "original_file_name": "GS_AI_LIVE_Mobile.html",
+      "sha256": "afa6c205ad32bb4d086b97fcddfef657e2a65d2d6e845e5fa2c3a4f2a42872b3",
+      "size_bytes": 591767,
+      "local_path": "requirements/reference/GS_AI_LIVE_Mobile.html",
+      "role": "screen_reference"
+    },
+    {
+      "original_file_name": "GS_AI_LIVE_Director.html",
+      "sha256": "62c9168616b988c067822941023764c6ffec21fb688e8e2a707645ba4f09d401",
+      "size_bytes": 65257,
+      "local_path": "requirements/reference/GS_AI_LIVE_Director.html",
+      "role": "screen_reference"
+    },
+    {
+      "asset_id": "reference-core-authentic-cardigan-01",
+      "original_file_name": "[판타지추석] 입자마자 소장 각💖 _ 코어어센틱 캐시니트 가디건.mp4",
+      "sha256": "b945e14a8b71ce82056c43eff8af59095b32e7a5289a8d7c4abf736e15c64d3b",
+      "size_bytes": 6734042,
+      "asset_path": "assets/video/reference/core-authentic-cardigan.mp4",
+      "usage": "reference_playback",
+      "media_type": "recorded_video",
+      "subject_product_name": "코어어센틱 캐시니트 가디건",
+      "subject_product_id": null,
+      "display_product_id": "1084192893",
+      "product_match": false,
+      "label": "녹화 참고 영상 · 코어어센틱 가디건 · 현재 상품과 다름",
+      "duration_s": 57.9,
+      "width": 720,
+      "height": 1280,
+      "nominal_fps": 30,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "received": true,
+      "source_metadata_verified": true,
+      "playback_validation": "PENDING_APP_INTEGRATION",
+      "transcript_validation": "NOT_VALIDATED",
+      "scene_index_validation": "NOT_VALIDATED",
+      "video_ai_validation": "NOT_VALIDATED",
+      "allow_current_product_grounding": false
+    }
+  ],
+  "app_mapping": {
+    "GS_AI_LIVE_Mobile.html": "app/customer.html",
+    "GS_AI_LIVE_Director.html": "app/director.html"
+  }
+}

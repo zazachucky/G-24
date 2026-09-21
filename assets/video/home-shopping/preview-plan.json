@@ -1,0 +1,65 @@
+{
+  "title": "GS AI LIVE · SJ와니 캐시미어 풀오버 데모 방송",
+  "width": 1920,
+  "height": 1080,
+  "fps": 25,
+  "duration_s": 10,
+  "host_type": "photorealistic_fictional_talking_host",
+  "audio_path": "assets/video/home-shopping/audio/slot-01.wav",
+  "host_video_path": "assets/video/home-shopping/host-scenes/host-01.mp4",
+  "persistent_label": "AI 가상 쇼호스트 · 데모 방송",
+  "source_snapshot_date": "2026-09-21",
+  "scenes": [
+    {
+      "id": "S01_INTRO",
+      "start_s": 0,
+      "duration_s": 10,
+      "title": "오늘 만나볼 캐시미어 풀오버",
+      "kicker": "오늘의 상품",
+      "caption_lines": [
+        "SJ와니 샤이니 크리즈 캐시미어 풀오버 1종",
+        "색상부터 세 가지 코디까지"
+      ],
+      "narration": "안녕하세요! 오늘 함께 볼 상품은 에스제이와니 샤이니 크리즈 캐시미어 풀오버예요. 색상부터 코디까지 만나보세요.",
+      "images": [
+        "assets/products/main/gallery-01.jpg",
+        "assets/products/main/gallery-05.jpg"
+      ],
+      "source_refs": [
+        "fixtures/main-product.json#/display_name",
+        "fixtures/main-product.json#/images"
+      ],
+      "label": "실제 상품 이미지 · 2026.09.21 확인",
+      "host_delivery": "정면을 보며 밝게 인사한다. 말의 첫머리와 끝에 작은 고개 움직임을 주고 자연스럽게 미소 짓는다.",
+      "product_visual": {
+        "role": "companion_insert",
+        "layout": "호스트 옆 큰 상품 카드",
+        "image_order": [
+          0,
+          1
+        ],
+        "fit": "contain",
+        "image_labels": [
+          "상품 착용 이미지",
+          "실제 판매 상품 이미지"
+        ],
+        "host_placement": "좌측 진행자 영역, 상품 화면과 분리",
+        "screen_instruction": "상품 사진은 원본 비율을 유지하고 하단 가격바와 장면 자막을 후반 합성한다."
+      },
+      "narration_spoken": "안녕하세요! 오늘 함께 볼 상품은 에스제이와니 샤이니 크리즈 캐시미어 풀오버예요. 색상부터 코디까지 만나보세요.",
+      "narration_char_count": 62,
+      "narration_spoken_char_count": 62,
+      "layout": "host_product",
+      "planned_speech_start_s": 0.45,
+      "planned_speech_end_limit_s": 9.5,
+      "measured_speech_duration_s": 7.937142857142857,
+      "image_labels": [
+        "상품 착용 이미지",
+        "실제 판매 상품 이미지"
+      ],
+      "audio_start_s": 0.45,
+      "audio_end_s": 8.387143,
+      "audio_path": "assets/video/home-shopping/audio/01.wav"
+    }
+  ]
+}

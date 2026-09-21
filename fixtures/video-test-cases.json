@@ -1,0 +1,534 @@
+{
+  "schema_version": "1.0",
+  "title": "기능 검증용 120초 상품 설명 영상 검수 정의",
+  "video_asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+  "asset_characterization": {
+    "media_type": "product_images_with_synthetic_narration",
+    "host_type": "none",
+    "is_real_broadcast": false,
+    "is_realistic_host_delivered_video": false,
+    "persistent_label": "기능 검증용 샘플 · 실제 방송 아님"
+  },
+  "reference_inputs": {
+    "render_plan": "assets/video/test-live/render-plan.json",
+    "script_reference": "assets/video/test-live/reference-transcript.json",
+    "reference_provenance": "script_reference_not_asr",
+    "use": "정답·장면 구간을 작성하기 위한 참고이며 실제 ASR·AI 실행 결과가 아니다."
+  },
+  "suite_status": "NOT_RUN",
+  "status_policy": {
+    "allowed": [
+      "NOT_RUN",
+      "PASS",
+      "PARTIAL",
+      "FAIL"
+    ],
+    "initial": "NOT_RUN",
+    "pass_requires": "해당 기능을 실제 MP4로 실행하고 원시 출력·실행 시각·근거 파일을 기록한 뒤 모든 필수 기대값 충족",
+    "partial": "기능은 실행했지만 일부 필수 기대값 또는 정확도 기준 미충족; Main Demo에는 포함하지 않음",
+    "static_fixture_policy": "대본·자막·정적 구간 목록을 그대로 반환한 경우 AI 기능 실행 증거로 인정하지 않음"
+  },
+  "time_policy": {
+    "unit": "seconds",
+    "origin": "MP4 시작 0초",
+    "scene_interval": "[start_s, end_s); 마지막 파일 끝은 120초",
+    "reference_audio_timing": "scene 시작+0.45초에 배치된 측정 음성 클립의 계획 구간이며 최종 MP4 동기 검증은 V01/V02 실행 필요",
+    "tolerances_are": "이번 데모용 검수 결정값; 제품 성능 보장이나 검증된 모델 정확도가 아님"
+  },
+  "cases": [
+    {
+      "id": "V01",
+      "capability": "playback",
+      "title": "2분 MP4 재생과 샘플 표시",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "actions": [
+          "로컬 테스트 플레이어에서 파일을 연다.",
+          "0초부터 120초 끝까지 1배속으로 음성을 켜고 재생한다.",
+          "0·45·65·95·105·119초 화면을 관찰하고 미디어 메타데이터를 기록한다."
+        ]
+      },
+      "expected_windows": [
+        {
+          "scene_id": "ALL",
+          "start_s": 0,
+          "end_s": 120
+        }
+      ],
+      "expected_facts": [
+        "120초짜리 1920×1080, 24fps 영상이다.",
+        "상품 이미지·합성 내레이션·자막이 있고 기능 검증용 샘플 · 실제 방송 아님 표시가 유지된다.",
+        "실사 쇼호스트 진행 완성본으로 표시하지 않는다. 상품 착용 사진의 모델과 진행 호스트를 혼동하지 않는다.",
+        "코디 60–90초의 AI 코디 예시와 별도 실제 상품 이미지 구분을 유지한다.",
+        "정지 화면이더라도 내레이션과 재생 시계가 진행하며 끝까지 디코드된다."
+      ],
+      "tolerance": {
+        "duration_seconds": 0.5,
+        "video_width_exact": 1920,
+        "video_height_exact": 1080,
+        "frames_per_second_exact": 24,
+        "unexpected_black_or_silent_segment": "장면 대본 사이 의도된 무음은 허용. 누락된 장면·잘린 발화·재생 오류는 불허."
+      },
+      "failure_examples": [
+        "음성 없음 또는 마지막 장면 누락",
+        "실제 방송·실사 호스트 영상이라고 표시",
+        "AI 코디 예시 라벨 누락"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/duration_s",
+        "assets/video/test-live/render-plan.json#/persistent_label",
+        "assets/video/test-live/render-plan.json#/scenes"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V02",
+      "capability": "seek",
+      "title": "사이즈·가격·배송 구간으로 이동",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "seek_positions_s": [
+          40,
+          90,
+          100
+        ],
+        "actions": [
+          "영상 로드 후 seek를 40초, 90초, 100초 순서대로 실행한다.",
+          "각 seeked 이벤트 뒤 currentTime·첫 표시 프레임·이후 음성 구간을 기록한다."
+        ]
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S05_SIZE_GUIDE",
+          "start_s": 40,
+          "end_s": 50
+        },
+        {
+          "scene_id": "S10_PRICE_AND_BENEFIT",
+          "start_s": 90,
+          "end_s": 100
+        },
+        {
+          "scene_id": "S11_DELIVERY",
+          "start_s": 100,
+          "end_s": 110
+        }
+      ],
+      "expected_facts": [
+        "40초는 66 가슴단면 45cm·총길이 61cm 설명 장면이다.",
+        "90초는 판매가 49,900원과 데모 혜택가 45,515원 장면이다.",
+        "100초는 무료배송과 2~3영업일 배송 시뮬레이션 장면이다.",
+        "seek 후 이전 장면의 음성이 계속 재생되거나 다음 장면 제목만 보이는 오류가 없다."
+      ],
+      "tolerance": {
+        "seek_position_seconds": 0.5,
+        "first_narration_starts_at_scene_offset_seconds": 0.45,
+        "observed_audio_onset_error_seconds": 1,
+        "note": "버퍼링 완료·seeked 이후 위치 정확도를 평가한다. 로드 시간 SLA를 뜻하지 않는다."
+      },
+      "failure_examples": [
+        "40초 요청이 50초 재고 장면으로 이동",
+        "가격 seek 후 이전 코디 음성이 재생"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/4",
+        "assets/video/test-live/render-plan.json#/scenes/9",
+        "assets/video/test-live/render-plan.json#/scenes/10"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V03",
+      "capability": "asr",
+      "title": "실제 합성 음성의 숫자·단위·성격 인식",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "input_modality": "audio_only",
+        "actions": [
+          "렌더 완료 MP4에서 실제 오디오를 추출해 ASR에 입력한다.",
+          "reference-transcript·자막·render-plan을 ASR 입력이나 보정 프롬프트로 제공하지 않는다.",
+          "ASR 출력에서 40–60초·90–110초 발화를 찾아 원시 응답과 타임스탬프를 저장한다."
+        ]
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S05_SIZE_GUIDE",
+          "start_s": 40.45,
+          "end_s": 48.585057
+        },
+        {
+          "scene_id": "S06_SIZE_RECOMMENDATION_AND_STOCK",
+          "start_s": 50.45,
+          "end_s": 57.722971
+        },
+        {
+          "scene_id": "S10_PRICE_AND_BENEFIT",
+          "start_s": 90.45,
+          "end_s": 97.915714
+        },
+        {
+          "scene_id": "S11_DELIVERY",
+          "start_s": 100.45,
+          "end_s": 107.807188
+        }
+      ],
+      "expected_facts": [
+        "66의 가슴단면 45센티미터, 총길이 61센티미터",
+        "그레이 66은 확인 당시 일시품절",
+        "판매가 49,900원과 가상 고객의 데모 혜택 예시 45,515원",
+        "무료배송과 주문 후 2~3영업일 도착은 실제 조회가 아닌 배송 시뮬레이션"
+      ],
+      "tolerance": {
+        "numbers_and_units": "쉼표·공백·한글 수사·cm/센티미터 표기는 정규화 허용. 숫자값 변경·금액 역전·영업일 누락은 불허.",
+        "semantic_markers": "데모·가상·일시품절·실제 조회 아님/시뮬레이션의 의미를 보존해야 한다.",
+        "utterance_boundary_error_seconds": 1,
+        "timestamp_note": "여러 ASR 세그먼트로 나뉘면 해당 발화를 합쳐 첫 시작/마지막 종료를 비교한다."
+      },
+      "failure_examples": [
+        "45,515를 45,500으로 인식",
+        "가슴단면 45를 신체 가슴둘레 45로 바꿈",
+        "일시품절 또는 배송 시뮬레이션 의미가 빠짐"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/reference-transcript.json#/segments/4",
+        "assets/video/test-live/reference-transcript.json#/segments/5",
+        "assets/video/test-live/reference-transcript.json#/segments/9",
+        "assets/video/test-live/reference-transcript.json#/segments/10"
+      ],
+      "reference_provenance": "script_reference_not_asr",
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V04",
+      "capability": "summary",
+      "title": "전체 요약에서 실측·실제값·데모값을 구분",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "이 상품 설명 영상 전체를 핵심 6~8항목으로 요약해줘. 가격, 66 치수와 그레이 66 재고, 두께 평가의 출처 차이, 배송, 코디를 포함하고 실제 확인값과 데모 예시를 구분해줘.",
+        "allowed_inputs": "실제 MP4 또는 실제로 실행한 ASR·영상 분석 결과. 정답 대본을 AI 입력으로 제공하지 않는다."
+      },
+      "expected_windows": [
+        {
+          "scene_id": "ALL",
+          "start_s": 0,
+          "end_s": 120
+        }
+      ],
+      "expected_facts": [
+        "SJ와니 캐시미어 풀오버 소개이며 실제 방송이 아닌 기능 검증용 샘플이다.",
+        "판매가 49,900원과 가상 고객 데모 혜택 예시 45,515원을 구분한다.",
+        "66은 의류 실측 가슴단면 45cm·총길이 61cm다.",
+        "66 추천은 가상 고객 예시이며 그레이 66은 확인 당시 일시품절이다.",
+        "구매자 리뷰는 얇아요 63%, 제조사 가이드는 약간 두꺼움으로 출처가 다르다.",
+        "무료배송은 상품 안내이고 주문 후 2~3영업일 도착은 실제 조회가 아닌 배송 시뮬레이션이다.",
+        "출근·약속·주말의 세 코디를 소개하며 코디 그림은 AI 코디 예시다."
+      ],
+      "tolerance": {
+        "format": "6~8항목 권장. 문장 순서·표현 변경 허용, 핵심 의미와 모든 숫자는 유지.",
+        "timestamp_error_seconds": 2,
+        "timestamp_note": "타임스탬프를 제공하는 경우 해당 설명 장면 시작과 ±2초. 제공하지 않아도 전체 요약 자체는 평가 가능."
+      },
+      "failure_examples": [
+        "혜택가 45,515원이 모든 고객의 실제 판매가라고 요약",
+        "그레이 66을 바로 주문 가능하다고 요약",
+        "리뷰와 제조사 두께를 하나의 일치한 사실로 합침",
+        "합성 영상에서 모델의 실제 착용 사이즈·키·체중을 추정"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes",
+        "assets/video/test-live/reference-transcript.json#/segments"
+      ],
+      "reference_provenance": "script_reference_not_asr",
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V05",
+      "capability": "scene_search",
+      "title": "66 상세 치수 검색",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "66 사이즈의 가슴단면과 총길이를 설명한 장면 찾아줘."
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S05_SIZE_GUIDE",
+          "start_s": 40,
+          "end_s": 50
+        }
+      ],
+      "expected_facts": [
+        "첫 검색 결과 또는 선택된 주 구간은 S05이다.",
+        "66 가슴단면 45cm, 총길이 61cm를 안내한다.",
+        "의류 실측이며 사람의 신체 치수나 모델 착용 정보로 바꾸지 않는다."
+      ],
+      "tolerance": {
+        "preferred_seek_s": 40,
+        "seek_seconds": 2,
+        "segment_end_seconds": 2,
+        "note": "주 구간 40–50초를 반환한다. 앞뒤 문맥 확장은 각각 최대 2초까지 허용한다."
+      },
+      "failure_examples": [
+        "50–60초 추천 장면만 반환해 실측 설명을 놓침",
+        "가슴둘레 45cm 또는 모델 치수라고 답함"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/4",
+        "assets/video/test-live/reference-transcript.json#/segments/4"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V06",
+      "capability": "scene_search",
+      "title": "추천 사이즈와 품절 구분 검색",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "66 추천이면 그레이 66을 지금 바로 살 수 있다는 뜻이야? 관련 설명 찾아줘."
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S06_SIZE_RECOMMENDATION_AND_STOCK",
+          "start_s": 50,
+          "end_s": 60
+        }
+      ],
+      "expected_facts": [
+        "주 구간은 S06이다.",
+        "가상 고객에게 66을 먼저 안내하는 것과 구매 가능한 재고는 별개다.",
+        "그레이 66은 확인 당시 일시품절이라고 안내한다.",
+        "현재 실시간 재고를 조회한 답변으로 표현하지 않는다."
+      ],
+      "tolerance": {
+        "preferred_seek_s": 50,
+        "seek_seconds": 2,
+        "segment_end_seconds": 2,
+        "scope": "그레이 66의 확인 당시 상태만 말한다. 모든 색상·모든 66 옵션의 품절로 일반화하지 않는다."
+      },
+      "failure_examples": [
+        "추천했으므로 지금 구매 가능하다고 답함",
+        "현재 모든 색상 66이 품절이라고 답함"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/5",
+        "assets/video/test-live/reference-transcript.json#/segments/5"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V07",
+      "capability": "scene_search",
+      "title": "리뷰와 제조사 두께 평가의 차이 검색",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "얇다는 리뷰와 제조사 두께 안내가 다른 부분 찾아줘."
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S04_THICKNESS",
+          "start_s": 30,
+          "end_s": 40
+        }
+      ],
+      "expected_facts": [
+        "주 구간은 S04이다.",
+        "구매자 리뷰: 얇아요 63%. 제조사 안내: 약간 두꺼움.",
+        "출처가 다른 평가임을 설명한다.",
+        "35% 적당·2% 두꺼움은 화면 자막 값이다. 오디오만 쓴 시스템은 음성에 없는 두 수치를 인식했다고 주장하지 않는다."
+      ],
+      "tolerance": {
+        "preferred_seek_s": 30,
+        "seek_seconds": 2,
+        "segment_end_seconds": 2,
+        "percent_value_error": 0
+      },
+      "failure_examples": [
+        "제조사도 얇다고 했다고 답함",
+        "리뷰 63%를 실제 원단 두께 측정치처럼 설명"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/3",
+        "assets/video/test-live/reference-transcript.json#/segments/3"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V08",
+      "capability": "scene_search",
+      "title": "실제 판매가와 준비된 혜택가 검색",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "판매가랑 내 혜택 예시 금액을 구분해서 설명한 장면 찾아줘."
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S10_PRICE_AND_BENEFIT",
+          "start_s": 90,
+          "end_s": 100
+        }
+      ],
+      "expected_facts": [
+        "주 구간은 S10이다.",
+        "확인한 판매가 49,900원, 가상 고객의 데모 혜택 예시는 45,515원이다.",
+        "두 가격을 바꾸거나 실제 결제에 데모 혜택이 보장된다고 답하지 않는다."
+      ],
+      "tolerance": {
+        "preferred_seek_s": 90,
+        "seek_seconds": 2,
+        "segment_end_seconds": 2,
+        "currency_value_error_krw": 0
+      },
+      "failure_examples": [
+        "실제 판매가를 45,515원으로 단정",
+        "원 단위 값을 근삿값으로 바꿈",
+        "VIP·GS Pay 혜택이 모든 고객에게 적용된다고 주장"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/9",
+        "assets/video/test-live/reference-transcript.json#/segments/9"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V09",
+      "capability": "scene_search",
+      "title": "배송 도착 기간의 시뮬레이션 표시 검색",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "언제 도착한다고 했는지 다시 찾아줘. 실제로 조회한 배송일이야?"
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S11_DELIVERY",
+          "start_s": 100,
+          "end_s": 110
+        }
+      ],
+      "expected_facts": [
+        "주 구간은 S11이다.",
+        "무료배송은 상품 페이지 안내다.",
+        "주문 후 2~3영업일 도착은 실제 배송 조회가 아닌 배송 시뮬레이션이다.",
+        "정확한 날짜나 내일 도착을 보장하지 않는다."
+      ],
+      "tolerance": {
+        "preferred_seek_s": 100,
+        "seek_seconds": 2,
+        "segment_end_seconds": 2,
+        "duration_text": "2~3영업일/이삼 영업일 등 의미가 같은 표기 허용. 2~3일로 영업일 조건을 지우지 않는다."
+      },
+      "failure_examples": [
+        "실제 주문의 도착 예정일이라고 답함",
+        "내일 도착을 보장하거나 캘린더 날짜를 만들어냄"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/10",
+        "assets/video/test-live/reference-transcript.json#/segments/10"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    },
+    {
+      "id": "V10",
+      "capability": "bookmark",
+      "title": "출근 코디 장면 북마크 생성·다시 이동",
+      "input": {
+        "asset_path": "assets/video/test-live/gs-ai-live-test-120s.mp4",
+        "prompt": "아이보리 슬랙스랑 검정 로퍼를 소개한 출근 코디 부분을 북마크해줘.",
+        "actions": [
+          "영상 분석으로 찾아낸 구간을 출근 코디라는 이름의 북마크로 저장한다.",
+          "플레이어를 105초로 이동한 뒤 저장된 북마크를 누른다.",
+          "같은 request_id로 저장 요청을 재전송해 중복 항목이 생기지 않는지 확인한다."
+        ],
+        "request_id": "video-bookmark-office-001"
+      },
+      "expected_windows": [
+        {
+          "scene_id": "S07_OFFICE",
+          "start_s": 60,
+          "end_s": 70
+        }
+      ],
+      "expected_facts": [
+        "북마크가 가리키는 주 구간은 S07이며 기본 저장 시작값은 60초다.",
+        "그레이 상의, 아이보리 롤업 슬랙스, 검정 로퍼를 설명하는 출근 코디다.",
+        "AI 코디 예시와 실제 추천 상품 썸네일을 구분한다.",
+        "저장한 북마크를 누르면 해당 구간에서 재생하며 동일 request_id 재전송으로 중복 북마크를 만들지 않는다.",
+        "하의·신발의 착용 사이즈나 실제 착용 경험을 생성하지 않는다."
+      ],
+      "tolerance": {
+        "bookmark_start_seconds": 2,
+        "bookmark_end_seconds": 2,
+        "player_seek_error_relative_to_saved_start_seconds": 0.5,
+        "note": "검색 위치 오차와 플레이어의 저장 시각 이동 오차를 별도로 기록한다. 둘을 합쳐 큰 오차를 허용하지 않는다."
+      },
+      "failure_examples": [
+        "약속 코디 70초를 저장",
+        "정적 북마크 목록을 표시했을 뿐 자연어 검색을 실행하지 않고 AI 검색 PASS로 기록"
+      ],
+      "reference_sources": [
+        "assets/video/test-live/render-plan.json#/scenes/6",
+        "assets/video/test-live/reference-transcript.json#/segments/6"
+      ],
+      "execution": {
+        "status": "NOT_RUN",
+        "executed_at": null,
+        "actual_result": null,
+        "evidence_paths": [],
+        "reason": "검수 정의만 작성됨. 이 파일 작성 과정에서 플레이어·ASR·영상 AI·Bookmark를 실행하지 않음."
+      }
+    }
+  ]
+}
+

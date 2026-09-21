@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-21T09:51:10.576Z",
+  "base": "http://127.0.0.1:8765",
+  "run_id": "d7a94b8df86e427a8279b4cd49c95388",
+  "restart_applied": true,
+  "previous_in_memory_demo_reset": true,
+  "views": [
+    {
+      "name": "monitor",
+      "connected": "online",
+      "overflow": false,
+      "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+    },
+    {
+      "name": "activity",
+      "connected": "online",
+      "overflow": false,
+      "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+    },
+    {
+      "name": "history",
+      "connected": "online",
+      "overflow": false,
+      "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+    },
+    {
+      "name": "analytics",
+      "connected": "online",
+      "overflow": false,
+      "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+    }
+  ],
+  "server_source": "서버 Need 집계 · UI/시연 공통 규칙",
+  "log_sequence_present": true,
+  "uncaught_browser_errors": []
+}

@@ -1,0 +1,47 @@
+{
+  "video": "assets/video/full-body/detail-lowmotion-svd.mp4",
+  "status": "CONTAINER_DECODE_PASS_VISUAL_REVIEW_PENDING",
+  "decoded_frames": 25,
+  "metadata": {
+    "plugin": "ffmpeg",
+    "codec": "h264",
+    "pix_fmt": "yuv420p(progressive)",
+    "fps": 6.0,
+    "source_size": [
+      320,
+      576
+    ],
+    "size": [
+      320,
+      576
+    ],
+    "duration": 4.17
+  },
+  "review_frames": [
+    {
+      "index": 0,
+      "path": "assets/video/full-body/detail-lowmotion-svd-qa/frame-000.png",
+      "time_s": 0.0
+    },
+    {
+      "index": 6,
+      "path": "assets/video/full-body/detail-lowmotion-svd-qa/frame-006.png",
+      "time_s": 1.0
+    },
+    {
+      "index": 12,
+      "path": "assets/video/full-body/detail-lowmotion-svd-qa/frame-012.png",
+      "time_s": 2.0
+    },
+    {
+      "index": 18,
+      "path": "assets/video/full-body/detail-lowmotion-svd-qa/frame-018.png",
+      "time_s": 3.0
+    },
+    {
+      "index": 24,
+      "path": "assets/video/full-body/detail-lowmotion-svd-qa/frame-024.png",
+      "time_s": 4.0
+    }
+  ]
+}

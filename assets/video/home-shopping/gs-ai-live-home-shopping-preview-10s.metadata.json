@@ -1,0 +1,80 @@
+{
+  "audio_codec" : "aac",
+  "audio_codec_fourcc" : "aac ",
+  "audio_track_count" : 1,
+  "delivery_status" : "PREVIEW_ONLY_NOT_FULL_BROADCAST",
+  "duration_s" : 10,
+  "duration_timescale" : 600,
+  "duration_value" : 6000,
+  "file_size_bytes" : 3197985,
+  "fps" : 25,
+  "frame_count_submitted" : 250,
+  "full_broadcast_encoded" : false,
+  "full_broadcast_target_duration_s" : 120,
+  "generated_at" : "2026-09-21T06:23:27Z",
+  "has_host" : true,
+  "height" : 1080,
+  "host_changed_frame_signatures" : 249,
+  "host_decoded_frames" : 250,
+  "host_frames_drawn" : 250,
+  "host_maximum_sampling_skew_s" : 0,
+  "host_sampling_examples" : [
+    {
+      "output_time_s" : 0,
+      "source_time_s" : 0
+    },
+    {
+      "output_time_s" : 9.9600000000000009,
+      "source_time_s" : 9.9600000000000009
+    }
+  ],
+  "host_sampling_policy" : "Sequential AVAssetReader sampling from source time 0 over the 10-second output timeline; no loop, time warp or still fallback; at most two decoded samples retained.",
+  "host_signature_check_scope" : "Rejects an entirely static MP4; this is not a lip-sync or human visual-quality assessment.",
+  "host_source_duration_s" : 10,
+  "host_source_fps" : 25,
+  "host_source_height" : 1254,
+  "host_source_path" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/host-scenes\/host-01.mp4",
+  "host_source_width" : 1254,
+  "is_preview" : true,
+  "media_type" : "animated_virtual_home_shopping_host",
+  "output_path" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/gs-ai-live-home-shopping-preview-10s.mp4",
+  "output_timeline_end_s" : 10,
+  "output_timeline_start_s" : 0,
+  "persistent_label" : "AI 가상 쇼호스트 · 데모 방송",
+  "qa_frames" : [
+    {
+      "actual_time_s" : 0,
+      "file" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/gs-ai-live-home-shopping-preview-10s-qa\/00-first.jpg",
+      "requested_time_s" : 0
+    },
+    {
+      "actual_time_s" : 1,
+      "file" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/gs-ai-live-home-shopping-preview-10s-qa\/00-host-motion-1.jpg",
+      "requested_time_s" : 1
+    },
+    {
+      "actual_time_s" : 2,
+      "file" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/gs-ai-live-home-shopping-preview-10s-qa\/00-host-motion-2.jpg",
+      "requested_time_s" : 2
+    },
+    {
+      "actual_time_s" : 4.4000000000000004,
+      "file" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/gs-ai-live-home-shopping-preview-10s-qa\/01-S01_INTRO.jpg",
+      "requested_time_s" : 4.4000000000000004
+    },
+    {
+      "actual_time_s" : 9.9600000000000009,
+      "file" : "\/Users\/yeongjae\/Desktop\/aidlc-v1-sample-project\/assets\/video\/home-shopping\/gs-ai-live-home-shopping-preview-10s-qa\/99-last.jpg",
+      "requested_time_s" : 9.9600000000000009
+    }
+  ],
+  "render_mode" : "preview",
+  "subtitle_timing" : "Narration and short caption facts appear only while scene.audio_start_s <= video time < scene.audio_end_s.",
+  "validation_scope" : "Technical encoding and host-frame sampling for this 10-second output; lip-sync and human visual review remain separate.",
+  "validation_status" : "PASS",
+  "video_ai_validation" : "NOT_PERFORMED",
+  "video_codec" : "h264",
+  "video_codec_fourcc" : "avc1",
+  "video_track_count" : 1,
+  "width" : 1920
+}

@@ -1,0 +1,79 @@
+{
+  "duration_s": 120,
+  "sample_rate": 22050,
+  "channel_count": 1,
+  "clips": [
+    {
+      "id": "S01_INTRO",
+      "duration_s": 7.526032,
+      "rms": 4694,
+      "peak": 21130
+    },
+    {
+      "id": "S02_MATERIAL",
+      "duration_s": 8.726712,
+      "rms": 4433,
+      "peak": 24920
+    },
+    {
+      "id": "S03_COLORS",
+      "duration_s": 8.124399,
+      "rms": 4421,
+      "peak": 18989
+    },
+    {
+      "id": "S04_THICKNESS",
+      "duration_s": 7.797687,
+      "rms": 4663,
+      "peak": 22392
+    },
+    {
+      "id": "S05_SIZE_GUIDE",
+      "duration_s": 8.135057,
+      "rms": 4584,
+      "peak": 22175
+    },
+    {
+      "id": "S06_SIZE_RECOMMENDATION_AND_STOCK",
+      "duration_s": 7.272971,
+      "rms": 4764,
+      "peak": 20842
+    },
+    {
+      "id": "S07_OFFICE",
+      "duration_s": 6.782086,
+      "rms": 4730,
+      "peak": 17672
+    },
+    {
+      "id": "S08_DATE",
+      "duration_s": 6.415873,
+      "rms": 4797,
+      "peak": 21430
+    },
+    {
+      "id": "S09_CASUAL",
+      "duration_s": 6.31229,
+      "rms": 4878,
+      "peak": 20549
+    },
+    {
+      "id": "S10_PRICE_AND_BENEFIT",
+      "duration_s": 7.465714,
+      "rms": 4696,
+      "peak": 19489
+    },
+    {
+      "id": "S11_DELIVERY",
+      "duration_s": 7.357188,
+      "rms": 4939,
+      "peak": 20704
+    },
+    {
+      "id": "S12_SUMMARY",
+      "duration_s": 8.285986,
+      "rms": 4400,
+      "peak": 17944
+    }
+  ]
+}

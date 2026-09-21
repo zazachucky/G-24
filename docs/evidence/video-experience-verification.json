@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-21T10:21:44.626Z",
+  "server": "http://127.0.0.1:8791",
+  "scope": "Actual HTTP state and Chrome playback/seek. Reference answers use reviewed original video frames; authored sample uses its production script. ASR accuracy and unrestricted real-time video understanding are not claimed.",
+  "checks": [
+    {
+      "name": "Catalog offers separate reference and authored sample assets",
+      "status": "PASS"
+    },
+    {
+      "name": "Reference keeps explicit current-product mismatch label",
+      "status": "PASS"
+    },
+    {
+      "name": "Reference summary cites reviewed original frames",
+      "status": "PASS"
+    },
+    {
+      "name": "Reference jacket question returns actual 34-second evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "Message scene button changes native video time",
+      "status": "PASS"
+    },
+    {
+      "name": "Previous viewing position restores original asset time and pause state",
+      "status": "PASS"
+    },
+    {
+      "name": "Current scene question uses actual 47-second player clock",
+      "status": "PASS"
+    },
+    {
+      "name": "Unverified worn size stays unsupported without a scene citation",
+      "status": "PASS"
+    },
+    {
+      "name": "Other customer and public Director state exclude private video question",
+      "status": "PASS"
+    },
+    {
+      "name": "Video seek is present in shared event data without question text",
+      "status": "PASS"
+    },
+    {
+      "name": "Sample selection uses real 120-second asset and authored-source label",
+      "status": "PASS"
+    },
+    {
+      "name": "Sample size answer preserves script provenance and real garment measurements",
+      "status": "PASS"
+    },
+    {
+      "name": "Sample MP4 has decoded frames and audio with functioning volume controls",
+      "status": "PASS",
+      "details": {
+        "duration": 120,
+        "width": 1920,
+        "height": 1080,
+        "time": 40.250277,
+        "paused": false,
+        "muted": false,
+        "volume": 0.7,
+        "decoded_frames": 14,
+        "audio_decoded_bytes": 909
+      }
+    },
+    {
+      "name": "Video playback and seeks leave frozen Need/approval clock unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "Orientation preserves selected sample and native paused position",
+      "status": "PASS"
+    },
+    {
+      "name": "Refresh restores asset time pause state and private video answer",
+      "status": "PASS"
+    },
+    {
+      "name": "Cross-asset citation returns to original sample and paused position",
+      "status": "PASS"
+    },
+    {
+      "name": "Customer switch resets citation return state and excludes A answers",
+      "status": "PASS"
+    },
+    {
+      "name": "Returning to A restores its asset and private video answers",
+      "status": "PASS"
+    },
+    {
+      "name": "Reset clears video questions previous-position memory and playback state",
+      "status": "PASS"
+    },
+    {
+      "name": "Video error falls back to images and preserves customer actions",
+      "status": "PASS"
+    },
+    {
+      "name": "Selecting a known asset recovers from simulated media failure",
+      "status": "PASS"
+    },
+    {
+      "name": "Video controls and scene catalog fit mobile viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "No uncaught browser exceptions during video evidence workflow",
+      "status": "PASS",
+      "details": []
+    }
+  ],
+  "screenshots": [
+    "video-experience-reference-answer.png",
+    "video-experience-sample-answer.png",
+    "video-experience-mobile.png"
+  ],
+  "media": {
+    "sample": {
+      "duration": 120,
+      "width": 1920,
+      "height": 1080,
+      "time": 40.250277,
+      "paused": false,
+      "muted": false,
+      "volume": 0.7,
+      "decoded_frames": 14,
+      "audio_decoded_bytes": 909
+    }
+  },
+  "completed_at": "2026-09-21T10:21:48.309Z"
+}

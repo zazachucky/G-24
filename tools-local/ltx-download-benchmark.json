@@ -1,0 +1,12 @@
+{
+  "file": "tools-local/ltx-model-q4/vocoder.safetensors",
+  "bytes": 258313851,
+  "elapsed_seconds": 39.080710457999885,
+  "mbps": 6.6097531997943175,
+  "sha256": "410cee86c14f76956bf487d153211ef15050fe8bf51f86d47a1d27ca6e3ba287",
+  "source_hash_match": true,
+  "huggingface_hub": "1.7.1",
+  "hf_xet": "1.4.2",
+  "HF_XET_HIGH_PERFORMANCE": "1",
+  "status": "PASS"
+}

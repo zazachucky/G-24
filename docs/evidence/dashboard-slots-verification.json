@@ -1,0 +1,252 @@
+{
+  "status": "PASS",
+  "started_at": "2026-09-21T10:22:39.683Z",
+  "base": "http://127.0.0.1:8793",
+  "scope": "Real Chrome Customer A/B/C interactions and all four Director views; isolated run; fixed Simulation remains separate from actual counts",
+  "setup": "Reset and virtual-clock actions are explicit test setup. Behavioral events are emitted by actual Customer UI interactions.",
+  "checks": [
+    {
+      "name": "MON01 shared run, clock and all common KPI slots match received state",
+      "status": "PASS"
+    },
+    {
+      "name": "MON02 presence is three customers and three tabs, with three UI entries",
+      "status": "PASS"
+    },
+    {
+      "name": "MON03 fixture product snapshot is explicitly rendered",
+      "status": "PASS"
+    },
+    {
+      "name": "MON04 repeated polling and heartbeat do not create activity",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA01 actual analysis opens before approval or fixed results",
+      "status": "PASS"
+    },
+    {
+      "name": "MON05 actual size table and review generate one unique Need",
+      "status": "PASS"
+    },
+    {
+      "name": "MON06 cumulative detection changes before scheduled chart analysis",
+      "status": "PASS"
+    },
+    {
+      "name": "MON07 first tick derives 0 to 1 customers from real UI and stays below spike threshold",
+      "status": "PASS"
+    },
+    {
+      "name": "MON08 graph geometry represents one customer, not raw event count",
+      "status": "PASS"
+    },
+    {
+      "name": "MON09 limited demo audience and prepared representative questions are identified",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT01 pending answer status is visible before completion",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT02 timeout moves one request from pending to completed and fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT03 explicit response error adds one prepared fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "MON10 other-product browsing does not contaminate main-product KPI or actual totals",
+      "status": "PASS",
+      "details": {
+        "before": {
+          "events": 14,
+          "detected": 1,
+          "ui_events": 14,
+          "fixture_events": 0
+        },
+        "after": {
+          "events": 14,
+          "detected": 1,
+          "ui_events": 14,
+          "fixture_events": 0
+        }
+      }
+    },
+    {
+      "name": "ACT04 all ten server metrics agree with the independent UI action ledger",
+      "status": "PASS",
+      "details": {
+        "expected": {
+          "events": 38,
+          "customers": 3,
+          "asks": 4,
+          "size_views": 1,
+          "benefit_views": 1,
+          "styling_views": 1,
+          "detail_views": 2,
+          "purchase_clicks": 1,
+          "purchase_completions": 1,
+          "media_errors": 1
+        },
+        "actual": {
+          "events": 38,
+          "customers": 3,
+          "asks": 4,
+          "size_views": 1,
+          "benefit_views": 1,
+          "styling_views": 1,
+          "detail_views": 2,
+          "purchase_clicks": 1,
+          "purchase_completions": 1,
+          "media_errors": 1
+        }
+      }
+    },
+    {
+      "name": "ACT05 every actual activity metric card renders the expected value",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT06 request intent counts include two types for one compound request",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT07 color, size and styling distributions reflect one actual change each",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT08 linked styling product uses the clicked real SKU",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT09 event distribution and total include all emitted event categories",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT10 customer current-state rows show actual selections and image fallback after video error",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT11 recent activity preserves newest receive order at a frozen timestamp",
+      "status": "PASS"
+    },
+    {
+      "name": "PRIV01 Director API/DOM and another customer exclude private question text",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT12 notice list, active summary and unique displayed-customer count share actual acknowledgments",
+      "status": "PASS"
+    },
+    {
+      "name": "ACT13 retracting notice updates summary and removes all customer messages",
+      "status": "PASS"
+    },
+    {
+      "name": "HIS01 same-time logs are newest-first by receive sequence",
+      "status": "PASS"
+    },
+    {
+      "name": "HIS02 history badge and navigation count match actual rendered log rows",
+      "status": "PASS"
+    },
+    {
+      "name": "HIS03 option logs retain customer identity and safe selected values",
+      "status": "PASS"
+    },
+    {
+      "name": "HIS04 analysis and advance logs retain numeric evidence and translated control origin",
+      "status": "PASS"
+    },
+    {
+      "name": "HIS05 valid non-Need behavior is not presented as a failed IGNORED action",
+      "status": "PASS"
+    },
+    {
+      "name": "MON11 larger fixture audience is distinguished from real customer activity",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA02 actual four-metric before/after counts match separate UI action ledger",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA03 actual four rows update before fixed Simulation publication",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA04 elapsed threshold does not imply automatic fixed result; copy names Show Result",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA05 all three fixed KPI pairs remain authored Simulation",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA06 rendered Simulation cards show every authored pair and source",
+      "status": "PASS"
+    },
+    {
+      "name": "ANA07 publishing fixed results does not overwrite real measurements",
+      "status": "PASS"
+    },
+    {
+      "name": "HIS06 approval log shows target count and expiry; all origin types appear",
+      "status": "PASS"
+    },
+    {
+      "name": "REC01 outage marks common and both customer presence panels unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "REC02 monitor retains an explicit connection warning",
+      "status": "PASS"
+    },
+    {
+      "name": "REC02 activity retains an explicit connection warning",
+      "status": "PASS"
+    },
+    {
+      "name": "REC02 history retains an explicit connection warning",
+      "status": "PASS"
+    },
+    {
+      "name": "REC02 analytics retains an explicit connection warning",
+      "status": "PASS"
+    },
+    {
+      "name": "REC03 identical frozen snapshot restores every presence panel",
+      "status": "PASS",
+      "details": {
+        "same_response_body": true,
+        "successful_deliveries_before": 1,
+        "successful_deliveries_after": 2,
+        "actual_network_failures": 1
+      }
+    },
+    {
+      "name": "REC04 reconnection preserves measured and Simulation evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "ALL01 no uncaught browser exceptions across actual four-view workflow",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "dashboard-slots-monitor.png",
+    "dashboard-slots-activity.png",
+    "dashboard-slots-history.png",
+    "dashboard-slots-analytics.png"
+  ],
+  "reconnect_snapshot": {
+    "sha256": "ba3acf50cbe7c29fe00a752e0eb1fcc6fc509306ad2b8d9905d8f9d28cd2739d",
+    "source": "Actual HTTP 200 response captured immediately before outage",
+    "monitor_as_of": 3.767427916999992,
+    "policy": "Await original fetch, propagate network/HTTP failures, replay unchanged body only after successful HTTP"
+  },
+  "completed_at": "2026-09-21T10:23:05.580Z"
+}

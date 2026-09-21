@@ -1,0 +1,10 @@
+{
+  "status": "SOURCE_IMAGE_CREATED_VIDEO_NOT_YET_GENERATED",
+  "asset": "assets/video/home-shopping/host-source.png",
+  "kind": "fictional_photorealistic_adult_host",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: photorealistic-natural. Asset type: a photorealistic source portrait for a fictional Korean TV home-shopping presenter, to be animated with speech. Create one entirely fictional adult Korean woman, approximately 38 to 45, calm friendly professional presenter, natural realistic human proportions, short-to-shoulder-length dark brown softly styled hair, clean ivory tailored blazer over a plain warm beige top, no logo. She is standing upright and facing directly toward the camera, chest-up centered medium close-up, both eyes at the same level, entire head and shoulders comfortably within the frame, unobstructed face, lips gently closed with a subtle welcoming smile, no teeth. Face should occupy a substantial portion of the frame and be sharply detailed. Background: tasteful softly lit Korean TV shopping studio in warm ivory and pale gray, subtle architectural panels and soft blurred lighting, no people, no screens, no clothes rack obscuring the subject, no readable signage. Photographic realism, natural skin pores and fine hair detail, gentle even professional studio light on the face, realistic eyes, subtle natural makeup, high-end broadcast-camera still. This is a real-looking photographic subject, not an illustration, cartoon, 3D render, mannequin, or plastic doll. No jewelry near the mouth, no microphone across the face, no hand covering the face, no products, no captions, no text, no watermark, no public figure likeness. Square 1:1 portrait composition, clean shoulders and clear separation from the background. Keep the face straight and the mouth neutral for speech-driven animation.",
+  "source_image_path": "/Users/yeongjae/.codex/generated_images/01a0c24c-7de4-7292-9316-5eae75aa1870/exec-a9455561-f7f4-4be2-bb65-a7c112a16769.png",
+  "intended_video_method": "local SadTalker; execution unverified",
+  "human_identity": "fictional; no real-person face or voice cloning"
+}

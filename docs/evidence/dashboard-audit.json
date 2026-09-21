@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-21T09:51:41.827075+00:00",
+  "request": "실시간 모니터링부터 효과 분석까지 각 구좌가 고객 화면 데이터와 연동되는지 확인",
+  "scope_document": "docs/director-data-audit.md",
+  "scope": "Local prototype; real Chrome Customer interactions and Director rendering. Fixed product snapshots, prepared questions, rules and Simulation remain labeled separately.",
+  "fixes": [
+    "Scope main dashboard counts to the current broadcast and product",
+    "Restore presence and presentation on identical frozen-state reconnect",
+    "Preserve safe customer/action metadata and analysis/approval details in history",
+    "Sort same-time history by receive order and align navigation count with recent 300 rows",
+    "Enable real analytics entry before fixed Simulation results",
+    "Correct explicit Show Result instructions and explain chart cadence / three-customer demo limit"
+  ],
+  "verification": {
+    "python": {
+      "tests": 61,
+      "status": "PASS",
+      "output": "docs/evidence/dashboard-unit-output.txt"
+    },
+    "browser": {
+      "checks": 194,
+      "new_slot_checks": 46,
+      "existing_regression_checks": 148,
+      "reports": [
+        {
+          "path": "docs/evidence/browser-verification.json",
+          "status": "PASS",
+          "checks": 59,
+          "started_at": "2026-09-21T09:46:58.956Z",
+          "completed_at": "2026-09-21T09:47:22.597Z"
+        },
+        {
+          "path": "docs/evidence/customer-context-verification.json",
+          "status": "PASS",
+          "checks": 12,
+          "started_at": "2026-09-21T09:47:25.529Z",
+          "completed_at": "2026-09-21T09:47:36.155Z"
+        },
+        {
+          "path": "docs/evidence/cross-screen-verification.json",
+          "status": "PASS",
+          "checks": 31,
+          "started_at": "2026-09-21T09:47:39.120Z",
+          "completed_at": "2026-09-21T09:48:13.402Z"
+        },
+        {
+          "path": "docs/evidence/connected-customers-verification.json",
+          "status": "PASS",
+          "checks": 25,
+          "started_at": "2026-09-21T09:48:16.276Z",
+          "completed_at": "2026-09-21T09:48:25.993Z"
+        },
+        {
+          "path": "docs/evidence/integration-edge-verification.json",
+          "status": "PASS",
+          "checks": 21,
+          "started_at": "2026-09-21T09:48:30.951Z",
+          "completed_at": "2026-09-21T09:48:41.579Z"
+        },
+        {
+          "path": "docs/evidence/dashboard-slots-verification.json",
+          "status": "PASS",
+          "checks": 46,
+          "started_at": "2026-09-21T09:48:09.457Z",
+          "completed_at": "2026-09-21T09:48:34.723Z"
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "status": "PASS",
+    "verified_at": "2026-09-21T09:51:10.576Z",
+    "base": "http://127.0.0.1:8765",
+    "run_id": "d7a94b8df86e427a8279b4cd49c95388",
+    "restart_applied": true,
+    "previous_in_memory_demo_reset": true,
+    "views": [
+      {
+        "name": "monitor",
+        "connected": "online",
+        "overflow": false,
+        "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+      },
+      {
+        "name": "activity",
+        "connected": "online",
+        "overflow": false,
+        "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+      },
+      {
+        "name": "history",
+        "connected": "online",
+        "overflow": false,
+        "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+      },
+      {
+        "name": "analytics",
+        "connected": "online",
+        "overflow": false,
+        "run_id": "d7a94b8df86e427a8279b4cd49c95388"
+      }
+    ],
+    "server_source": "서버 Need 집계 · UI/시연 공통 규칙",
+    "log_sequence_present": true,
+    "uncaught_browser_errors": []
+  },
+  "limits": [
+    "Polling every 500ms; Need chart analysis every 60 seconds",
+    "Only A/B/C real demo customers; collective 10-customer spike requires prepared events",
+    "Question examples and three effect cards are authored data, not actual measurements",
+    "Actual before/after counters have unequal observation periods and do not establish causal improvement"
+  ],
+  "sha256": {
+    "app/state.py": "d84e2045cd80ce1091d9b1a8a09b6c494885ca6ce2bc432a3dda403878801dde",
+    "app/director.html": "b2d5d25ef3833ea775eefa602c882a0b20f623279663a665fc73c95453eca6c8",
+    "app/director.css": "878304b20bdf5d8358d8521f0594ac88393ea3d03d068fcd58fe6fed9a7bfb58",
+    "app/director.js": "5a4d63ea43e26b16fc75152f975d860387a1677b82304350fed768e7252b3fb4",
+    "tests/test_dashboard_state.py": "50972310003872bee7e85bf3a1641ff4e4153f9c7768c8b48a6945c4d3f34fcc",
+    "scripts/check_dashboard_slots.cjs": "a2dc3866876f7fcbd45e1bab9b6fa286530d273c64ef13a2d6bdfb45b1b79c93",
+    "docs/evidence/dashboard-unit-output.txt": "42e490d4ec87e06e8bbe3e6fef8015b6331ce2623bd84091e1976ef0aeecc957",
+    "docs/evidence/dashboard-live-runtime.json": "6fca4050833bf7c1bcd01a3f00307724d8dbaab4ded472d3130390e4b5e28d46",
+    "docs/evidence/browser-verification.json": "bc39e5c1b6a8969ff10771afd5053cd0c98d7bf9cf5bad4fae8bc5304ca73106",
+    "docs/evidence/customer-context-verification.json": "e4d150c8d2554f1a05a0131f14c44b24adc928bfec11ea83240587abd4a5c308",
+    "docs/evidence/cross-screen-verification.json": "a3aeccdd93fed7709c53dfac12963f2afe07e64e56b0f1f2021de59b4ec15c9e",
+    "docs/evidence/connected-customers-verification.json": "29e242d7ae488bed83ff5fb9a267dde4661eb4a49430b907ae2abe5573df5149",
+    "docs/evidence/integration-edge-verification.json": "1038d994f639d7d88a388b988444426b6e2869ea687b7cdd8c2985382026b164",
+    "docs/evidence/dashboard-slots-verification.json": "f2f81087d365e15e195bba83d3eae3c44b6b79df8a2319ee196e7eb93a9ffe49"
+  }
+}

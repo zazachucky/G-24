@@ -1,0 +1,16 @@
+{
+  "status": "ALL_UNET_BOUNDARIES_AND_FINAL_LATENTS_FINITE",
+  "dtype": "float16",
+  "device": "mps",
+  "width": 128,
+  "height": 224,
+  "frames": 2,
+  "steps": 1,
+  "module_tensor_checks": 4019,
+  "scope": "module boundaries; functional operations between modules may need a follow-up probe",
+  "attention_upcast_layers": [
+    "up_blocks.3.attentions.1.transformer_blocks.0.attn1",
+    "up_blocks.3.attentions.2.transformer_blocks.0.attn1"
+  ],
+  "elapsed_seconds": 4.317
+}
