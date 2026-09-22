@@ -1,89 +1,95 @@
-# GS AI LIVE — 통합 프로토타입
+# GS AI LIVE 로컬 프로토타입
 
-고객 화면과 Director를 같은 이벤트·상태로 연결한 로컬 데모입니다. 기존 상품·코디 자료와 Python Need 로직을 사용합니다.
+고객용 모바일 화면을 최신 요청에 맞춰 개선했습니다. 흰색·차콜을 기본으로, AI 코디/ASK LIVE는 보라색, 혜택가는 코랄색으로 구분합니다. 원본 상품 사진·리뷰·코디 이미지를 재사용하며 런타임 이미지 생성이나 실제 결제는 없습니다.
 
-**녹화 영상 선택 오류 수정.** 정기 갱신이 선택창을 다시 쓰던 문제와 이미지 모드에서 참고 영상이 이미 선택된 것처럼 보이던 문제를 수정했습니다. 영상 선택 후 재생 화면을 표시하고 같은 영상 재선택·오류 후 재시도를 지원합니다. 관련 브라우저 102개 검사를 통과했습니다. [검수 결과](docs/evidence/media-selection-verification.json).
+## 실행
 
-**후속 코디 배치 수정 완료.** 오피스·데이트·데일리 탭의 큰 이미지는 기존 전신 AI 코디 예시를 사용하고, 오른쪽 LOOK 1~3 자리에는 선택 코디의 상의·하의·신발 실제 상품을 표시합니다. 상품 사진은 해당 상품 상세로 연결하며 탭 선택을 바꾸지 않습니다. 관련 Chrome **164개(모바일 54 + 고객 51 + 통합 59)** 검사를 다시 통과했습니다. [후속 검수 결과](docs/evidence/styling-products-verification.json).
+Node.js 22 이상 권장. 외부 패키지 설치 없이 실행합니다.
 
-**모바일 화면 개선 초기 완료 기록.** 흰색·차콜을 바탕으로 코디 추천과 ASK LIVE는 보라색, 혜택가는 코랄색으로 구분하고, 코디 추천을 대표 기능으로 강조했습니다. 세로형·버튼 기반 가로형에서 대화·옵션·작성 중 질문·응답 상태를 공유하고, 입력창과 구매 버튼을 계속 사용할 수 있습니다. 질문 제출 후에는 통합 대화의 응답이 보이도록 이동합니다. **Python 113개, Chrome 359개 검사**가 통과했습니다. Chrome 결과는 신규 모바일 48개와 이번 코드에서 다시 통과한 기존 회귀 311개입니다. [모바일 사용·구현 범위 안내](docs/mobile-customer-guide.md)와 [요구사항별 검토](docs/mobile-customer-goal-review.md)를 최신 고객 화면 기준으로 확인하세요.
-
-개인 사이즈 제안의 최신 조건은 **30초 안에 사이즈 관련 행동 2건**입니다. 같은 종류를 다시 조회한 별도 행동도 포함하고, 같은 `event_id`의 재전송은 중복 제외합니다. 이 조건이 이전 문서의 ‘서로 다른 행동 2종’ 조건을 대체합니다.
-
-기본 서버 8765에 최신 코드를 적용하고 고객 세로·가로 화면과 Director 4개 화면이 같은 실행에 연결됨을 확인했습니다. 서버 재시작으로 이전 메모리 시연 기록은 초기화됐습니다. [실행 확인](docs/evidence/mobile-customer-live-runtime.json) · [코드·검사 완료 감사](docs/evidence/mobile-customer-completion-audit.json). 기본 방송 영역은 상품 이미지 미리보기이며 외부 AI·실제 방송·주문·결제·배송 시스템은 연결하지 않았습니다. 브라우저 검수 범위는 로컬 Chrome이고 실제 휴대폰과 소프트 키보드는 별도 검수 대상입니다.
-
-```sh
-python3 app/server.py
+```bash
+git clone https://github.com/zazachucky/G-24.git
+cd G-24
+npm start
 ```
 
-- [고객 화면](http://127.0.0.1:8765/app/customer.html) / [Director](http://127.0.0.1:8765/app/director.html)
-- [실행·초기화·시연 방법](docs/run-demo.md)
-- [검증 결과와 남은 범위](docs/app-verification.md)
-- [첨부 화면 기준 기능 보완](docs/experience-extension.md) / [요구사항별 구현 검토](docs/experience-completion-review.md)
-- [Director 구좌별 데이터 원천·연동 점검](docs/director-data-audit.md)
-- [구현 구조·기술 결정](docs/app-architecture.md)
-- [Vercel 배포·공유 저장소 연결](docs/vercel-deployment.md)
-- [고객 · Director 연동 항목과 집계 기준](docs/cross-screen-contract.md)
-- [구현 Goal 명세](docs/GS_AI_LIVE_Goal_Prompt.md)
+- [고객 Mobile](http://127.0.0.1:4173/mobile.html)
+- [Director](http://127.0.0.1:4173/director.html)
 
-Python 3.9 이상으로 실행하며 별도 설치·API 키가 필요 없습니다. 두 화면은 서버를 실행한 후 여세요. 고객·혜택·배송·성과는 가상/준비/Simulation으로 구분합니다. 제공 MP4는 다른 상품의 참고 영상입니다. 직접 검수한 7개 구간과 별도 상품 설명 샘플의 대본 12개 장면에서 영상 질문·요약·장면 이동을 지원합니다. 자동 음성 전사는 초안이며 임의 영상 분석은 검증하지 않았습니다.
+기본 포트는 4173입니다. 이미 서버가 실행 중이면 재실행 대신 새로고침하세요. 다른 포트는 `PORT=4175 npm start`로 지정합니다. 고객/Director를 같은 브라우저의 같은 주소(origin)로 열어야 공통 이벤트가 전달됩니다.
 
-Director의 **고객 이용**에서 실제 질문 유형·상세 탐색·옵션·코디·구매 체험·미디어 상태를 확인하고, 고객에게 공용 안내를 게시·회수할 수 있습니다. 개인 대화는 해당 고객에게만 보입니다. 실제 이용 집계와 기존 고정 성과 Simulation은 구분합니다.
+## 저장소 교체와 배포
 
-이전 통합 화면 확장 단계에서는 첨부 Customer·Director 화면의 빠진 기능을 추가하고 **Python 112개, Chrome 311개 검사**를 통과했습니다. 고객의 공유·장바구니·공개 댓글·탭별 퇴장·후기·개인 사이즈 입력과 실측 비교·혜택·코디와 Director의 관심 트렌드·주요 질문·구매 체험 완료율·실제 전후 지표를 연결했습니다. 실제 고객 행동은 공유 상태로 반영하며, 상품 스냅샷·고정 규칙·질문 예시·성과 Simulation은 [구좌별 점검표](docs/director-data-audit.md)에 별도로 명시했습니다. 이 수치는 이번 모바일 개선의 최종 검수 결과와 구분합니다.
+사용자 요청에 따라 이전 Python/API 앱을 이 Node.js + 정적 HTML/CSS/JavaScript 프로토타입으로 교체했습니다. 기존 버전은 Git 이력의 `f72372b0d12e00f5ad0321ce13b1f3fbb69c826c`에 보존되어 있습니다. 원래 로컬 작업 폴더와 제출용 세션 로그는 수정하거나 업로드하지 않았습니다.
 
-## 기존 준비 자료
+Vercel은 `npm ci --ignore-scripts` → `npm run build` → `dist/` 정적 배포를 사용합니다. `vercel.json`의 build/output 설정은 [공식 배포 설정](https://vercel.com/docs/project-configuration/vercel-json)에 맞췄습니다. 이전 `/app/customer.html`, `/app/director.html` 링크는 새 화면으로 리디렉션합니다. 루트(`/`)는 두 화면을 여는 시작 페이지입니다. 로컬 정적 빌드 검사는 `npm run test:build`로 실행합니다.
 
-고객 AI와 Director를 연결하는 미결정 규칙을 확정하고 실제 상품·코디 자료를 준비한 패키지입니다.
-아래 자료는 기존 데이터·reference·영상 제작 준비 이력입니다. 현재 통합 앱 상태는 위 실행·검증 문서를 기준으로 확인합니다.
+이 교체는 기존 Python API·서버 공통 상태·외부 저장소 연결을 유지하지 않습니다. 배포된 화면도 **같은 브라우저·같은 origin 안에서만** IndexedDB로 공유하며 다른 기기 간 연동은 없습니다. 배포 origin이 달라지면 별도 상태입니다. 실제 Vercel 배포 성공은 Git push 후 연결된 프로젝트의 결과를 확인해야 하며, 로컬 빌드 통과와는 별개입니다.
 
-- [자료·Lookbook 미리보기](preview/index.html) — 파일을 브라우저에서 열면 됩니다.
-- [착용·시연형 홈쇼핑 영상 제작 현황](docs/portrait-shopping-video.md) — 이전 착용·접사·전신 영상 제작 작업 기록.
-- [기존 얼굴 중심 10초 시험 MP4](assets/video/home-shopping/gs-ai-live-home-shopping-preview-10s.mp4) — 착용·손 시연 요구를 충족하는 최종 영상이 아님.
-- [실제 MP4 재생·구간 이동 테스트](preview/video-test.html) — 2분·1080p·한국어 음성·자막.
-- [테스트 영상 MP4](assets/video/test-live/gs-ai-live-test-120s.mp4)
-- [테스트 영상 연결 방법](docs/test-video.md) / [영상 AI 검수 사례 10개](docs/video-test-cases.md)
-- [갱신된 개발자 인계 문서](requirements/GS_AI_LIVE_Prototype_Developer_Handoff_v1.0.md)
-- [해결 기록과 현재 상태](docs/resolution-register.md)
-- [고객 Need → Director 규칙](docs/need-director-rules.md)
-- [대화·고객 화면 정책](docs/conversation-policy.md)
-- [통합 검수표](docs/acceptance-checklist.md)
-- [상품 데이터 출처](docs/product-data-sources.md)
-- [코디 상품 출처](docs/styling-sources.md)
-- [Lookbook 생성 프롬프트·저장 위치](assets/lookbooks/generation.json)
-- [쇼호스트 영상 제작 지시서](docs/sample-video-production-brief.md) — 2분 대본·장면별 동작·계획 자막.
-- [외부 영상 제작 전달 ZIP](deliverables/gs-ai-live-sample-video-production-kit.zip) — 대본과 필요한 이미지를 함께 전달합니다.
+## 고객 화면 시연 (약 3분)
 
-## 준비된 자료
+첨부 이미지와 비교해 추가한 기능은 [기능 대조표와 증거](docs/feature-gap-audit.md)에 정리했습니다. 라이브 대화 오버레이·장바구니, ASK 리뷰 그래프, 사이즈 근거, 추가 혜택 조건, 코디 썸네일/전체 상품, Director 질문 TOP 5와 승인 완료 상세를 포함합니다.
 
-| 자료 | 경로 |
-| --- | --- |
-| 실제 메인상품·리뷰·사이즈표 | `fixtures/main-product.json` |
-| 가상고객·혜택·배송·이미지데모 설정 | `fixtures/demo-config.json` |
-| 고객 체험 프로필·추가 조건·댓글·장바구니 정책 | `fixtures/experience-customer.json` |
-| 검수 영상 구간·샘플 제작 대본 지식 | `fixtures/video-knowledge.json` |
-| ASK LIVE 답변·Direct Result 연결 | `fixtures/ask-live.json` |
-| 코디 후보 하의8·신발6 | `fixtures/styling-candidates.json` |
-| 확정 코디3종 | `fixtures/styling-looks.json` |
-| 가상 이벤트·Director 결과 | `fixtures/director-scenario.json` |
-| 실제 상품 이미지 | `assets/products/main/`, `assets/products/styling/` |
-| 사전생성AI Lookbook3장 | `assets/lookbooks/` |
-| 쇼호스트 영상 제작용 대본·계획 자막·챕터 | `assets/video/sample-live/` |
-| 실제 테스트 MP4·음성·자막·챕터 | `assets/video/test-live/` |
+1. 상단 LIVE 영역의 제공 MP4를 재생합니다. **다른 상품 참고 영상**임을 표시합니다. 영상 안의 `확장해서 보기`로 좌측 영상·상품 / 우측 대화 배치로 전환하고 `세로로 보기`로 돌아옵니다. 작은 화면의 상품·대화 영역은 세로로 스크롤합니다.
+2. 사이즈 77을 선택하고 질문을 입력만 한 상태에서 전환해보세요. 선택·입력값·대화·AI 응답 대기·영상 재생 상태는 같은 상태/DOM을 사용합니다.
+3. 보라색 `지수님을 위한 코디 추천` → 오피스/데이트/데일리 3종을 확인합니다. 이미지 아래로 스크롤하면 추천 이유와 실제 상품 사진·GS SHOP 링크가 있습니다. 데님의 판매 상품과 스니커즈는 미확정이라 링크하지 않습니다.
+4. `내 사이즈`: 평소 66, 잘 맞아요 87%, 반사이즈 상향 안내 → 사이즈 상세 → 66 선택 후 구매 체험. `내 혜택`: 49,900 − 2,495 − 1,890 = **45,515원**, 총 할인 4,385원.
+5. 빠른 질문 4종을 눌러 통합 대화의 고객/ASK LIVE 답변을 확인합니다. 자유 질문의 미지원 정보(모델 착용 사이즈 등)는 한계를 안내합니다. 배송 일정은 가상 예시입니다.
+6. `이용 안내 → 시연 초기화 → 새 방송 시작` 후 `사이즈표 → 사이즈 리뷰 확인`을 30초 안에 수행하고 상세를 닫습니다. 작은 제안의 `확인하기`는 내 사이즈, `괜찮아요`는 같은 방송에서 재노출 금지입니다. 새로고침해도 거절이 유지되고 내 사이즈 직접 조회는 허용됩니다.
+7. 하단 `구매하기` → 선택 옵션/혜택 확인 → 구매 체험 완료. 실제 주문·결제·배송은 발생하지 않습니다.
 
-기존 준비 패키지의 미디어 기본값은 상품 이미지입니다. 현재 통합 앱은 이 기본 모드와 제공된 코어어센틱 참고 MP4 재생을 함께 지원합니다. 별도 120초 테스트 영상은 상품 이미지·합성 음성·자막을 합친 기능 검증용이며, 이전 가상 실사 진행자 10초 시험본과 미완성 전신 영상 제작 자료는 현재 참고 MP4와 구분합니다. 이번 통합 앱 작업에서는 새 쇼호스트 영상을 생성하지 않았습니다. 현재 영상 기능은 검수된 화면 근거와 제작 대본을 조회하는 로컬 기능이며 외부 영상 이해 모델을 호출하지 않습니다.
-혜택·배송·Director성과는 각 라벨에 따라 준비값 또는 시뮬레이션으로 표시합니다.
+질문 입력창과 구매 버튼은 스크롤 영역 밖에 배치했습니다. 소프트 키보드에 대해서는 visualViewport 높이를 반영합니다. 실제 iOS/Android 기기의 키보드·안전 영역 검수는 별도로 필요합니다.
 
-## 오프라인 검증
+## Director 연동 확인 (기존 기능 유지)
 
-Python 3.9 이상, 외부 패키지·API키·네트워크 없이 실행합니다.
+고객 화면과 Director는 같은 브라우저·같은 origin의 IndexedDB 공통 상태를 사용합니다. 트랜잭션으로 동시 변경을 처리하고 BroadcastChannel/저장소 알림으로 화면을 갱신합니다. localStorage는 기존 데이터 이관·호환용이며 서버·다른 기기·실제 방송 시스템 연동은 아닙니다. **두 화면을 모두 새로고침**해야 같은 버전의 연결 로직을 사용합니다.
 
-```sh
-python3 scripts/validate_demo.py --write-report
-python3 -m unittest discover -s tests -p 'test_need_director.py' -v
-python3 prototype/need_director.py
+Director의 `실제 고객 반응 · Mobile 연동`에서 사이즈·혜택·코디 이용, 선택 옵션·코디, 장바구니 수량/합계, 영상 상태, 구매 흐름 진입/체험 완료를 확인할 수 있습니다. `효과 분석`에는 APP 승인 후 실제 행동 증분도 고정 Simulation 결과와 별도로 표시합니다. Mobile의 `이용 안내`에서는 승인된 안내문·APP 상태·Simulation 결과·강조 만료를 볼 수 있습니다. [양방향 연동 대조표와 증거](docs/data-sync-audit.md)
+
+1. Director `공통 Reset` → 고객 `사이즈표 → 사이즈 리뷰 확인`.
+2. 실제 고객 UI 이벤트를 근거로 Need 감지. 집단 관심 **8→26**과 **대상 33명**은 고정 Simulation 수치이며 실제 시청자 집계가 아닙니다.
+3. Director `호스트 승인`, `APP 33명 승인` → A 포함/B·C 제외, 고객 제안에 `PD 승인` 표시와 내 사이즈 강조. 고객은 승인 전에도 행동 기반 작은 제안을 볼 수 있습니다(최신 모바일 요청 우선). 이미 수락/거절한 제안은 승인해도 다시 띄우지 않습니다.
+4. `Simulation 결과` → 결과 표시 및 30초 강조 만료. `강조 만료 검수`로 수동 확인도 가능합니다. Reset 후 반복합니다.
+
+## 검증
+
+```bash
+npm test                 # 공통 reducer: 30초 경계, 중복/거절, 만료, 저장소 실패 등
+npm run verify           # 별도 4174 포트: HTTP, 이미지, JS/CSS, MP4 Range
+npm run test:build       # 정적 배포 파일 일치, 비공개 자료 제외, 이전 경로 리디렉션 설정
+# npm start가 실행 중인 상태에서:
+npm run test:browser     # 임시 Chrome으로 실제 클릭·텍스트 입력·작은 화면·3회 연동
+npm run test:video       # 재생/정지/탐색/방향 전환/오류 대체·복구
+npm run test:features    # 이미지에서 추가한 기능 + Director 본문 승인 흐름
+npm run test:sync        # 양방향 필드·영상·실제 집계·Reset 경합·동시 80건 입력
 ```
 
-기대 결과: 8→26명(+225%) 감지, 승인 대상33명, 고객A 적용·B/C 미적용.
-검증 결과는 [JSON 보고서](docs/verification-report.json)에 기록합니다.
-이는 로직·데이터·자산 연결 검증입니다. 실제 앱의 기존 여섯 브라우저 검사 194개와 신규 Customer·Director·영상·사이즈 입력 검사 117개를 독립 서버에서 수행합니다. 같은 서버를 사용하는 검사는 순차 실행합니다. [검증 명령](docs/run-demo.md#검증-명령)을 따르며 결과는 `docs/evidence/`에 기록합니다.
+브라우저 검수는 macOS 기본 Chrome 경로를 사용합니다. 다른 환경에서는 `CHROME_PATH`를 지정하세요. `APP_URL`로 대상 서버 주소를 변경할 수 있습니다. 검수마다 별도 임시 프로필을 만들고 자신이 만든 프로필만 삭제합니다. 사용자의 브라우저 데이터는 건드리지 않습니다.
+
+브라우저 검수 명령은 순서대로 실행하는 것을 권장합니다. 실제 30초 만료 검수가 포함되어 있어 여러 Chrome 검수를 동시에 실행하면 지연 중 만료 버튼이 먼저 비활성화될 수 있습니다.
+
+- [검수 결과와 제한](docs/mobile-validation.md)
+- [고객 검수 보고서](artifacts/mobile/report.json), [화면 캡처](artifacts/mobile/)
+- [영상 검수 보고서](artifacts/video-layout/report.json)
+
+## 구현 위치와 자료 보존
+
+- `public/mobile.html`, `mobile.css`, `mobile.js`: 고객 UI, 공유 방향 상태, 준비된 응답/구매 흐름
+- `public/gs-live-data.js`, `assets/mobile/`: 제공 HTML에서 추출한 동일 상품·리뷰·후보·코디 데이터/이미지
+- `public/gs-live-config.js`: 공통 상품 옵션·혜택가·코디 이름
+- `public/gs-ai-live-state.js`: 공통 reducer/IndexedDB 트랜잭션/탭 알림, 30초 Need 규칙, 수락·거절·기한·실제 집계
+- `public/director.html`, `director.js`, `director-features.css`: Director 본문/질문 집계/승인 기록. 승인·Need는 공통 reducer 하나만 사용합니다.
+- `public/gs-ai-live-integration.js`: 이전 화면용 legacy bridge 보존본. 현재 Mobile/Director는 로드하지 않습니다.
+- `assets/reference-video.mp4`: 제공 MP4
+- `reference/`: 첨부 원본 HTML 및 `mobile-before-redesign.html`, `director-before-features.html` 보존
+
+명세 우선순위는 최신 사용자 모바일 요청 → 제공 `GS_AI_LIVE_Prototype_Developer_Handoff_v1.0.md` → 참고 HTML입니다. 이전에 언급된 `docs/GS_AI_LIVE_Goal_Prompt.md`는 이 작업 경로에 없으며, 이번 작업은 실제 제공된 명세와 자료를 사용했습니다.
+
+## 실제 서비스 연결이 필요한 부분
+
+- 인증된 고객 프로필·상품/옵션/재고·최신 가격·혜택 API
+- 근거 검증 및 안전장치를 갖춘 실제 ASK LIVE/코디 추천 서비스
+- 실시간 방송·자막·채팅 transport, 서버 이벤트 수집·동의·보관 정책
+- PD 승인/대상 판정/고객 세션 간 동기화, 실제 집계와 성과 측정
+- 주문·결제·배송 API (현재 화면은 데모)
+- 미확정 데님·스니커즈 판매 상품 확정, 기존 후보의 판매 상태·색상·재고 확인
+- **TODO/미검증:** 영상 AI, 장면 검색, 상품 동일성 판정, 모델 착용 사이즈 추출. 현재 시연 기능으로 제공하지 않음

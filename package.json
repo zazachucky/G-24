@@ -1,0 +1,18 @@
+{
+  "name": "gs-ai-live-integrated-prototype",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "build": "node scripts/build-static.mjs",
+    "test:build": "node --test scripts/static-build.test.mjs",
+    "test": "node --test scripts/scenario.test.mjs",
+    "verify": "node scripts/verify-scenario.mjs",
+    "test:browser": "node scripts/mobile-browser.test.mjs",
+    "test:video": "node scripts/video-layout-smoke.mjs",
+    "test:features": "node scripts/feature-gap.test.mjs",
+    "test:sync": "node scripts/sync-browser.test.mjs"
+  }
+}

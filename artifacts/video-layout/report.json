@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-09-22T02:56:17.807Z",
+  "layout": {
+    "count": 1,
+    "inLiveFrame": true,
+    "outsideCards": 0,
+    "fillsFrame": true,
+    "referenceLabel": true,
+    "imageHidden": true
+  },
+  "checks": [
+    "Single video fills the customer LIVE image frame; no outer video card",
+    "Real pointer clicks: play, pause, +/-5 seconds; seek slider",
+    "Playback stays active through orientation toggle; same video element",
+    "Paused position, selected size and conversation survive orientation and benefit sheet",
+    "Desktop/mobile portrait and landscape screenshots",
+    "Missing video displays original image in the same frame; retry recovers",
+    "No uncaught JavaScript exceptions"
+  ]
+}

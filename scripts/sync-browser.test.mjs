@@ -1,0 +1,111 @@
+import assert from 'node:assert/strict';
+import { mkdir,writeFile } from 'node:fs/promises';
+import { launchBrowser } from './browser-harness.mjs';
+const app=process.env.APP_URL||'http://127.0.0.1:4173';
+const artifacts=new URL('../artifacts/data-sync/',import.meta.url);
+await mkdir(artifacts,{recursive:true});
+const browser=await launchBrowser();let mobile,director;
+const checks=[];const pass=message=>{checks.push(message);console.log('PASS',message);};
+try {
+  mobile=await browser.page(`${app}/mobile.html`);
+  director=await browser.page(`${app}/director.html`,1440,1100);
+  const m=mobile.evaluate,d=director.evaluate;
+  await director.click('.shared-diagnostics summary');
+  await director.click('[data-gs-action="reset"]');await mobile.waitFor(`window.GSAILiveState.read().runId===2`);
+  await mobile.click('[data-size="77"]');
+  await mobile.click('.styling-hero');await mobile.click('[data-look="2"]');await mobile.click('#close-sheet');
+  await mobile.click('.secondary-actions [data-action="size"]');await mobile.click('#close-sheet');
+  await mobile.click('.secondary-actions [data-action="benefit"]');await mobile.click('#close-sheet');
+  await director.waitFor(`document.querySelector('#actual-selection').textContent==='77 / 데일리'`);
+  assert.equal(await d(`document.querySelector('#actual-size').textContent`),'1');
+  assert.equal(await d(`document.querySelector('#actual-benefit').textContent`),'1');
+  assert.equal(await d(`document.querySelector('#actual-styling').textContent`),'1');
+  assert.ok(await d(`window.GSAILiveState.read().activity.topics.styling>=2`));
+  await mobile.click('#purchase-button');await mobile.click('[data-action="purchase-complete"]');await mobile.click('#close-sheet');
+  await mobile.click('#purchase-button');await mobile.click('[data-action="add-cart"]');
+  await mobile.click('[data-cart-size="77"][data-cart-change="1"]');
+  await director.waitFor(`document.querySelector('#actual-cart').textContent.includes('2개 · 91,030원')`);
+  await mobile.click('[data-cart-size="77"][data-cart-change="-1"]');
+  await director.waitFor(`document.querySelector('#actual-cart').textContent.includes('1개 · 45,515원')`);
+  await mobile.click('[data-cart-size="77"][data-cart-remove]');
+  await director.waitFor(`document.querySelector('#actual-cart').textContent.includes('0개')`);
+  await mobile.click('#close-sheet');await mobile.click('#purchase-button');await mobile.click('[data-action="add-cart"]');await mobile.click('[data-cart-size="77"][data-cart-change="1"]');
+  await mobile.click('[data-action="cart-checkout"]');await mobile.click('[data-action="cart-complete"]');await mobile.click('#close-sheet');
+  await director.waitFor(`document.querySelector('#actual-completed').textContent==='2'`);
+  assert.match(await d(`document.querySelector('#actual-demo-total').textContent`),/3개 · 136,545원/);
+  assert.match(await d(`document.querySelector('#actual-cart').textContent`),/0개/);
+  assert.equal(await d(`document.querySelector('#actual-purchaseClicks').textContent`),'4');
+  assert.equal(await d(`window.GSAILiveState.read().activity.eventCounts.CART_REMOVE`),1);
+  await d(`document.querySelector('.actual-activity').scrollIntoView({block:'start'})`);await director.capture(new URL('customer-commerce.png',artifacts));
+  pass('Real Mobile size77/daily look/size+benefit usage, cart quantity/remove, direct+cart checkout reach Director with exact counts and demo totals');
+
+  await mobile.click('.video-tools summary');await mobile.click('[data-video-action="play"]');
+  await director.waitFor(`document.querySelector('#actual-video').textContent.includes('재생 중')`);
+  await mobile.click('[data-video-action="pause"]');await mobile.click('[data-video-action="forward"]');
+  await director.waitFor(`window.GSAILiveState.read().customer.video.currentTime>=5 && window.GSAILiveState.read().customer.video.status==='paused'`);
+  await m(`document.querySelector('video').src='/assets/missing.mp4';document.querySelector('video').load()`);
+  await director.waitFor(`document.querySelector('#actual-video').textContent.includes('오류')`);
+  await mobile.click('[data-video-action="retry"]');await mobile.waitFor(`document.querySelector('video').readyState>=2`);
+  await director.waitFor(`window.GSAILiveState.read().customer.video.status==='paused'`);
+  pass('Actual video events (play/pause/seek/error/retry), including native media changes, update Director');
+
+  await mobile.click('.option-line [data-detail="size"]');await mobile.click('[data-action="size-reviews"]');await mobile.click('#close-sheet');
+  await director.waitFor(`window.GSAILiveState.read().need.detected`);await director.click('#insight-cta');await director.waitFor(`!document.querySelector('#action-options').hidden`);await director.click('#host-action');
+  await director.click('#host-message');await director.tab('Input.dispatchKeyEvent',{type:'keyDown',key:'a',code:'KeyA',modifiers:4,commands:['selectAll']});
+  const message='연동 검수: 평소 66과 반사이즈 기준을 설명해주세요.';
+  await director.type(message);await director.click('#approve-host');
+  await director.click('#app-action');assert.match(await d(`document.querySelector('#customer-preview').textContent`),/최근 선택: 77 · 데일리/);await director.click('#approve-app');
+  await mobile.waitFor(`document.querySelector('#approval-label').textContent.includes('PD 승인')`);
+  await mobile.click('#accept-suggestion');await mobile.click('#close-sheet');
+  await director.waitFor(`document.querySelector('#live-action-receipt').textContent.includes('제안을 확인함')`);
+  await mobile.click('#purchase-button');await mobile.click('[data-action="purchase-complete"]');await mobile.click('#close-sheet');
+  await director.click('#result-action');await director.waitFor(`!document.querySelector('#analytics-content').hidden`);
+  assert.equal(await d(`document.querySelector('#after-size').textContent`),'+1');
+  assert.equal(await d(`document.querySelector('#after-completed').textContent`),'+1');
+  await mobile.click('[data-action="guide"]');
+  await mobile.waitFor(`document.querySelector('#mobile-sync-details').textContent.includes('확인됨 · 강조 중')`);
+  await mobile.click('#mobile-sync-details details summary');
+  assert.match(await m(`document.querySelector('#mobile-sync-details').textContent`),new RegExp(message));
+  await m(`new Promise(resolve=>setTimeout(resolve,1300))`);
+  assert.equal(await m(`document.querySelector('#mobile-sync-details details').open`),true);
+  await mobile.capture(new URL('mobile-approved-status.png',artifacts));
+  await d(`document.querySelector('#actual-after-approval').scrollIntoView({block:'center'})`);await director.capture(new URL('actual-after-approval.png',artifacts));
+  pass('Director edited approval → Mobile guide; APP → A suggestion; A accept → Director; actual post-approval increments separated from Simulation');
+  // Director is no longer loaded: Mobile must independently end the shared highlight.
+  await director.tab('Page.navigate',{url:'about:blank'});
+  await mobile.waitFor(`document.querySelector('#mobile-sync-details').textContent.includes('강조 만료') && !window.GSAILiveState.read().result.highlighted`,35000);
+  assert.equal(await m(`window.GSAILiveState.read().events.filter(event=>event.type==='EXPIRE_HIGHLIGHT').length`),1);
+  await director.tab('Page.navigate',{url:`${app}/director.html`});await director.waitFor(`document.readyState==='complete' && document.querySelector('#gs-d-highlight')?.textContent==='만료'`);
+  pass('Real 30-second shared expiry works with Director unloaded; reopening reflects the same receipt and expiry');
+
+  await mobile.click('#close-sheet');
+  // Keep the test deterministic while still submitting via the actual quick-question control.
+  await director.click('.shared-diagnostics summary');
+  await mobile.click('[data-question="상품후기 알려줘"]');await mobile.waitFor(`document.querySelector('.pending')`);
+  const before=await m(`window.GSAILiveState.read().runId`);
+  await director.click('[data-gs-action="reset"]');
+  await mobile.waitFor(`window.GSAILiveState.read().runId>${before} && !document.querySelector('.pending')`);
+  await m(`new Promise(resolve=>setTimeout(resolve,1500))`);
+  assert.equal(await m(`document.querySelector('#send-button').disabled`),false);
+  assert.equal(await d(`document.querySelector('#actual-question-count').textContent`),'0건');
+  assert.equal(await d(`document.querySelector('#actual-completed').textContent`),'0');
+  await director.waitFor(`document.querySelector('#actual-selection').textContent==='77 / 데일리'`);
+  assert.equal(await m(`document.querySelector('#messages').lastElementChild.classList.contains('customer')`),true);
+  pass('Reset during in-flight ASK cancels the old answer, resets aggregates on both sides, preserves chosen option/draft/layout context');
+
+  // Transport stress uses reducer API deliberately; normal flows above use real pointer actions.
+  assert.equal(await m(`window.GSAILiveState.serializedWrites()`),true);
+  await Promise.all([m(`Promise.all(Array.from({length:40},()=>window.GSAILiveState.emit('CUSTOMER_EVENT',{eventType:'ASK_LIVE_SUBMIT',intent:'color'},'sync-stress')))`),d(`Promise.all(Array.from({length:40},()=>window.GSAILiveState.emit('CUSTOMER_EVENT',{eventType:'ASK_LIVE_SUBMIT',intent:'thickness'},'sync-stress')))`)]);
+  await director.waitFor(`document.querySelector('#actual-question-count').textContent==='80건'`);
+  const activity=await m(`window.GSAILiveState.read().activity`);
+  assert.equal(activity.questionsByIntent.color,40);assert.equal(activity.questionsByIntent.thickness,40);
+  const revision=await d(`window.GSAILiveState.read().revision`);
+  await m(`window.GSAILiveState.emit('CUSTOMER_EVENT',{eventType:'ASK_LIVE_SUBMIT',intent:'size'},'stale-test',{runId:${before}})`);
+  assert.equal(await d(`window.GSAILiveState.read().revision`),revision);
+  await director.tab('Page.reload');await director.waitFor(`document.querySelector('#actual-question-count')?.textContent==='80건'`);
+  pass('80 concurrent cross-tab writes retain all counts; old-run event ignored without revision change; refresh restores shared totals');
+  assert.deepEqual(browser.errors,[]);
+  await writeFile(new URL('report.json',artifacts),JSON.stringify({checkedAt:new Date().toISOString(),checks,scope:'Same browser and origin; no remote transport or real transactions. Selected/cart/video snapshot describes latest reporting A tab; UI draft/cart remain tab-local.'},null,2));
+} catch(error) {
+  await mobile?.capture(new URL('failure-mobile.png',artifacts));await director?.capture(new URL('failure-director.png',artifacts));throw error;
+} finally {await browser.close();}

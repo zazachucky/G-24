@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-09-22T02:56:00.952Z",
+  "checks": [
+    "Real Mobile size77/daily look/size+benefit usage, cart quantity/remove, direct+cart checkout reach Director with exact counts and demo totals",
+    "Actual video events (play/pause/seek/error/retry), including native media changes, update Director",
+    "Director edited approval → Mobile guide; APP → A suggestion; A accept → Director; actual post-approval increments separated from Simulation",
+    "Real 30-second shared expiry works with Director unloaded; reopening reflects the same receipt and expiry",
+    "Reset during in-flight ASK cancels the old answer, resets aggregates on both sides, preserves chosen option/draft/layout context",
+    "80 concurrent cross-tab writes retain all counts; old-run event ignored without revision change; refresh restores shared totals"
+  ],
+  "scope": "Same browser and origin; no remote transport or real transactions. Selected/cart/video snapshot describes latest reporting A tab; UI draft/cart remain tab-local."
+}

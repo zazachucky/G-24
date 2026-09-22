@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>GS AI LIVE · 나를 위한 라이브</title>
+  <link rel="stylesheet" href="/mobile.css">
+  <script defer src="/gs-live-data.js"></script>
+  <script defer src="/gs-live-config.js"></script>
+  <script defer src="/gs-ai-live-state.js"></script>
+  <script defer src="/mobile.js"></script>
+</head>
+<body>
+  <main class="device" aria-label="GS AI LIVE 고객 화면">
+    <header class="app-header">
+      <a class="wordmark" href="/">GS <span>AI</span> LIVE<span class="demo-tag">DEMO</span></a>
+      <div class="header-tools"><button class="quiet" data-action="guide" aria-label="데모 및 서비스 연결 안내">이용 안내</button><button class="quiet" data-action="cart" aria-label="장바구니 보기">장바구니 <span id="cart-count">0</span></button><button class="quiet" data-action="leave" aria-label="라이브 나가기">✕</button></div>
+    </header>
+    <div id="device-scroll" class="device-scroll">
+      <div class="live-layout">
+        <section class="primary" aria-label="LIVE 영상과 상품">
+          <div class="video-frame">
+            <img class="video-image" src="/assets/mobile/product.jpg" alt="현재 방송 상품 SJ와니 풀오버 미리보기" hidden>
+            <video id="gs-reference-video" controls playsinline preload="metadata" aria-label="다른 상품 참고 영상, 코어어센틱 가디건" src="/assets/reference-video.mp4"></video>
+            <div class="video-top"><span class="live-tag">● LIVE DEMO</span><span class="reference-tag">다른 상품 참고 영상</span></div>
+            <button id="expand-button" class="expand-button" aria-pressed="false">⛶ 확장해서 보기</button>
+            <div id="video-chat" class="video-chat" aria-hidden="true"></div>
+            <div id="gs-video-error" class="video-error" role="status" hidden>영상을 불러오지 못했어요. 상품 이미지로 미리봅니다.<button data-video-action="retry">다시 시도</button></div>
+          </div>
+          <p class="video-note">참고 영상: 코어어센틱 가디건 · 아래 판매 상품과 다릅니다.</p>
+          <div class="live-meta"><span>시청자 1,248명 <small>데모</small></span><button class="quiet" data-action="toggle-overlay" aria-pressed="true">영상 위 대화 숨기기</button></div>
+          <details class="video-tools"><summary>영상 조작</summary><div class="video-controls">
+            <button data-video-action="play">재생</button><button data-video-action="pause">정지</button><button data-video-action="back">−5초</button><button data-video-action="forward">+5초</button>
+            <input data-video-action="seek" type="range" min="0" max="100" value="0" aria-label="영상 탐색"><span id="gs-video-status" role="status">준비 중</span>
+          </div></details>
+          <section class="product-panel" aria-label="현재 판매 상품">
+            <div class="product-summary">
+              <img class="product-thumb" src="/assets/mobile/thumb.jpg" alt="SJ와니 샤이니 크리즈 캐시미어 풀오버" width="70" height="82">
+              <div><p class="eyebrow">SJ WANI</p><h1>샤이니 크리즈 캐시미어 풀오버 1종</h1><p class="rating">★ 4.5 <button data-detail="reviews">리뷰 1,199</button><span>무료배송</span></p></div>
+            </div>
+            <div class="price-line"><span>판매가 <strong>49,900원</strong></span><button data-action="benefit" class="benefit-link">내 혜택가 <strong>45,515원</strong> ›</button></div>
+            <div class="option-line"><span>사이즈</span><div class="size-options" role="group" aria-label="상품 사이즈 선택">
+              <button data-size="55" aria-pressed="false">55</button><button data-size="66" aria-pressed="true">66</button><button data-size="77" aria-pressed="false">77</button><button data-size="88" aria-pressed="false">88</button>
+            </div><button class="text-button" data-detail="size">사이즈표</button></div>
+            <button class="product-detail-link" data-detail="description">상품상세 보기 <span>›</span></button>
+          </section>
+          <section class="ai-features" aria-label="AI 맞춤 기능">
+            <button class="styling-hero" data-action="styling"><span class="hero-copy"><small>AI PERSONAL STYLING</small><strong>지수님을 위한 코디 추천 ↗</strong><span>지금 이 니트, 나답게 입는 3가지 방법</span></span><span class="hero-image"><img src="/assets/mobile/lookbook.jpg" alt="오피스 코디 예시"></span></button>
+            <div class="secondary-actions"><button data-action="size">내 사이즈 <span>›</span></button><button data-action="benefit">내 혜택 <span>›</span></button></div>
+          </section>
+        </section>
+        <section class="conversation" aria-label="LIVE 통합 대화">
+          <div class="conversation-heading"><h2>LIVE 대화</h2><span>함께 보고, AI에게 물어보세요</span></div>
+          <div id="suggestion" class="suggestion" hidden>
+            <p class="ai-label">AI 맞춤 제안 <span id="approval-label"></span></p><strong>사이즈가 고민되시나요?</strong><p>지수님에게 맞는 사이즈 정보를 확인해볼까요?</p>
+            <div><button id="accept-suggestion" class="ai-button">확인하기</button><button id="dismiss-suggestion">괜찮아요</button></div>
+          </div>
+          <div id="messages" role="log" aria-label="운영자, 고객, ASK LIVE 대화" aria-live="polite" aria-relevant="additions text"></div>
+        </section>
+      </div>
+    </div>
+    <section class="composer" aria-label="ASK LIVE 질문 입력">
+      <div class="quick-questions" role="group" aria-label="빠른 질문"><button data-question="상품후기 알려줘">상품후기</button><button data-question="두께감 어때?">두께감</button><button data-question="색상이 화면과 비슷해?">색상</button><button data-question="오늘 주문하면 언제 와?">배송일정</button></div>
+      <form id="ask-form"><label for="ask-input" class="sr-only">ASK LIVE에 질문하기</label><input id="ask-input" placeholder="궁금한 것을 물어보세요" autocomplete="off" maxlength="300"><button id="send-button" type="submit" aria-label="질문 보내기">↑</button></form>
+    </section>
+    <footer class="purchase-bar"><div><span id="selected-caption">사이즈 66 선택</span><strong>45,515원 <small>데모 혜택가</small></strong></div><button id="purchase-button">구매하기</button></footer>
+  </main>
+  <dialog id="sheet" aria-labelledby="sheet-title"><div class="sheet-layout"><header><h2 id="sheet-title"></h2><button id="close-sheet" aria-label="닫기">✕</button></header><div id="sheet-content"></div><footer id="sheet-footer"></footer></div></dialog>
+  <div id="toast" role="status" hidden></div><div id="announcer" class="sr-only" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-22T02:55:24.540Z",
+  "checks": [
+    "Live viewer demo label, shared conversation overlay toggle, exit cancellation, cart add/quantity/remove/shared-layout/checkout",
+    "ASK review graph uses supplied percentages; real UI question counts and ranked normalized TOP5 reach Director without raw text storage",
+    "Clickable look thumbnails/all 5 confirmed products, selection-return state, size evidence/options, explicit extra-benefit data limits",
+    "Native Director review → edited host approval → A/B/C target preview → APP approval → receipt/time/results; persistence and history navigation",
+    "Customer-side Reset clears main Director/real counts; declined A is excluded in native approval modal",
+    "New customer controls/sheets fit 320px and explicit expanded layout; no uncaught errors"
+  ],
+  "limits": [
+    "Screenshot numerical examples are not substituted for confirmed fixtures",
+    "Physical mobile keyboard, external product availability and real service APIs not tested"
+  ]
+}

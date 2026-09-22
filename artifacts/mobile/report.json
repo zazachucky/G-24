@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-09-22T02:55:08.552Z",
+  "app": "http://127.0.0.1:4177",
+  "checks": [
+    "Portrait/manual landscape share messages, selected 77, draft, pending AI and video node; 320px input/purchase accessible",
+    "Four grounded ASK intents, delivery simulation, unsupported/model-size limits and actor labels",
+    "All 3 static looks, preserved confirmed GS SHOP links, no fabricated daily product links, image-error product fallback",
+    "Size66/87% and half-size guidance, detail-to-purchase, exact benefit math, no actual order",
+    "Reset repeat 1/3: real size-table/review clicks → Director 8→26 → approve33/A-only → accept/result/expiry",
+    "Reset repeat 2/3: real size-table/review clicks → Director 8→26 → approve33/A-only → accept/result/expiry",
+    "Reset repeat 3/3: real size-table/review clicks → Director 8→26 → approve33/A-only → accept/result/expiry",
+    "Dismissal survives reload and repeated behavior in same broadcast; explicit My Size still allowed",
+    "320px sheets and explicit split layout fit without horizontal overflow; third run verified real 30-second expiry",
+    "No uncaught browser exceptions"
+  ],
+  "limits": [
+    "External commerce destinations checked against provided product IDs and pointer activation, not current remote stock or availability",
+    "Chrome emulation; iOS/Android physical keyboard and Safari not device-tested"
+  ]
+}
